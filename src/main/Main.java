@@ -6,6 +6,8 @@
 
 package main;
 
+import gui.MainWindow;
+
 /**
  *
  * @author biswajit
@@ -17,6 +19,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MainWindow window = new MainWindow();
+        window.main(null);
     }
     
 }

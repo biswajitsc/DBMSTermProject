@@ -5,6 +5,9 @@
  */
 package gui;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author prithwish
@@ -16,6 +19,14 @@ public class Match extends javax.swing.JFrame {
      */
     public Match() {
         initComponents();
+        
+        DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+        for(int i=0;i<10;i++)
+        {
+            String data1 = Integer.toString(i); 
+            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1  };
+            model.addRow(row);
+        }
     }
 
     /**
@@ -40,11 +51,7 @@ public class Match extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
                 "Date", "Type", "Team1", "Team2", "Result", "Winner", "Margin", "Location"
             }
@@ -75,8 +82,8 @@ public class Match extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -86,6 +93,7 @@ public class Match extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

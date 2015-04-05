@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prithwish
@@ -16,6 +18,17 @@ public class Fielding extends javax.swing.JFrame {
      */
     public Fielding() {
         initComponents();
+        
+        
+        DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+
+        for(int i=0;i<10;i++)
+        {
+            String data1 = Integer.toString(i); 
+            Object[] row = { data1,data1};
+            model.addRow(row);
+            
+        }
     }
 
     /**
@@ -40,11 +53,7 @@ public class Fielding extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null}
-            },
+            null,
             new String [] {
                 "Catches", "Stump-outs"
             }

@@ -38,8 +38,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="27" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="231" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="237" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -68,17 +68,8 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="3">
-                <Column editable="false" title="Date" type="java.lang.Object"/>
-                <Column editable="false" title="Type" type="java.lang.Object"/>
-                <Column editable="false" title="Team1" type="java.lang.Object"/>
-                <Column editable="false" title="Team2" type="java.lang.Object"/>
-                <Column editable="false" title="Result" type="java.lang.Object"/>
-                <Column editable="false" title="Winner" type="java.lang.Object"/>
-                <Column editable="false" title="Margin" type="java.lang.Object"/>
-                <Column editable="false" title="Location" type="java.lang.Object"/>
-              </Table>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;            null,&#xa;            new String [] {&#xa;                &quot;Date&quot;, &quot;Type&quot;, &quot;Team1&quot;, &quot;Team2&quot;, &quot;Result&quot;, &quot;Winner&quot;, &quot;Margin&quot;, &quot;Location&quot;&#xa;            }&#xa;        ) {&#xa;            boolean[] canEdit = new boolean [] {&#xa;                false, false, false, false, false, false, false, false&#xa;            };&#xa;&#xa;            public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;                return canEdit [columnIndex];&#xa;            }&#xa;        }" type="code"/>
             </Property>
           </Properties>
         </Component>

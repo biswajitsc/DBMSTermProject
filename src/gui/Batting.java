@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prithwish
@@ -16,6 +18,15 @@ public class Batting extends javax.swing.JFrame {
      */
     public Batting() {
         initComponents();
+        
+        DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+
+        for(int i=0;i<10;i++)
+        {
+            String data1 = Integer.toString(i); 
+            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1  };
+            model.addRow(row);
+        }
     }
 
     /**
@@ -40,11 +51,7 @@ public class Batting extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
                 "Type", "Mat", "Inns", "NO", "Runs", "HS", "Ave", "BF", "SR", "100", "50", "4s", "6s"
             }

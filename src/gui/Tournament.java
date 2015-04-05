@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prithwish
@@ -16,6 +18,16 @@ public class Tournament extends javax.swing.JFrame {
      */
     public Tournament() {
         initComponents();
+        
+        DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+
+        for(int i=0;i<10;i++)
+        {
+            String data1 = Integer.toString(i); 
+            Object[] row = { data1,data1,data1,data1,data1,data1};
+            model.addRow(row);
+            
+        }
     }
 
     /**
@@ -40,13 +52,9 @@ public class Tournament extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
+            null,
             new String [] {
-                "Name", "Type", "Winner", "Total Runs", "Total Wickets", "Total Balls"
+                "Name", "Type", "Winner", "Total Runs", "Total Wckts", "Total Balls"
             }
         ) {
             boolean[] canEdit = new boolean [] {

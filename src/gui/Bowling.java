@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prithwish
@@ -16,6 +18,16 @@ public class Bowling extends javax.swing.JFrame {
      */
     public Bowling() {
         initComponents();
+        
+        DefaultTableModel model =(DefaultTableModel) jTable2.getModel();
+
+        for(int i=0;i<10;i++)
+        {
+            String data1 = Integer.toString(i); 
+            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1  };
+            model.addRow(row);
+            
+        }
     }
 
     /**
@@ -40,11 +52,7 @@ public class Bowling extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
                 "Type", "Mat", "Balls", "Runs", "Wckts", "BBI", "BBM", "Ave", "Econ", "SR", "4w", "5w", "10"
             }

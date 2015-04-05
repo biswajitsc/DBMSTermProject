@@ -17,6 +17,8 @@ public class Queries {
     
     /**
      * 
+     * Set parameters null if not required.
+     * 
      * @param country1 Who is playing
      * @param country2 Who is playing
      * @param year Which year was it played in
@@ -37,14 +39,98 @@ public class Queries {
         if(type != null) query += "and Type = \""+type+"\" ";
         if(year != null) query += "and StartDate < \""+(year+1)+"-01-01\" and StartDate >= \""+year+"-01-01\" ";
         
-        System.out.println(query);
+//        System.out.println(query);
         
         return Database.query(query);
     }
     
     
-//    public static ResultSet getBatsmen(String country1, )
-//    {
-//        return Database.query("");
-//    }
+    
+    /**
+     * Incomplete function
+     * Set parameters null if not required.
+     * 
+     * @param type Whether ODI, Test or T-20
+     * @return ResultSet of the database query containing all fields
+     */
+    public static ResultSet getTournaments(String type, String year)
+    {
+        String query = "select TID, Name, Type, Winner, Total_Runs, Total_Wickets, Total_Balls, min(StartDate) as Date from Tournament where true ";
+        if(type != null) query += "and Type = \""+type+"\" ";
+        return Database.query(query);
+    }
+    
+    
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param country Which country he is from?
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
+    public static ResultSet getBatsmen(String name, String country, String type)
+    {
+        String query = "select * from (Player natural join Batting_Stats) inner join Country on Player.CID = Country.CID where true ";
+        if(country != null) query += "and Country.Name = \""+country+"\" ";
+        if(name != null) query += "and Player.Name = \""+name+"\" ";
+        if(type != null) query += "and Type = \""+type+"\" ";
+        query += "order by Runs desc";
+        return Database.query(query);
+    }
+    
+    
+    
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param country Which country he is from?
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
+    public static ResultSet getBowlers(String name, String country, String type)
+    {
+        String query = "select * from (Player natural join Bowling_Stats) inner join Country on Player.CID = Country.CID where true ";
+        if(country != null) query += "and Country.Name = \""+country+"\" ";
+        if(name != null) query += "and Player.Name = \""+name+"\" ";
+        if(type != null) query += "and Type = \""+type+"\" ";
+        query += " order by Wkts desc";
+        return Database.query(query);
+    }
+    
+    
+    
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param country Which country he is from?
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
+    public static ResultSet getFielders(String name, String country, String type)
+    {
+        String query = "select * from (Player natural join Fielding_Stats) inner join Country on Player.CID = Country.CID where true ";
+        if(country != null) query += "and Country.Name = \""+country+"\" ";
+        if(name != null) query += "and Player.Name = \""+name+"\" ";
+        if(type != null) query += "and Type = \""+type+"\" ";
+        query += "order by Ct desc";
+        return Database.query(query);
+    }
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param name what is his name
+     * @return ResultSet of the query with all the fields.
+     */
+    public static ResultSet getUmpires(String name)
+    {
+        String query = "select * from Umpire where true ";
+        if(name != null) query += "and Name = \""+name+"\" ";
+        query += "order by Num_ODI desc";
+        return Database.query(query);
+    }
 }

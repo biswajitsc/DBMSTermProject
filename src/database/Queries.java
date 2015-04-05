@@ -50,14 +50,9 @@ public class Queries {
      * 
      * Set parameters null if not required.
      * 
-     * @param country1 Who is playing
-     * @param country2 Who is playing
-     * @param year Which year was it played in
-     * @param location Where was it played
      * @param type Whether ODI, Test or T-20
-     * @return ResultSet of the database query containing Date, Country1, Country2, Result, Winner, Margin, Location
+     * @return ResultSet of the database query containing all fields
      */
-    
     public static ResultSet getTournaments(String type)
     {
         String query = "select * from Tournament where true ";
@@ -80,6 +75,7 @@ public class Queries {
         if(country != null) query += "and Country.Name = \""+country+"\" ";
         if(name != null) query += "and Player.Name = \""+name+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
+        query += "order by Runs desc";
         return Database.query(query);
     }
     
@@ -99,6 +95,7 @@ public class Queries {
         if(country != null) query += "and Country.Name = \""+country+"\" ";
         if(name != null) query += "and Player.Name = \""+name+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
+        query += " order by Wkts desc";
         return Database.query(query);
     }
     
@@ -118,6 +115,22 @@ public class Queries {
         if(country != null) query += "and Country.Name = \""+country+"\" ";
         if(name != null) query += "and Player.Name = \""+name+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
+        query += "order by Ct desc";
+        return Database.query(query);
+    }
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param name what is his name
+     * @return ResultSet of the query with all the fields.
+     */
+    public static ResultSet getUmpires(String name)
+    {
+        String query = "select * from Umpire where true ";
+        if(name != null) query += "and Name = \""+name+"\" ";
+        query += "order by Num_ODI desc";
         return Database.query(query);
     }
 }

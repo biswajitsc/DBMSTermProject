@@ -47,15 +47,15 @@ public class Queries {
     
     
     /**
-     * 
+     * Incomplete function
      * Set parameters null if not required.
      * 
      * @param type Whether ODI, Test or T-20
      * @return ResultSet of the database query containing all fields
      */
-    public static ResultSet getTournaments(String type)
+    public static ResultSet getTournaments(String type, String year)
     {
-        String query = "select * from Tournament where true ";
+        String query = "select TID, Name, Type, Winner, Total_Runs, Total_Wickets, Total_Balls, min(StartDate) as Date from Tournament where true ";
         if(type != null) query += "and Type = \""+type+"\" ";
         return Database.query(query);
     }

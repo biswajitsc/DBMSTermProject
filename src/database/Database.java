@@ -13,14 +13,15 @@ import java.sql.*;
  */
 public class Database {
 
-    // JDBC driver name and database URL
-
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://10.5.18.66/12CS10058";
+//    static final String DB_URL = "jdbc:mysql://10.5.18.66/12CS10058";
+    static final String DB_URL = "jdbc:mysql://localhost/DBMSTermProject";
 
-    //  Database credentials
-    static final String USER = "12CS10058";
-    static final String PASS = "btech12";
+//    static final String USER = "12CS10058";
+//    static final String PASS = "btech12";
+    static final String USER = "biswa";
+    static final String PASS = "biswa";
+    
     static Connection conn = null;
     static Statement stmt = null;
     static Connection conn2 = null;

@@ -14,6 +14,16 @@ import java.sql.ResultSet;
  */
 public class Queries {
     
+    
+    /**
+     * 
+     * @param country1 Who is playing
+     * @param country2 Who is playing
+     * @param year Which year was it played in
+     * @param location Where was it played
+     * @param type Whether ODI, Test or T-20
+     * @return ResultSet of the database query containing Date, Country1, Country2, Result, Winner, Margin, Location
+     */
     public static ResultSet getMatches(String country1, String country2,
             Integer year, String location, String type)
     {
@@ -25,10 +35,16 @@ public class Queries {
         if(country2 != null) query += "and C2.Name = \""+country2+"\" ";
         if(location != null) query += "and G.Name = \""+location+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
-        if(year != null) query += "and StartDate < "+(year+1)+"-01-01 and StartDate >= "+year+"01-01 ";
+        if(year != null) query += "and StartDate < \""+(year+1)+"-01-01\" and StartDate >= \""+year+"-01-01\" ";
         
         System.out.println(query);
         
-        return Database.query("");
+        return Database.query(query);
     }
+    
+    
+//    public static ResultSet getBatsmen(String country1, )
+//    {
+//        return Database.query("");
+//    }
 }

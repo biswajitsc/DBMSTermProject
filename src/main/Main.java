@@ -6,7 +6,7 @@
 
 package main;
 
-import gui.SearchWindow;
+import gui.StatsWindow;
 
 /**
  *
@@ -19,7 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SearchWindow window = new SearchWindow();
+        StatsWindow window = new StatsWindow();
         window.main(null);
     }
     

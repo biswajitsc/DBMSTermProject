@@ -84,5 +84,21 @@ public class Database {
         } catch (Exception se) {
             se.printStackTrace();
         }
+        
+        try {
+            if (stmt2 != null) {
+                stmt2.close();
+            }
+            System.out.println("Statement Closed");
+        } catch (Exception se2) {
+        }
+        try {
+            if (conn2 != null) {
+                conn2.close();
+            }
+            System.out.println("Connection Closed");
+        } catch (Exception se) {
+            se.printStackTrace();
+        }
     }
 }

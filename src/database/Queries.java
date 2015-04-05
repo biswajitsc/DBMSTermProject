@@ -25,10 +25,13 @@ public class Queries {
         if(country2 != null) query += "and C2.Name = \""+country2+"\" ";
         if(location != null) query += "and G.Name = \""+location+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
-        if(year != null) query += "and StartDate < "+(year+1)+"-01-01 and StartDate >= "+year+"01-01 ";
+        if(year != null) query += "and StartDate < \""+(year+1)+"-01-01\" and StartDate >= \""+year+"-01-01\" ";
         
         System.out.println(query);
         
-        return Database.query("");
+        return Database.query(query);
     }
+    
+    
+    
 }

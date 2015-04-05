@@ -7,6 +7,8 @@
 package main;
 
 
+import database.Database;
+import database.Queries;
 import gui.StatsWindow;
 import java.sql.ResultSet;
 
@@ -22,8 +24,21 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        Database.init();
+        
         StatsWindow window = new StatsWindow();
         window.main(null);
+        
+        ResultSet rs = Queries.getMatches(null, null, 2014, null, null);
+        try
+        {
+            while(rs.next()) System.out.println(rs.getString("Date")+" "+rs.getString("Country1")
+                +" "+rs.getString("Country2")+rs.getString("Winner"));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     
 }

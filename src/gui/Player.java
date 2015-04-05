@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prithwish
@@ -16,6 +18,24 @@ public class Player extends javax.swing.JFrame {
      */
     public Player() {
         initComponents();
+        
+        DefaultTableModel model1 =(DefaultTableModel) jTable1.getModel();
+
+        for(int i=0;i<3;i++)
+        {
+            String data1 = Integer.toString(i); 
+            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1};
+            model1.addRow(row);
+        }
+        
+        DefaultTableModel model2 =(DefaultTableModel) jTable2.getModel();
+
+        for(int i=0;i<3;i++)
+        {
+            String data1 = Integer.toString(i); 
+            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1  };
+            model2.addRow(row);
+        }
     }
 
     /**
@@ -85,11 +105,7 @@ public class Player extends javax.swing.JFrame {
         jSeparator3.setPreferredSize(new java.awt.Dimension(50, 10));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
                 "Type", "Mat", "Inns", "NO", "Runs", "HS", "Ave", "BF", "SR", "100", "50", "4s", "6s", "Ct", "St"
             }
@@ -118,11 +134,7 @@ public class Player extends javax.swing.JFrame {
         jSeparator5.setPreferredSize(new java.awt.Dimension(50, 1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
-            },
+            null,
             new String [] {
                 "Type", "Mat", "Balls", "Runs", "Wckts", "BBI", "BBM", "Ave", "Econ", "SR", "4w", "5w", "10"
             }

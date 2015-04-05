@@ -14,6 +14,16 @@ import java.sql.ResultSet;
  */
 public class Queries {
     
+    
+    /**
+     * 
+     * @param country1 Who is playing
+     * @param country2 Who is playing
+     * @param year Which year was it played in
+     * @param location Where was it played
+     * @param type Whether ODI, Test or T-20
+     * @return ResultSet of the database query containing Date, Country1, Country2, Result, Winner, Margin, Location
+     */
     public static ResultSet getMatches(String country1, String country2,
             Integer year, String location, String type)
     {
@@ -33,5 +43,8 @@ public class Queries {
     }
     
     
-    
+//    public static ResultSet getBatsmen(String country1, )
+//    {
+//        return Database.query("");
+//    }
 }

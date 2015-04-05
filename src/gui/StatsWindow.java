@@ -6,6 +6,7 @@
 
 package gui;
 
+import database.Database;
 import javax.swing.DefaultListModel;
 
 /**
@@ -88,6 +89,14 @@ public class StatsWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cricinfo");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                dinitdb(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                initdb(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(202, 221, 228));
         jPanel1.setForeground(new java.awt.Color(202, 221, 228));
@@ -574,6 +583,18 @@ public class StatsWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void initdb(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_initdb
+        // TODO add your handling code here:
+        Database db = new Database();
+        db.init();
+    }//GEN-LAST:event_initdb
+
+    private void dinitdb(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dinitdb
+        // TODO add your handling code here:
+        Database db = new Database();
+        db.close();
+    }//GEN-LAST:event_dinitdb
 
     /**
      * @param args the command line arguments

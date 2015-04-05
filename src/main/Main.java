@@ -6,8 +6,9 @@
 
 package main;
 
+
 import gui.StatsWindow;
-import database.Database;
+import java.sql.ResultSet;
 
 /**
  *
@@ -20,8 +21,6 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Database db = new Database();
-        db.init();
         
         StatsWindow window = new StatsWindow();
         window.main(null);

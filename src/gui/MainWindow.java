@@ -6,6 +6,10 @@
 
 package gui;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author biswajit
@@ -91,7 +95,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        StatsWindow window = new StatsWindow();
+        StatsWindow window = null;
+        try {
+            window = new StatsWindow();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         window.main(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 

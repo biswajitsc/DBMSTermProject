@@ -11,6 +11,7 @@ import database.Database;
 import database.Queries;
 import gui.StatsWindow;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // TODO code application logic here
         
         Database.init();

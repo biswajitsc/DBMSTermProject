@@ -133,4 +133,63 @@ public class Queries {
         query += "order by Num_ODI desc";
         return Database.query(query);
     }
+    
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param name what is his name
+     * @return ResultSet of the query with all the fields.
+     */
+    public static ResultSet getCountries(String name)
+    {
+        String query = "select * from Country where true ";
+        if(name != null) query += "and Name = \""+name+"\" ";
+        query += "order by Name asc";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getYears(String name)
+    {
+        String query = "select distinct StartDate from Matches";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getGrounds(String name)
+    {
+        String query = "select * from Ground";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerbyName(String name)
+    {
+        String query = "select * from Player where Name = \""+name+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerbyPID(String name)
+    {
+        String query = "select * from Player where PID = \""+name+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerBattingInfo(String pid)
+    {
+        String query = "select * from Batting_Stats where PID=\""+pid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerBowlingInfo(String pid)
+    {
+        String query = "select * from Bowling_Stats where PID=\""+pid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerFieldingInfo(String pid)
+    {
+        String query = "select * from Fielding_Stats where PID=\""+pid+"\"";
+        return Database.query(query);
+    }
+    
 }

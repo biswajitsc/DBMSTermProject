@@ -5,6 +5,11 @@
  */
 package gui;
 
+import database.Queries;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,26 +21,33 @@ public class Player extends javax.swing.JFrame {
     /**
      * Creates new form Player
      */
-    public Player() {
+    public Player(String pid) throws SQLException {
         initComponents();
+        ResultSet rs = Queries.getPlayerbyPID(pid);
+        rs.next();
+        String pname = rs.getString("Name");
+        String year  = (rs.getDate("DOB")).toString();
+        
+        ResultSet rs1 = Queries.getPlayerBattingInfo(pid);
+        ResultSet rs2 = Queries.getPlayerFieldingInfo(pid);
+        ResultSet rs3 = Queries.getPlayerBowlingInfo(pid);
         
         DefaultTableModel model1 =(DefaultTableModel) jTable1.getModel();
-
-        for(int i=0;i<3;i++)
+        while(rs1.next() && rs2.next())
         {
-            String data1 = Integer.toString(i); 
-            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1};
+            
+            Object[] row = {rs1.getString("Type"),rs1.getInt("Mat"),rs1.getInt("Inns"),rs1.getInt("NO"),rs1.getInt("Runs"),rs1.getInt("HS"),rs1.getFloat("Ave"),rs1.getInt("BF"),rs1.getFloat("SR"),rs1.getInt("hundreds"),rs1.getInt("fifties"),rs1.getInt("fours"),rs1.getInt("sixs"),rs2.getInt("Ct"),rs2.getInt("St")};
             model1.addRow(row);
         }
         
         DefaultTableModel model2 =(DefaultTableModel) jTable2.getModel();
-
-        for(int i=0;i<3;i++)
+        while(rs3.next())
         {
-            String data1 = Integer.toString(i); 
-            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1  };
+            
+            Object[] row = {rs3.getString("Type"),rs3.getInt("Mat"),rs3.getInt("Inns"),rs3.getInt("Balls"),rs3.getInt("Runs"),rs3.getInt("Wkts"),rs3.getString("BBI"),rs3.getString("BBM"),rs3.getFloat("Ave"),rs3.getFloat("Econ"),rs3.getFloat("SR"),rs3.getInt("fourwickets"),rs3.getInt("fivewickets"),rs3.getInt("tenwickets")};
             model2.addRow(row);
         }
+        
     }
 
     /**
@@ -66,7 +78,7 @@ public class Player extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(229, 219, 208));
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
@@ -230,7 +242,7 @@ public class Player extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -257,7 +269,11 @@ public class Player extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Player().setVisible(true);
+                try {
+                    new Player(args[0]).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

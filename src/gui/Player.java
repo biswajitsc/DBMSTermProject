@@ -33,19 +33,21 @@ public class Player extends javax.swing.JFrame {
         ResultSet rs3 = Queries.getPlayerBowlingInfo(pid);
         
         DefaultTableModel model1 =(DefaultTableModel) jTable1.getModel();
-        while(rs1.next() && rs2.next())
+        //while(rs1.next())
         {
-            
-            Object[] row = {rs1.getString("Type"),rs1.getInt("Mat"),rs1.getInt("Inns"),rs1.getInt("NO"),rs1.getInt("Runs"),rs1.getInt("HS"),rs1.getFloat("Ave"),rs1.getInt("BF"),rs1.getFloat("SR"),rs1.getInt("hundreds"),rs1.getInt("fifties"),rs1.getInt("fours"),rs1.getInt("sixs"),rs2.getInt("Ct"),rs2.getInt("St")};
-            model1.addRow(row);
+            //rs2.next();
+            //Object[] row = {rs1.getString("Type"),rs1.getInt("Mat"),rs1.getInt("Inns"),rs1.getInt("NO"),rs1.getInt("Runs"),rs1.getInt("HS"),rs1.getFloat("Ave"),rs1.getInt("BF"),rs1.getFloat("SR"),rs1.getInt("hundreds"),rs1.getInt("fifties"),rs1.getInt("fours"),rs1.getInt("sixs"),rs2.getInt("Ct"),rs2.getInt("St")};
+            //model1.addRow(row);
+            //break;
         }
         
         DefaultTableModel model2 =(DefaultTableModel) jTable2.getModel();
-        while(rs3.next())
+        //while(rs3.next())
         {
             
-            Object[] row = {rs3.getString("Type"),rs3.getInt("Mat"),rs3.getInt("Inns"),rs3.getInt("Balls"),rs3.getInt("Runs"),rs3.getInt("Wkts"),rs3.getString("BBI"),rs3.getString("BBM"),rs3.getFloat("Ave"),rs3.getFloat("Econ"),rs3.getFloat("SR"),rs3.getInt("fourwickets"),rs3.getInt("fivewickets"),rs3.getInt("tenwickets")};
-            model2.addRow(row);
+          //  Object[] row = {rs3.getString("Type"),rs3.getInt("Mat"),rs3.getInt("Inns"),rs3.getInt("Balls"),rs3.getInt("Runs"),rs3.getInt("Wkts"),rs3.getString("BBI"),rs3.getString("BBM"),rs3.getFloat("Ave"),rs3.getFloat("Econ"),rs3.getFloat("SR"),rs3.getInt("fourwickets"),rs3.getInt("fivewickets"),rs3.getInt("tenwickets")};
+           // model2.addRow(row);
+           // break;
         }
         
     }

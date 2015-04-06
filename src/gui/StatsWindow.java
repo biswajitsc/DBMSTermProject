@@ -20,6 +20,13 @@ public class StatsWindow extends javax.swing.JFrame {
      */
     public StatsWindow() {
         initComponents();
+        
+        DefaultListModel list = new DefaultListModel();
+        for (int i =0; i < 10; i++ ) 
+        {
+        list.addElement(i);
+        }      
+        jList1.setModel(list);
     }
 
     /**
@@ -368,12 +375,6 @@ public class StatsWindow extends javax.swing.JFrame {
         jLabel37.setOpaque(true);
 
         jScrollPane2.setViewportView(jList1);
-        DefaultListModel list = new DefaultListModel();
-        for (int i =0; i < 10; i++ )
-        {
-            list.addElement(i);
-        }
-        jList1.setModel(list);
 
         jSeparator9.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -507,7 +508,7 @@ public class StatsWindow extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)

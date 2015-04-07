@@ -351,25 +351,16 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Played"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingMatchesPlayedMouseClicked"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingRunsScored">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Runs Scored"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingRunsScoredMouseClicked"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingHighestScore">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Highest Score"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingHighestScoreMouseClicked"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingHundreds">
               <Properties>

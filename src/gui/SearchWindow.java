@@ -206,25 +206,10 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel59.setText("to");
 
         battingMatchesPlayed.setText("Matches Played");
-        battingMatchesPlayed.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                battingMatchesPlayedMouseClicked(evt);
-            }
-        });
 
         battingRunsScored.setText("Runs Scored");
-        battingRunsScored.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                battingRunsScoredMouseClicked(evt);
-            }
-        });
 
         battingHighestScore.setText("Highest Score");
-        battingHighestScore.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                battingHighestScoreMouseClicked(evt);
-            }
-        });
 
         battingHundreds.setText("Hundreds");
 
@@ -930,32 +915,6 @@ public class SearchWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void battingMatchesPlayedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_battingMatchesPlayedMouseClicked
-        if(battingMatchesPlayed.isSelected() == true) {
-            battingMatchesMin.setEnabled(true);
-            battingMatchesMax.setEnabled(true);
-        }
-        else {
-            battingMatchesMin.setEnabled(false);
-            battingMatchesMax.setEnabled(false);
-        }
-    }//GEN-LAST:event_battingMatchesPlayedMouseClicked
-
-    private void battingRunsScoredMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_battingRunsScoredMouseClicked
-        if(battingRunsScored.isSelected() == true) {
-            battingRunsMin.setEnabled(true);
-            battingRunsMax.setEnabled(true);
-        }
-        else {
-            battingRunsMin.setEnabled(false);
-            battingRunsMax.setEnabled(false);
-        }
-    }//GEN-LAST:event_battingRunsScoredMouseClicked
-
-    private void battingHighestScoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_battingHighestScoreMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_battingHighestScoreMouseClicked
 
     /**
      * @param args the command line arguments

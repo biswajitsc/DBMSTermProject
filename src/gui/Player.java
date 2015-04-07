@@ -6,15 +6,27 @@
 package gui;
 
 import database.Queries;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
+import java.net.Proxy;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Scanner;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,7 +38,7 @@ public class Player extends javax.swing.JFrame {
     /**
      * Creates new form Player
      */
-    public Player(String pid) throws SQLException {
+    public Player(String pid) throws SQLException, MalformedURLException, IOException {
         initComponents();
         
         ResultSet rs = Queries.getPlayerbyPID(pid);
@@ -69,6 +81,26 @@ public class Player extends javax.swing.JFrame {
             model2.addRow(row);
         }
         
+        
+        Image image = null;
+        try 
+        {
+            ResultSet rs1 = Queries.getPlayerImage(pid);
+            rs1.next();
+            String addr = rs1.getString("Imagesrc");
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.3.100.207", 8080));
+            URL url = new URL("http://www.espncricinfo.com"+addr);
+            InputStream is = url.openConnection(proxy).getInputStream();
+            image = ImageIO.read(is);
+            image.getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight() , Image.SCALE_DEFAULT);
+        } 
+        catch (IOException e) {
+            image = ImageIO.read(new File("./src/gui/images.jpeg"));
+            e.printStackTrace();
+        }
+        
+       jLabel8.setIcon(new javax.swing.ImageIcon(image)); 
+
     }
 
     /**
@@ -305,6 +337,8 @@ public class Player extends javax.swing.JFrame {
                 try {
                     new Player(args[0]).setVisible(true);
                 } catch (SQLException ex) {
+                    Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
                     Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

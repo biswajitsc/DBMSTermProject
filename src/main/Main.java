@@ -35,14 +35,12 @@ public class Main {
 //        ResultSet rs = Queries.getBowlers(null, null, "Test");
 //        try
 //        {
-//            while(rs.next()) {
-//                System.out.println(rs.getString("Player.Name")+" "+rs.getString("Country.Name")+" "+rs.getString("Type"));
-//            }
+//            while(rs.next()) System.out.println(rs.getString("Player.Name")+" "+rs.getString("Country.Name")+" "+rs.getString("Type"));
 //        }
 //        catch(Exception e)
 //        {
 //            e.printStackTrace();
-//        }
-    }
+//        } 
+   }
     
 }

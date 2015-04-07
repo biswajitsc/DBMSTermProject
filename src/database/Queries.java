@@ -82,6 +82,24 @@ public class Queries {
     
     
     
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param country Which country he is from?
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
+    
+    
+    public static ResultSet getBatsmen(BattingQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
+    
+    
+    
+    
     /**
      * 
      * Set parameters null if not required
@@ -196,6 +214,12 @@ public class Queries {
     {
         String query = "select * from Batting_Stats natural join Fielding_Stats where PID = \"";
         query += pid + "\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerImage(String pid)
+    {
+        String query = "select * from ImagesPlayers where PID = \""+pid+"\"";
         return Database.query(query);
     }
 }

@@ -26,18 +26,17 @@ public class Queries {
      * @param type Whether ODI, Test or T-20
      * @return ResultSet of the database query containing Date, Type, Country1, Country2, Result, Winner, Margin, Location
      */
-    public static ResultSet getMatches(String cid1, String country1, String cid2, String country2,
+    public static ResultSet getMatches(String country1, String country2, String winner,
             Integer year, String location, String type)
     {
         String query = "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
                      + "from Matches, Country as C1, Country as C2, Country as C3, Ground as G "
                      + "where Matches.Team1 = C1.CID and Matches.Team2 = C2.CID and Matches.Winner = C3.CID and G.GID = Matches.Location ";
         
-        if(cid1 != null) query += "and C1.CID = "+cid1+" ";
         if(country1 != null) query += "and C1.Name = \""+country1+"\" ";
-        if(cid2 != null) query += "and C1.CID = "+cid2+" ";
         if(country2 != null) query += "and C2.Name = \""+country2+"\" ";
         if(location != null) query += "and G.Name = \""+location+"\" ";
+        if(winner != null) query += "and C3.Name = \""+winner+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
         if(year != null) query += "and StartDate < \""+(year+1)+"-01-01\" and StartDate >= \""+year+"-01-01\" ";
         
@@ -158,6 +157,15 @@ public class Queries {
         return Database.query(query);
     }
     
+    
+    
+    public static ResultSet getFielders(FieldingQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
+    
+    
+    
     /**
      * 
      * Set parameters null if not required
@@ -165,13 +173,19 @@ public class Queries {
      * @param name what is his name
      * @return ResultSet of the query with all the fields.
      */
-    public static ResultSet getUmpires(String name)
+    public static ResultSet getUmpires(String name, Integer type, Integer mat_low, Integer mat_high)
     {
         String query = "select * from Umpire where true ";
         if(name != null) query += "and Name = \""+name+"\" ";
+        if(type != null && (mat_low != null || mat_high != null))
+        {
+            if(mat_low != null) query += "Num_"+type+" >= "+mat_low+" ";
+            if(mat_high != null) query += "Num_"+type+" <= "+mat_high+" ";
+        }
         query += "order by Num_ODI desc";
         return Database.query(query);
     }
+    
     
     
     /**
@@ -187,6 +201,11 @@ public class Queries {
         if(name != null) query += "and CID = \""+name+"\" ";
         query += "order by Name asc";
         return Database.query(query);
+    }
+    
+    public static ResultSet getCountryStats(CountryQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
     }
     
     public static ResultSet getYears(String name)

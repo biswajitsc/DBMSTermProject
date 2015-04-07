@@ -72,11 +72,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel59 = new javax.swing.JLabel();
         battingStrikeRateMax = new javax.swing.JSpinner();
         battingMatchesPlayed = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        battingRunsScored = new javax.swing.JRadioButton();
+        battingHighestScore = new javax.swing.JRadioButton();
+        battingHundreds = new javax.swing.JRadioButton();
+        battingFifties = new javax.swing.JRadioButton();
+        battingStrikeRates = new javax.swing.JRadioButton();
         panelBalling = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         comboBoxTeamBowling = new javax.swing.JComboBox();
@@ -212,25 +212,25 @@ public class SearchWindow extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setText("Runs Scored");
-        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        battingRunsScored.setText("Runs Scored");
+        battingRunsScored.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioButton1MouseClicked(evt);
+                battingRunsScoredMouseClicked(evt);
             }
         });
 
-        jRadioButton2.setText("Highest Score");
-        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        battingHighestScore.setText("Highest Score");
+        battingHighestScore.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioButton2MouseClicked(evt);
+                battingHighestScoreMouseClicked(evt);
             }
         });
 
-        jRadioButton3.setText("Hundreds");
+        battingHundreds.setText("Hundreds");
 
-        jRadioButton4.setText("Fifties");
+        battingFifties.setText("Fifties");
 
-        jRadioButton5.setText("Strike Rate");
+        battingStrikeRates.setText("Strike Rate");
 
         javax.swing.GroupLayout panelBattingLayout = new javax.swing.GroupLayout(panelBatting);
         panelBatting.setLayout(panelBattingLayout);
@@ -252,11 +252,11 @@ public class SearchWindow extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBattingLayout.createSequentialGroup()
                                     .addGroup(panelBattingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(battingMatchesPlayed, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton4, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton5, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(battingRunsScored, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(battingHighestScore, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(battingHundreds, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(battingFifties, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(battingStrikeRates, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                             .addGroup(panelBattingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelBattingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -329,14 +329,14 @@ public class SearchWindow extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(battingRunsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(battingRunsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1))
+                            .addComponent(battingRunsScored))
                         .addGroup(panelBattingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBattingLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addGroup(panelBattingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(battingHighestMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel10)
-                                    .addComponent(jRadioButton2)))
+                                    .addComponent(battingHighestScore)))
                             .addGroup(panelBattingLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(battingHighestMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -345,19 +345,19 @@ public class SearchWindow extends javax.swing.JFrame {
                             .addComponent(battingHundredsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(battingHundredsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
-                            .addComponent(jRadioButton3))
+                            .addComponent(battingHundreds))
                         .addGap(17, 17, 17)
                         .addGroup(panelBattingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(battingFiftiesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(battingFiftiesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21)
-                            .addComponent(jRadioButton4))
+                            .addComponent(battingFifties))
                         .addGap(16, 16, 16)
                         .addGroup(panelBattingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(battingStrikeRateMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel59)
                             .addComponent(battingStrikeRateMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton5)))
+                            .addComponent(battingStrikeRates)))
                     .addGroup(panelBattingLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -942,8 +942,8 @@ public class SearchWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_battingMatchesPlayedMouseClicked
 
-    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
-        if(jRadioButton1.isSelected() == true) {
+    private void battingRunsScoredMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_battingRunsScoredMouseClicked
+        if(battingRunsScored.isSelected() == true) {
             battingRunsMin.setEnabled(true);
             battingRunsMax.setEnabled(true);
         }
@@ -951,11 +951,11 @@ public class SearchWindow extends javax.swing.JFrame {
             battingRunsMin.setEnabled(false);
             battingRunsMax.setEnabled(false);
         }
-    }//GEN-LAST:event_jRadioButton1MouseClicked
+    }//GEN-LAST:event_battingRunsScoredMouseClicked
 
-    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
+    private void battingHighestScoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_battingHighestScoreMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2MouseClicked
+    }//GEN-LAST:event_battingHighestScoreMouseClicked
 
     /**
      * @param args the command line arguments
@@ -994,10 +994,13 @@ public class SearchWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane JTabbedPanel;
+    private javax.swing.JRadioButton battingFifties;
     private javax.swing.JSpinner battingFiftiesMax;
     private javax.swing.JSpinner battingFiftiesMin;
     private javax.swing.JSpinner battingHighestMax;
     private javax.swing.JSpinner battingHighestMin;
+    private javax.swing.JRadioButton battingHighestScore;
+    private javax.swing.JRadioButton battingHundreds;
     private javax.swing.JSpinner battingHundredsMax;
     private javax.swing.JSpinner battingHundredsMin;
     private javax.swing.JSpinner battingMatchesMax;
@@ -1005,8 +1008,10 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton battingMatchesPlayed;
     private javax.swing.JSpinner battingRunsMax;
     private javax.swing.JSpinner battingRunsMin;
+    private javax.swing.JRadioButton battingRunsScored;
     private javax.swing.JSpinner battingStrikeRateMax;
     private javax.swing.JSpinner battingStrikeRateMin;
+    private javax.swing.JRadioButton battingStrikeRates;
     private javax.swing.JComboBox comboBoxTeamBatting;
     private javax.swing.JComboBox comboBoxTeamBowling;
     private javax.swing.JComboBox comboBoxTeamCountry;
@@ -1085,11 +1090,6 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JSpinner jSpinner10;
     private javax.swing.JSpinner jSpinner11;
     private javax.swing.JSpinner jSpinner12;

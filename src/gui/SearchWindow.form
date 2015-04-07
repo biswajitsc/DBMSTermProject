@@ -97,11 +97,11 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="battingMatchesPlayed" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="battingRunsScored" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="battingHighestScore" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="battingHundreds" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="battingFifties" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="battingStrikeRates" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
@@ -200,7 +200,7 @@
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="battingRunsMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="battingRunsMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="battingRunsScored" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -208,7 +208,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="battingHighestMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="battingHighestScore" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -221,21 +221,21 @@
                                   <Component id="battingHundredsMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="battingHundredsMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="battingHundreds" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="battingFiftiesMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="battingFiftiesMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="battingFifties" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="battingStrikeRateMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="battingStrikeRateMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="battingStrikeRates" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -355,33 +355,33 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingMatchesPlayedMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="battingRunsScored">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Runs Scored"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButton1MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingRunsScoredMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="battingHighestScore">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Highest Score"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButton2MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingHighestScoreMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+            <Component class="javax.swing.JRadioButton" name="battingHundreds">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hundreds"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+            <Component class="javax.swing.JRadioButton" name="battingFifties">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fifties"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+            <Component class="javax.swing.JRadioButton" name="battingStrikeRates">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Strike Rate"/>
               </Properties>

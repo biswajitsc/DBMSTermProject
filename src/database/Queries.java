@@ -286,4 +286,29 @@ public class Queries {
         String query = "select CID from Country where Name = \""+cname+"\"";
         return Database.query(query);
     }
+    
+    public static ResultSet getGroundbyGID(String gid)
+    {
+        String query = "select * from Ground where GID=\""+gid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getGroundImage(String gid)
+    {
+        String query = "select * from Ground_Images where GID=\""+gid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getGroundbyName(String gname)
+    {
+        String query = "select * from Ground where Name=\""+gname+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getUmpirebyName(String uname)
+    {
+        String query = "select * from Umpire where Name=\""+uname+"\"";
+        return Database.query(query);
+    }
+    
 }

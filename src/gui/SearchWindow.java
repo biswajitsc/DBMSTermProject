@@ -1085,8 +1085,11 @@ public class SearchWindow extends javax.swing.JFrame {
         
         ResultWindow rw = new ResultWindow();
         rw.result = Queries.getBatsmen(obj);
-        rw.columnNames = new String[] {"Name",       "Country",      "Runs", "Matches", "Innings", "Not Outs"};
-        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Runs", "Mat",  "Inns", "NO" };
+        
+        rw.columnNames = new String[] {"Name",       "Country",      "Runs", "Matches", "Innings", "Not Outs", "Highest", "Average", "Strike Rate", "Hundreds", "Fifties", "Fours", "Sixes"};
+        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Runs", "Mat",     "Inns",    "NO",       "HS",      "Ave",     "SR",          "hundreds", "fifties", "fours", "sixs"};
+        
+        // rw.main(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bowlingMatchesPlayedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowlingMatchesPlayedActionPerformed

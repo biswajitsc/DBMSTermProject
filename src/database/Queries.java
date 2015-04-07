@@ -204,6 +204,11 @@ public class Queries {
         return Database.query(query);
     }
     
+    public static ResultSet getCountryStats(CountryQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
+    
     public static ResultSet getYears(String name)
     {
         String query = "select distinct StartDate from Matches";

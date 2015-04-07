@@ -498,7 +498,7 @@ public class StatsWindow extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel12.setText("Overall Records");
+        jLabel12.setText("Tournament Records");
 
         jSeparator11.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

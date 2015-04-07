@@ -905,11 +905,15 @@ public class StatsWindow extends javax.swing.JFrame {
 
     private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
         // TODO add your handling code here:
-        ResultSet rs = Queries.getUmpirebyName(textField3.getText());
-        if(rs.next())
-        {
-            String uid = rs.getString("UID");
-            
+        try {
+            ResultSet rs = Queries.getUmpirebyName(textField3.getText());
+            if(rs.next())
+            {
+                String uid = rs.getString("UID");
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_button5MouseClicked

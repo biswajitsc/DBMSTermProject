@@ -5,11 +5,22 @@
  */
 package gui;
 
+import static database.Database.query;
 import database.Queries;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,18 +32,64 @@ public class Country extends javax.swing.JFrame {
     /**
      * Creates new form Country
      */
-    public Country(String cid) throws SQLException {
+    public Country(String cid) throws SQLException, IOException {
         initComponents();
         
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-        ResultSet rs = Queries.getCountryStats(cid);
+        DefaultListModel list = new DefaultListModel();
+        ResultSet rs = Queries.getPlayerListbyCountry(cid);
+        while(rs.next())
+        {
+            String pname = rs.getString("Name");
+            list.addElement(pname);
+        }
+        jList2.setModel(list);
+        
+        rs = Queries.getCountryName(cid);
+        rs.next();
+        String cname = rs.getString("Name");
+        
+        DefaultTableModel model1 = (DefaultTableModel)jTable1.getModel();
+        rs = Queries.getCountryStats(cid);
         while(rs.next())
         {
             Object[] row = {rs.getString("Type"),rs.getInt("Matches_Played"),rs.getInt("Matches_Won"),rs.getInt("Matches_Lost"),rs.getInt("Matches_Drawn"),rs.getInt("Matches_Tied")};
-            model.addRow(row);
+            model1.addRow(row);
         }
         
-        //rs = Queries.getMatches(cid, null, null, null, null, cid, cid)
+        DefaultTableModel model2 = (DefaultTableModel)jTable2.getModel();
+        rs = Queries.getMatches(cid);
+        while(rs.next())
+        {
+            String c1 = rs.getString("Country1");
+            String c2 = rs.getString("Country2");
+            String temp;
+            if(cname.equals(c1)) temp = c2; 
+            else temp = c1;
+            Object[] row = {rs.getDate("Date"),rs.getString("Type"),temp,rs.getString("Result"),
+                            rs.getString("Winner"),rs.getString("Margin"),rs.getString("Location")};
+            model2.addRow(row);
+        }
+        
+        Image image = null;
+        try 
+        {
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.3.100.207", 8080));
+            URLConnection connection = new URL("http://www.free-country-flags.com/countries/"+cname.replace(' ', '_')+"/1/medium/"+cname.replace(' ', '_')+".png").openConnection(proxy);
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
+            connection.connect();
+            
+            //URL url = new URL("http://www.free-country-flags.com/countries/"+cname+"/1/medium/"+cname+".png");
+            //System.out.println(url.toString());
+            InputStream is = connection.getInputStream();
+            image = ImageIO.read(is);
+            image.getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight() , Image.SCALE_DEFAULT);
+        } 
+        catch (IOException e) {
+            image = ImageIO.read(new File("./src/gui/images.jpeg"));
+            e.printStackTrace();
+        }
+        
+       jLabel2.setIcon(new javax.swing.ImageIcon(image)); 
         
     }
 
@@ -61,7 +118,9 @@ public class Country extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(229, 219, 208));
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
@@ -69,7 +128,6 @@ public class Country extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel2");
 
         jLabel3.setBackground(new java.awt.Color(229, 219, 208));
         jLabel3.setText("Players");
@@ -83,6 +141,11 @@ public class Country extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
+        });
+        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList2MouseClicked(evt);
+            }
         });
         jScrollPane1.setViewportView(jList2);
 
@@ -150,12 +213,13 @@ public class Country extends javax.swing.JFrame {
                     .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -173,23 +237,23 @@ public class Country extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,14 +264,42 @@ public class Country extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
+        // TODO add your handling code here:
+        Object temp = jList2.getSelectedValue();
+        String pname = temp.toString();
+        try {
+            // TODO add your handling code here:
+            ResultSet rs = Queries.getPlayerbyName(pname);
+            if(rs.next())
+            {
+                String pid = rs.getString("PID");
+                Player p = new Player(pid);
+                String s[] = {pid};
+                p.main(s);
+            }
+            else
+            {
+                PopUpMenu d = new PopUpMenu(this, true, pname);
+                d.main(new String[]{"The name + <" + pname + "> does not exist in our database.\nPlease try another name"});
+            }
+                    
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+            //JDialog d = new JDialog
+        } catch (IOException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jList2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -242,6 +334,8 @@ public class Country extends javax.swing.JFrame {
                 try {
                     new Country(args[0]).setVisible(true);
                 } catch (SQLException ex) {
+                    Logger.getLogger(Country.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
                     Logger.getLogger(Country.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

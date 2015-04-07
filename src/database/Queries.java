@@ -249,4 +249,22 @@ public class Queries {
         String query = "select * from Country_Stats where CID = \""+cid+"\"";
         return Database.query(query);
     }
+    
+    public static ResultSet getCountryName(String cid)
+    {
+        String query = "select Name from Country where cid = \""+cid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerListbyCountry(String cid)
+    {
+        String query = "select Name from Player where cid = \""+cid+"\"";
+        return Database.query(query);    
+    }
+    
+    public static ResultSet getCID(String cname)
+    {
+        String query = "select CID from Country where Name = \""+cname+"\"";
+        return Database.query(query);
+    }
 }

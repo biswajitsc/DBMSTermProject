@@ -843,8 +843,28 @@ public class StatsWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         Object temp = jList1.getSelectedValue();
         String cname = temp.toString();
-        
+        ResultSet rs =  Queries.getCID(cname);
+        try {
+            rs.next();
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String cid = null;
+        try {
+            cid = rs.getString("CID");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //Do something with cname
+        Country c = null;
+        try {
+            c = new Country(cid);
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        c.main(new String[]{cid});
     }//GEN-LAST:event_jList1MouseClicked
 
     /**

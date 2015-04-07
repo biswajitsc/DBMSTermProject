@@ -85,16 +85,22 @@ public class Queries {
     
     /**
      * 
-     * Set parameters null if not required
+     * Set  of BattingQueryObj null if not required
      * 
-     * @param country Which country he is from?
+     * @param obj Query object
      * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
      */
-    
     
     public static ResultSet getBatsmen(BattingQueryObj obj)
     {
         return Database.query(obj.generatequery());
+    }
+    
+    
+    
+    public static ResultSet getBowlers(BowlingQueryObj obj)
+    {
+        return Database.query("");
     }
     
     

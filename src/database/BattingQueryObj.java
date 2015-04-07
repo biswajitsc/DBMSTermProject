@@ -42,6 +42,7 @@ public class BattingQueryObj {
         if(strike_low != null) query += "and SR >= "+strike_low+" ";
         if(strike_high != null) query += "and SR <= "+strike_high+" ";
         query += "order by Runs desc";
+        
         return query;
     }
 }

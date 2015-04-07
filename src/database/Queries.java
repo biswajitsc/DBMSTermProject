@@ -48,6 +48,19 @@ public class Queries {
     
     
     
+    public static ResultSet getMatches(String cid1)
+    {
+        String query = "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
+                     + "from Matches, Country as C1, Country as C2, Country as C3, Ground as G "
+                     + "where Matches.Team1 = C1.CID and Matches.Team2 = C2.CID and Matches.Winner = C3.CID and G.GID = Matches.Location ";
+        
+        if(cid1 != null) query += "and (C1.CID = "+cid1+" or C2.CID = "+cid1+") ";
+        
+        return Database.query(query);
+    }
+    
+    
+    
     /**
      * Incomplete function
      * Set parameters null if not required.

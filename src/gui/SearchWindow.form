@@ -167,7 +167,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                      <EmptySpace pref="144" max="32767" attributes="0"/>
                       <Component id="jLabel13" min="-2" pref="288" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
@@ -753,7 +753,7 @@
                               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="98" max="32767" attributes="0"/>
+                      <EmptySpace pref="184" max="32767" attributes="0"/>
                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   </Group>
@@ -923,7 +923,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace pref="112" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1017,34 +1017,34 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
+                          <Component id="matchesUmpireplayed" min="-2" max="-2" attributes="0"/>
+                          <Component id="matchesUmpirewon" min="-2" max="-2" attributes="0"/>
+                          <Component id="matchesUmpirelost" min="-2" max="-2" attributes="0"/>
+                          <Component id="matchesUmpiredrawn" min="-2" max="-2" attributes="0"/>
+                          <Component id="matchesUmpiretied" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jSpinner35" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="drawnUmpiremin" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jSpinner36" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="drawnUmpiremax" min="-2" pref="82" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jSpinner33" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="lostUmpiremin" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jSpinner34" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="lostUmpiremax" min="-2" pref="82" max="-2" attributes="0"/>
                           </Group>
                           <Component id="comboBoxTeamCountry" alignment="0" max="32767" attributes="0"/>
                           <Component id="jComboBox5" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSpinner29" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="jSpinner31" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="playedUmpiremin" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="wonUmpiremin" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1053,22 +1053,22 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSpinner30" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="jSpinner32" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="playedUmpiremax" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="wonUmpiremax" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jSpinner37" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="tiedUmpiremin" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jSpinner38" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="tiedUmpiremax" min="-2" pref="82" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel49" min="-2" pref="340" max="-2" attributes="0"/>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1092,38 +1092,45 @@
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner29" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="playedUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner30" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="playedUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="matchesUmpireplayed" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner31" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jSpinner32" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="wonUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="wonUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="matchesUmpirewon" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner33" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jSpinner34" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="lostUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="lostUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="matchesUmpirelost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jSpinner35" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinner36" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="drawnUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="drawnUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="matchesUmpiredrawn" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jSpinner37" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jSpinner38" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tiedUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tiedUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="matchesUmpiretied" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="22" max="32767" attributes="0"/>
                       <Component id="jButton5" min="-2" max="-2" attributes="0"/>
@@ -1162,47 +1169,50 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel43">
+            <Component class="javax.swing.JSpinner" name="playedUmpiremin">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Matches Played"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner29">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel44">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner30">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel45">
+            <Component class="javax.swing.JSpinner" name="playedUmpiremax">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Matches Won"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner31">
+            <Component class="javax.swing.JSpinner" name="wonUmpiremin">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel46">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner32">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel47">
+            <Component class="javax.swing.JSpinner" name="wonUmpiremax">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Matches Lost"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner33">
+            <Component class="javax.swing.JSpinner" name="lostUmpiremin">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel48">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner34">
+            <Component class="javax.swing.JSpinner" name="lostUmpiremax">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
@@ -1216,41 +1226,88 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel50">
+            <Component class="javax.swing.JSpinner" name="drawnUmpiremin">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Matches Drawn"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner35">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel51">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner36">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel52">
+            <Component class="javax.swing.JSpinner" name="drawnUmpiremax">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Matches Tied"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner37">
+            <Component class="javax.swing.JSpinner" name="tiedUmpiremin">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel53">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner38">
+            <Component class="javax.swing.JSpinner" name="tiedUmpiremax">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="matchesUmpireplayed">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Matches Played"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpireplayedMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="matchesUmpirewon">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Matches Won"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpirewonMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="matchesUmpirelost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Matches Lost"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpirelostMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="matchesUmpiredrawn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Matches Drawn"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpiredrawnMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="matchesUmpiretied">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Matches Tied"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpiretiedMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DejaVu Sans" size="18" style="0"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Match">
-                <Property name="tabTitle" type="java.lang.String" value="Match"/>
+              <JTabbedPaneConstraints tabName="       Match       ">
+                <Property name="tabTitle" type="java.lang.String" value="       Match       "/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1298,7 +1355,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace pref="121" max="32767" attributes="0"/>
                       <Component id="jLabel62" min="-2" pref="340" max="-2" attributes="0"/>
                   </Group>
               </Group>

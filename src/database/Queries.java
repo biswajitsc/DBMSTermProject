@@ -94,12 +94,7 @@ public class Queries {
     
     public static ResultSet getBatsmen(BattingQueryObj obj)
     {
-        String query = "select * from (Player natural join Batting_Stats) inner join Country on Player.CID = Country.CID where true ";
-//        if(country != null) query += "and Country.Name = \""+country+"\" ";
-//        if(name != null) query += "and Player.Name = \""+name+"\" ";
-//        if(type != null) query += "and Type = \""+type+"\" ";
-//        query += "order by Runs desc";
-        return Database.query(query);
+        return Database.query(obj.generatequery());
     }
     
     

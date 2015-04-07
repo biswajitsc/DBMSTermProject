@@ -6,8 +6,6 @@
 
 package database;
 
-import java.sql.ResultSet;
-
 /**
  *
  * @author biswajit
@@ -27,7 +25,7 @@ public class BattingQueryObj {
     Integer strike_low = null;
     Integer strike_high = null;
     
-    ResultSet generatequery()
+    String generatequery()
     {
         String query = "select * from (Player natural join Batting_Stats) inner join Country on Player.CID = Country.CID where true ";
         if(country != null) query += "and Country.Name = \""+country+"\" ";
@@ -35,7 +33,15 @@ public class BattingQueryObj {
         if(type != null) query += "and Type = \""+type+"\" ";
         if(mplayed_low != null) query += "and Mat >= "+mplayed_low+" ";
         if(mplayed_high != null) query += "and Mat <= "+mplayed_high+" ";
+        if(runs_low != null) query += "and Runs >= "+runs_low+" ";
+        if(runs_high != null) query += "and Runs <= "+runs_high+" ";
+        if(hundreds_low != null) query += "and hundreds >= "+hundreds_low+" ";
+        if(hundreds_high != null) query += "and hundreds <= "+hundreds_high+" ";
+        if(fifties_low != null) query += "and fifties >= "+fifties_low+" ";
+        if(fifties_high != null) query += "and fifties <= "+fifties_high+" ";
+        if(strike_low != null) query += "and SR >= "+strike_low+" ";
+        if(strike_high != null) query += "and SR <= "+strike_high+" ";
         query += "order by Runs desc";
-        return Database.query(query);
+        return query;
     }
 }

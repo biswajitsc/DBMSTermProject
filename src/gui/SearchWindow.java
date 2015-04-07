@@ -33,6 +33,20 @@ public class SearchWindow extends javax.swing.JFrame {
             }} catch (SQLException ex) {
             ex.printStackTrace();
         }
+        
+        // batting combo box disable
+        battingMatchesMin.setEnabled(false);
+        battingMatchesMax.setEnabled(false);
+        battingRunsMin.setEnabled(false);
+        battingRunsMax.setEnabled(false);
+        battingHighestMin.setEnabled(false);
+        battingHighestMax.setEnabled(false);
+        battingHundredsMin.setEnabled(false);
+        battingHundredsMax.setEnabled(false);
+        battingFiftiesMin.setEnabled(false);
+        battingFiftiesMax.setEnabled(false);
+        battingStrikeRateMin.setEnabled(false);
+        battingStrikeRateMax.setEnabled(false);
     }
 
     /**
@@ -206,16 +220,46 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel59.setText("to");
 
         battingMatchesPlayed.setText("Matches Played");
+        battingMatchesPlayed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                battingMatchesPlayedActionPerformed(evt);
+            }
+        });
 
         battingRunsScored.setText("Runs Scored");
+        battingRunsScored.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                battingRunsScoredActionPerformed(evt);
+            }
+        });
 
         battingHighestScore.setText("Highest Score");
+        battingHighestScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                battingHighestScoreActionPerformed(evt);
+            }
+        });
 
         battingHundreds.setText("Hundreds");
+        battingHundreds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                battingHundredsActionPerformed(evt);
+            }
+        });
 
         battingFifties.setText("Fifties");
+        battingFifties.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                battingFiftiesActionPerformed(evt);
+            }
+        });
 
         battingStrikeRates.setText("Strike Rate");
+        battingStrikeRates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                battingStrikeRatesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBattingLayout = new javax.swing.GroupLayout(panelBatting);
         panelBatting.setLayout(panelBattingLayout);
@@ -915,6 +959,42 @@ public class SearchWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void battingMatchesPlayedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battingMatchesPlayedActionPerformed
+        // TODO add your handling code here:
+        battingMatchesMin.setEnabled(battingMatchesPlayed.isSelected());
+        battingMatchesMax.setEnabled(battingMatchesPlayed.isSelected());
+    }//GEN-LAST:event_battingMatchesPlayedActionPerformed
+
+    private void battingRunsScoredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battingRunsScoredActionPerformed
+        // TODO add your handling code here:
+        battingRunsMin.setEnabled(battingRunsScored.isSelected());
+        battingRunsMax.setEnabled(battingRunsScored.isSelected());
+    }//GEN-LAST:event_battingRunsScoredActionPerformed
+
+    private void battingHighestScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battingHighestScoreActionPerformed
+        // TODO add your handling code here:
+        battingHighestMin.setEnabled(battingHighestScore.isSelected());
+        battingHighestMax.setEnabled(battingHighestScore.isSelected());
+    }//GEN-LAST:event_battingHighestScoreActionPerformed
+
+    private void battingHundredsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battingHundredsActionPerformed
+        // TODO add your handling code here:
+        battingHundredsMin.setEnabled(battingHundreds.isSelected());
+        battingHundredsMax.setEnabled(battingHundreds.isSelected());
+    }//GEN-LAST:event_battingHundredsActionPerformed
+
+    private void battingFiftiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battingFiftiesActionPerformed
+        // TODO add your handling code here:
+        battingFiftiesMin.setEnabled(battingFifties.isSelected());
+        battingFiftiesMax.setEnabled(battingFifties.isSelected());
+    }//GEN-LAST:event_battingFiftiesActionPerformed
+
+    private void battingStrikeRatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battingStrikeRatesActionPerformed
+        // TODO add your handling code here:
+        battingStrikeRateMin.setEnabled(battingStrikeRates.isSelected());
+        battingStrikeRateMax.setEnabled(battingStrikeRates.isSelected());
+    }//GEN-LAST:event_battingStrikeRatesActionPerformed
 
     /**
      * @param args the command line arguments

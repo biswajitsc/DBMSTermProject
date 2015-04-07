@@ -5,6 +5,7 @@
  */
 package gui;
 
+import database.Queries;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -86,6 +87,11 @@ public class ResultWindow extends javax.swing.JFrame {
 
             }
         ));
+        resultTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resultTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(resultTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,6 +117,25 @@ public class ResultWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void resultTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultTableMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (queryNames[0].equals("Player.Name")) {
+                // Display details of this player in new window
+                String playerName = (String) resultTable.getValueAt(resultTable.getSelectedRow(),0);
+                ResultSet res = Queries.getPlayerbyName(playerName);
+                if (res.next()) {
+                    String pid = res.getString("PID");
+                    Player playerWindow = new Player(pid);
+                    String [] arg = {pid};
+                    playerWindow.main(arg);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_resultTableMouseClicked
 
     /**
      * @param args the command line arguments

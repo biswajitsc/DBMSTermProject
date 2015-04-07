@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -21,15 +22,19 @@ public class ResultWindow extends javax.swing.JFrame {
     /**
      * Creates new form ResultWindow
      */
-    public String [] columnNames;
-    public String [] queryNames;
-    public ResultSet result;
+    String [] columnNames;
+    String [] queryNames;
+    ResultSet result;
     
     public ResultWindow() {
         initComponents();
+    }
+    
+    public void display() {
         DefaultTableModel model = new DefaultTableModel();
-        columnNames = new String[]{"Name", "DOB", "Matches", "Highest Score"};
         resultTable.setModel(model);
+        resultTable.setAutoCreateRowSorter(true);
+        jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
         for (String column : columnNames) {
             model.addColumn(column);
         }
@@ -45,8 +50,13 @@ public class ResultWindow extends javax.swing.JFrame {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(true);
+            }
+        });
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,7 +73,7 @@ public class ResultWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel1.setText("Search Result");
+        jLabel1.setText("<html><h1>Search Result</h1></html>");
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,23 +92,21 @@ public class ResultWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

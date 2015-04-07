@@ -1057,6 +1057,10 @@ public class SearchWindow extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         BattingQueryObj obj = new BattingQueryObj();
+        obj.country = (String) comboBoxTeamBatting.getSelectedItem();
+        if (jComboBox1.getSelectedIndex() > 0) {
+            obj.type = (String) jComboBox1.getSelectedItem();
+        }
         if(battingMatchesPlayed.isSelected())
         {
             obj.mplayed_low = (Integer) battingMatchesMin.getValue();
@@ -1086,10 +1090,10 @@ public class SearchWindow extends javax.swing.JFrame {
         ResultWindow rw = new ResultWindow();
         rw.result = Queries.getBatsmen(obj);
         
-        rw.columnNames = new String[] {"Name",       "Country",      "Runs", "Matches", "Innings", "Not Outs", "Highest", "Average", "Strike Rate", "Hundreds", "Fifties", "Fours", "Sixes"};
-        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Runs", "Mat",     "Inns",    "NO",       "HS",      "Ave",     "SR",          "hundreds", "fifties", "fours", "sixs"};
+        rw.columnNames = new String[] {"Name",       "Country",      "Format", "Runs", "Matches", "Innings", "Not Outs", "Highest", "Average", "Strike Rate", "Hundreds", "Fifties", "Fours", "Sixes"};
+        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Type",   "Runs", "Mat",     "Inns",    "NO",       "HS",      "Ave",     "SR",          "hundreds", "fifties", "fours", "sixs"};
         
-        // rw.main(null);
+        rw.display();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bowlingMatchesPlayedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowlingMatchesPlayedActionPerformed

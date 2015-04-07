@@ -157,7 +157,6 @@ public class Queries {
         return Database.query(query);
     }
     
-   
     
     /**
      * 

@@ -47,6 +47,18 @@ public class SearchWindow extends javax.swing.JFrame {
         battingFiftiesMax.setEnabled(false);
         battingStrikeRateMin.setEnabled(false);
         battingStrikeRateMax.setEnabled(false);
+        
+        // balling combo box disable
+        bowlingMatchesMin.setEnabled(false);
+        bowlingMatchesMax.setEnabled(false);
+        bowlingWicketsMin.setEnabled(false);
+        bowlingWicketsMax.setEnabled(false);
+        bowlingEconomyMin.setEnabled(false);
+        bowlingEconomyMax.setEnabled(false);
+        bowling5WicketMin.setEnabled(false);
+        bowling5WicketMax.setEnabled(false);
+        bowlingAverageMin.setEnabled(false);
+        bowlingAverageMax.setEnabled(false);
     }
 
     /**
@@ -98,26 +110,26 @@ public class SearchWindow extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        jLabel16 = new javax.swing.JLabel();
-        jSpinner9 = new javax.swing.JSpinner();
-        jSpinner10 = new javax.swing.JSpinner();
+        bowlingMatchesMin = new javax.swing.JSpinner();
+        bowlingMatchesMax = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jSpinner11 = new javax.swing.JSpinner();
+        bowlingWicketsMin = new javax.swing.JSpinner();
         jLabel19 = new javax.swing.JLabel();
-        jSpinner12 = new javax.swing.JSpinner();
-        jLabel22 = new javax.swing.JLabel();
-        jSpinner15 = new javax.swing.JSpinner();
-        jSpinner16 = new javax.swing.JSpinner();
+        bowlingWicketsMax = new javax.swing.JSpinner();
+        bowlingEconomyMin = new javax.swing.JSpinner();
+        bowlingEconomyMax = new javax.swing.JSpinner();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jSpinner17 = new javax.swing.JSpinner();
-        jSpinner18 = new javax.swing.JSpinner();
+        bowling5WicketMin = new javax.swing.JSpinner();
+        bowling5WicketMax = new javax.swing.JSpinner();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jSpinner19 = new javax.swing.JSpinner();
+        bowlingAverageMin = new javax.swing.JSpinner();
         jLabel27 = new javax.swing.JLabel();
-        jSpinner20 = new javax.swing.JSpinner();
+        bowlingAverageMax = new javax.swing.JSpinner();
+        bowlingMatchesPlayed = new javax.swing.JRadioButton();
+        bowlingWicketsTaken = new javax.swing.JRadioButton();
+        bowlingEconomyRate = new javax.swing.JRadioButton();
+        bowling5Wickets = new javax.swing.JRadioButton();
+        bowlingAverage = new javax.swing.JRadioButton();
         panelFielding = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -335,7 +347,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                                     .addComponent(jLabel12)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(battingHundredsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -412,25 +424,50 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
-        jLabel16.setText("Matches Played");
-
         jLabel17.setText("to");
-
-        jLabel18.setText("Wickets taken");
 
         jLabel19.setText("to");
 
-        jLabel22.setText("Economy rate");
-
         jLabel23.setText("to");
-
-        jLabel24.setText("5 Wicket Hauls");
 
         jLabel25.setText("to");
 
-        jLabel26.setText("Average");
-
         jLabel27.setText("to");
+
+        bowlingMatchesPlayed.setText("Matches Played");
+        bowlingMatchesPlayed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bowlingMatchesPlayedActionPerformed(evt);
+            }
+        });
+
+        bowlingWicketsTaken.setText("Wickets Taken");
+        bowlingWicketsTaken.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bowlingWicketsTakenActionPerformed(evt);
+            }
+        });
+
+        bowlingEconomyRate.setText("Economy Rate");
+        bowlingEconomyRate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bowlingEconomyRateActionPerformed(evt);
+            }
+        });
+
+        bowling5Wickets.setText("5 Wicket Hauls");
+        bowling5Wickets.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bowling5WicketsActionPerformed(evt);
+            }
+        });
+
+        bowlingAverage.setText("Average");
+        bowlingAverage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bowlingAverageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBallingLayout = new javax.swing.GroupLayout(panelBalling);
         panelBalling.setLayout(panelBallingLayout);
@@ -439,60 +476,64 @@ public class SearchWindow extends javax.swing.JFrame {
             .addGroup(panelBallingLayout.createSequentialGroup()
                 .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBallingLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel26))
-                        .addGap(24, 24, 24)
-                        .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBoxTeamBowling, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(panelBallingLayout.createSequentialGroup()
-                                    .addComponent(jSpinner15, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jSpinner16, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(panelBallingLayout.createSequentialGroup()
-                                    .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelBallingLayout.createSequentialGroup()
-                                            .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBallingLayout.createSequentialGroup()
-                                            .addComponent(jSpinner11, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                    .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(panelBallingLayout.createSequentialGroup()
-                                            .addComponent(jLabel19)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jSpinner12, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panelBallingLayout.createSequentialGroup()
-                                            .addComponent(jLabel17)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jSpinner10, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBallingLayout.createSequentialGroup()
-                                    .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSpinner17, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSpinner19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelBallingLayout.createSequentialGroup()
-                                            .addComponent(jLabel27)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jSpinner20, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panelBallingLayout.createSequentialGroup()
-                                            .addComponent(jLabel25)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jSpinner18, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(panelBallingLayout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2))
+                    .addGroup(panelBallingLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addGroup(panelBallingLayout.createSequentialGroup()
+                                .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bowlingMatchesPlayed)
+                                    .addComponent(jLabel3)
+                                    .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(bowlingWicketsTaken)
+                                        .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(bowling5Wickets)
+                                            .addComponent(bowlingEconomyRate)
+                                            .addComponent(bowlingAverage))))
+                                .addGap(34, 34, 34)
+                                .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboBoxTeamBowling, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(panelBallingLayout.createSequentialGroup()
+                                            .addComponent(bowlingEconomyMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel23)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(bowlingEconomyMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(panelBallingLayout.createSequentialGroup()
+                                            .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(panelBallingLayout.createSequentialGroup()
+                                                    .addComponent(bowlingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBallingLayout.createSequentialGroup()
+                                                    .addComponent(bowlingWicketsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                            .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(panelBallingLayout.createSequentialGroup()
+                                                    .addComponent(jLabel19)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(bowlingWicketsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(panelBallingLayout.createSequentialGroup()
+                                                    .addComponent(jLabel17)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(bowlingMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBallingLayout.createSequentialGroup()
+                                            .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(bowling5WicketMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(bowlingAverageMin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(panelBallingLayout.createSequentialGroup()
+                                                    .addComponent(jLabel27)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(bowlingAverageMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(panelBallingLayout.createSequentialGroup()
+                                                    .addComponent(jLabel25)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(bowling5WicketMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -515,37 +556,37 @@ public class SearchWindow extends javax.swing.JFrame {
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowlingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowlingMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17)
-                            .addComponent(jLabel16))
+                            .addComponent(bowlingMatchesPlayed))
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(jSpinner11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowlingWicketsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel19)
-                            .addComponent(jSpinner12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bowlingWicketsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowlingWicketsTaken))
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowlingEconomyMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowlingEconomyMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23)
-                            .addComponent(jLabel22))
+                            .addComponent(bowlingEconomyRate))
                         .addGap(22, 22, 22)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(jSpinner17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner18, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25))
+                            .addComponent(bowling5WicketMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowling5WicketMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel25)
+                            .addComponent(bowling5Wickets))
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel26)
+                            .addComponent(bowlingAverageMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel27)
-                            .addComponent(jSpinner20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bowlingAverageMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bowlingAverage))
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         JTabbedPanel.addTab("      Bowling       ", panelBalling);
@@ -610,7 +651,7 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addComponent(jButton3))
                 .addGap(66, 66, 66)
                 .addComponent(jLabel29)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         panelFieldingLayout.setVerticalGroup(
             panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -684,7 +725,7 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel39)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         panelUmpireLayout.setVerticalGroup(
             panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -791,7 +832,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addComponent(jSpinner38, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         panelCountryLayout.setVerticalGroup(
             panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -897,7 +938,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(137, 137, 137)
                             .addComponent(comboBoxTeamCountry4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1035,6 +1076,36 @@ public class SearchWindow extends javax.swing.JFrame {
         rw.queryNames = new String[] {"Player.Name", "Country.Name", "Runs", "Mat",     "Inns",    "NO" };
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void bowlingMatchesPlayedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowlingMatchesPlayedActionPerformed
+        // TODO add your handling code here:
+        bowlingMatchesMin.setEnabled(bowlingMatchesPlayed.isSelected());
+        bowlingMatchesMax.setEnabled(bowlingMatchesPlayed.isSelected());
+    }//GEN-LAST:event_bowlingMatchesPlayedActionPerformed
+
+    private void bowlingWicketsTakenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowlingWicketsTakenActionPerformed
+        // TODO add your handling code here:
+        bowlingWicketsMin.setEnabled(bowlingWicketsTaken.isSelected());
+        bowlingWicketsMax.setEnabled(bowlingWicketsTaken.isSelected());
+    }//GEN-LAST:event_bowlingWicketsTakenActionPerformed
+
+    private void bowlingEconomyRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowlingEconomyRateActionPerformed
+        // TODO add your handling code here:
+        bowlingEconomyMin.setEnabled(bowlingEconomyRate.isSelected());
+        bowlingEconomyMax.setEnabled(bowlingEconomyRate.isSelected());
+    }//GEN-LAST:event_bowlingEconomyRateActionPerformed
+
+    private void bowling5WicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowling5WicketsActionPerformed
+        // TODO add your handling code here:
+        bowling5WicketMin.setEnabled(bowling5Wickets.isSelected());
+        bowling5WicketMax.setEnabled(bowling5Wickets.isSelected());
+    }//GEN-LAST:event_bowling5WicketsActionPerformed
+
+    private void bowlingAverageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowlingAverageActionPerformed
+        // TODO add your handling code here:
+        bowlingAverageMin.setEnabled(bowlingAverage.isSelected());
+        bowlingAverageMax.setEnabled(bowlingAverage.isSelected());
+    }//GEN-LAST:event_bowlingAverageActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1090,6 +1161,21 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner battingStrikeRateMax;
     private javax.swing.JSpinner battingStrikeRateMin;
     private javax.swing.JRadioButton battingStrikeRates;
+    private javax.swing.JSpinner bowling5WicketMax;
+    private javax.swing.JSpinner bowling5WicketMin;
+    private javax.swing.JRadioButton bowling5Wickets;
+    private javax.swing.JRadioButton bowlingAverage;
+    private javax.swing.JSpinner bowlingAverageMax;
+    private javax.swing.JSpinner bowlingAverageMin;
+    private javax.swing.JSpinner bowlingEconomyMax;
+    private javax.swing.JSpinner bowlingEconomyMin;
+    private javax.swing.JRadioButton bowlingEconomyRate;
+    private javax.swing.JSpinner bowlingMatchesMax;
+    private javax.swing.JSpinner bowlingMatchesMin;
+    private javax.swing.JRadioButton bowlingMatchesPlayed;
+    private javax.swing.JSpinner bowlingWicketsMax;
+    private javax.swing.JSpinner bowlingWicketsMin;
+    private javax.swing.JRadioButton bowlingWicketsTaken;
     private javax.swing.JComboBox comboBoxTeamBatting;
     private javax.swing.JComboBox comboBoxTeamBowling;
     private javax.swing.JComboBox comboBoxTeamCountry;
@@ -1117,17 +1203,12 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -1168,15 +1249,6 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner10;
-    private javax.swing.JSpinner jSpinner11;
-    private javax.swing.JSpinner jSpinner12;
-    private javax.swing.JSpinner jSpinner15;
-    private javax.swing.JSpinner jSpinner16;
-    private javax.swing.JSpinner jSpinner17;
-    private javax.swing.JSpinner jSpinner18;
-    private javax.swing.JSpinner jSpinner19;
-    private javax.swing.JSpinner jSpinner20;
     private javax.swing.JSpinner jSpinner21;
     private javax.swing.JSpinner jSpinner22;
     private javax.swing.JSpinner jSpinner23;
@@ -1195,7 +1267,6 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner36;
     private javax.swing.JSpinner jSpinner37;
     private javax.swing.JSpinner jSpinner38;
-    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JPanel panelBalling;
     private javax.swing.JPanel panelBatting;
     private javax.swing.JPanel panelCountry;

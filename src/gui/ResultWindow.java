@@ -6,6 +6,11 @@
 package gui;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -22,6 +27,24 @@ public class ResultWindow extends javax.swing.JFrame {
     
     public ResultWindow() {
         initComponents();
+        DefaultTableModel model = new DefaultTableModel();
+        columnNames = new String[]{"Name", "DOB", "Matches", "Highest Score"};
+        resultTable.setModel(model);
+        for (String column : columnNames) {
+            model.addColumn(column);
+        }
+        
+        try {
+            while (result.next()) {
+                Object [] row = new Object[columnNames.length];
+                for (int i = 0; i < row.length; ++i) {
+                    row[i] = result.getString(queryNames[i]);
+                }
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -44,13 +67,13 @@ public class ResultWindow extends javax.swing.JFrame {
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(resultTable);

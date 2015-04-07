@@ -354,31 +354,49 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Played"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingMatchesPlayedActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingRunsScored">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Runs Scored"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingRunsScoredActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingHighestScore">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Highest Score"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingHighestScoreActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingHundreds">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hundreds"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingHundredsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingFifties">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fifties"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingFiftiesActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingStrikeRates">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Strike Rate"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingStrikeRatesActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

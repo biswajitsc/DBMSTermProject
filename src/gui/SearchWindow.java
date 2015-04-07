@@ -25,11 +25,22 @@ public class SearchWindow extends javax.swing.JFrame {
         // TODO add the list of county names to the comboBoxCountry using
        ResultSet res = Queries.getCountries(null);
         try {
+            comboBoxTeamBatting.addItem("All");
+            comboBoxTeamBowling.addItem("All");
+            comboBoxTeamFielding.addItem("All");
+            comboBoxTeamCountry.addItem("All");
+            comboBoxMatchTeam1.addItem("All");
+            comboBoxMatchTeam2.addItem("All");
+            comboBoxMatchWinner.addItem("All");
+            
             while (res.next()) {
                 comboBoxTeamBatting.addItem(res.getString("Name"));
                 comboBoxTeamBowling.addItem(res.getString("Name"));
                 comboBoxTeamFielding.addItem(res.getString("Name"));
                 comboBoxTeamCountry.addItem(res.getString("Name"));
+                comboBoxMatchTeam1.addItem(res.getString("Name"));
+                comboBoxMatchTeam2.addItem(res.getString("Name"));
+                comboBoxMatchWinner.addItem(res.getString("Name"));
             }} catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -195,11 +206,11 @@ public class SearchWindow extends javax.swing.JFrame {
         matchesUmpiretied = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
-        comboBoxTeamCountry1 = new javax.swing.JComboBox();
+        comboBoxMatchTeam1 = new javax.swing.JComboBox();
         jLabel55 = new javax.swing.JLabel();
-        comboBoxTeamCountry2 = new javax.swing.JComboBox();
+        comboBoxMatchTeam2 = new javax.swing.JComboBox();
         jLabel56 = new javax.swing.JLabel();
-        comboBoxTeamCountry3 = new javax.swing.JComboBox();
+        comboBoxMatchWinner = new javax.swing.JComboBox();
         jLabel57 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox();
         jLabel60 = new javax.swing.JLabel();
@@ -983,7 +994,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel54)
                             .addGap(84, 84, 84)
-                            .addComponent(comboBoxTeamCountry1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel55)
@@ -991,9 +1002,9 @@ public class SearchWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel56))
                             .addGap(84, 84, 84)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(comboBoxTeamCountry3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboBoxMatchWinner, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboBoxTeamCountry2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboBoxMatchTeam2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jComboBox6, 0, 200, Short.MAX_VALUE))))
                         .addComponent(jLabel60)
                         .addComponent(jLabel61))
@@ -1013,11 +1024,11 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel54)
-                            .addComponent(comboBoxTeamCountry1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel55)
-                            .addComponent(comboBoxTeamCountry2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchTeam2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel57)
@@ -1025,7 +1036,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel56)
-                            .addComponent(comboBoxTeamCountry3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchWinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel60)
@@ -1108,7 +1119,11 @@ public class SearchWindow extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         BattingQueryObj obj = new BattingQueryObj();
-        obj.country = (String) comboBoxTeamBatting.getSelectedItem();
+        
+        if (comboBoxTeamBatting.getSelectedIndex() > 0){
+            obj.country = (String) comboBoxTeamBatting.getSelectedItem();
+        }
+        
         if (jComboBox1.getSelectedIndex() > 0) {
             obj.type = (String) jComboBox1.getSelectedItem();
         }
@@ -1277,12 +1292,12 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner bowlingWicketsMax;
     private javax.swing.JSpinner bowlingWicketsMin;
     private javax.swing.JRadioButton bowlingWicketsTaken;
+    private javax.swing.JComboBox comboBoxMatchTeam1;
+    private javax.swing.JComboBox comboBoxMatchTeam2;
+    private javax.swing.JComboBox comboBoxMatchWinner;
     private javax.swing.JComboBox comboBoxTeamBatting;
     private javax.swing.JComboBox comboBoxTeamBowling;
     private javax.swing.JComboBox comboBoxTeamCountry;
-    private javax.swing.JComboBox comboBoxTeamCountry1;
-    private javax.swing.JComboBox comboBoxTeamCountry2;
-    private javax.swing.JComboBox comboBoxTeamCountry3;
     private javax.swing.JComboBox comboBoxTeamCountry4;
     private javax.swing.JComboBox comboBoxTeamCountry5;
     private javax.swing.JComboBox comboBoxTeamFielding;

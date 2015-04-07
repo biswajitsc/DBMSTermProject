@@ -1327,7 +1327,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Component id="comboBoxTeamCountry1" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMatchTeam1" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1337,9 +1337,9 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="comboBoxTeamCountry3" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="comboBoxMatchWinner" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="comboBoxTeamCountry2" max="32767" attributes="0"/>
+                                          <Component id="comboBoxMatchTeam2" max="32767" attributes="0"/>
                                           <Component id="jComboBox6" pref="200" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1368,12 +1368,12 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxTeamCountry1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMatchTeam1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxTeamCountry2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMatchTeam2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1383,7 +1383,7 @@
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxTeamCountry3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMatchWinner" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1411,7 +1411,7 @@
                 <Property name="text" type="java.lang.String" value="Team 1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxTeamCountry1">
+            <Component class="javax.swing.JComboBox" name="comboBoxMatchTeam1">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -1423,7 +1423,7 @@
                 <Property name="text" type="java.lang.String" value="Team 2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxTeamCountry2">
+            <Component class="javax.swing.JComboBox" name="comboBoxMatchTeam2">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -1435,7 +1435,7 @@
                 <Property name="text" type="java.lang.String" value="Winner"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxTeamCountry3">
+            <Component class="javax.swing.JComboBox" name="comboBoxMatchWinner">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>

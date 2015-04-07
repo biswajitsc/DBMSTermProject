@@ -230,4 +230,10 @@ public class Queries {
         String query = "select * from ImagesPlayers where PID = \""+pid+"\"";
         return Database.query(query);
     }
+    
+    public static ResultSet getCountryStats(String cid)
+    {
+        String query = "select * from Country_Stats where CID = \""+cid+"\"";
+        return Database.query(query);
+    }
 }

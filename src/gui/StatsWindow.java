@@ -467,6 +467,11 @@ public class StatsWindow extends javax.swing.JFrame {
         jLabel37.setText("Countries");
         jLabel37.setOpaque(true);
 
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList1);
 
         jSeparator9.setBackground(new java.awt.Color(0, 0, 0));
@@ -813,11 +818,19 @@ public class StatsWindow extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             ResultSet rs = Queries.getPlayerbyName(textField1.getText());
-            rs.next();
-            String pid = rs.getString("PID");
-            Player p = new Player(pid);
-            String s[] = {pid};
-            p.main(s);
+            if(rs.next())
+            {
+                String pid = rs.getString("PID");
+                Player p = new Player(pid);
+                String s[] = {pid};
+                p.main(s);
+            }
+            else
+            {
+                PopUpMenu d = new PopUpMenu(this, true, textField1.getText());
+                d.main(new String[]{"The name + <" + textField1.getText() + "> does not exist in our database.\nPlease try another name"});
+            }
+                    
         } catch (SQLException ex) {
             Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
             //JDialog d = new JDialog
@@ -825,6 +838,14 @@ public class StatsWindow extends javax.swing.JFrame {
             Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_button3MouseClicked
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        // TODO add your handling code here:
+        Object temp = jList1.getSelectedValue();
+        String cname = temp.toString();
+        
+        //Do something with cname
+    }//GEN-LAST:event_jList1MouseClicked
 
     /**
      * @param args the command line arguments

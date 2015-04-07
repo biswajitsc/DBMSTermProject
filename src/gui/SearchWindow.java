@@ -1032,7 +1032,7 @@ public class SearchWindow extends javax.swing.JFrame {
         ResultWindow rw = new ResultWindow();
         rw.result = Queries.getBatsmen(obj);
         rw.columnNames = new String[] {"Name",       "Country",      "Runs", "Matches", "Innings", "Not Outs"};
-        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Runs", "Mat",  "Inns", "NO" };
+        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Runs", "Mat",     "Inns",    "NO" };
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

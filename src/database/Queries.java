@@ -58,6 +58,13 @@ public class Queries {
         return Database.query(query);
     }
     
+    public static ResultSet getMatches_ByUID(String uid)
+    {
+        String query = "select StartDate as Date,Type,Team1 as Country1,Team2 as Country2,Result,Winner,Margin,Location from Matches join Match_Umpires using (MID) where UID = " + uid + ";";
+        
+        return Database.query(query);
+    }
+    
     
     
     /**
@@ -182,11 +189,21 @@ public class Queries {
             if(mat_low != null) query += "Num_"+type+" >= "+mat_low+" ";
             if(mat_high != null) query += "Num_"+type+" <= "+mat_high+" ";
         }
-        query += "order by Num_ODI desc";
+        query += "order by Num_OgeDI desc";
         return Database.query(query);
     }
     
+    public static ResultSet getUmpireImage(String uid)
+    {
+        String query = "select * from Umpire_Images where UID = \"" + uid + "\"";
+        return Database.query(query);
+    }
     
+    public static ResultSet getUmpires_ByUID(String UID)
+    {
+        String query = "select * from Umpire where UID = " + UID + ";";
+        return Database.query(query);
+    }
 //     public static ResultSet getUmpireMatches(String name, Integer type, Integer mat_low, Integer mat_high)
 //    {
 //        String query = "select * from Umpire where true ";

@@ -6,6 +6,10 @@
 
 package gui;
 import database.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,6 +23,16 @@ public class SearchWindow extends javax.swing.JFrame {
     public SearchWindow() {
         initComponents();
         // TODO add the list of county names to the comboBoxCountry using
+       ResultSet res = Queries.getCountries(null);
+        try {
+            while (res.next()) {
+                comboBoxTeamBatting.addItem(res.getString("Name"));
+                comboBoxTeamBowling.addItem(res.getString("Name"));
+                comboBoxTeamFielding.addItem(res.getString("Name"));
+                comboBoxTeamCountry.addItem(res.getString("Name"));
+            }} catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -89,7 +103,7 @@ public class SearchWindow extends javax.swing.JFrame {
         panelFielding = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        comboBoxTeamBatting1 = new javax.swing.JComboBox();
+        comboBoxTeamFielding = new javax.swing.JComboBox();
         jLabel30 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox();
         jLabel31 = new javax.swing.JLabel();
@@ -116,7 +130,7 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         panelCountry = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
-        comboBoxTeamBatting2 = new javax.swing.JComboBox();
+        comboBoxTeamCountry = new javax.swing.JComboBox();
         jLabel42 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox();
         jLabel43 = new javax.swing.JLabel();
@@ -153,7 +167,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel4.setText("Format");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Test", "ODI", "T20" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel5.setText("Matches Played");
 
@@ -305,7 +319,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel15.setText("Format");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Test", "ODI", "T20" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel16.setText("Matches Played");
 
@@ -451,7 +465,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel30.setText("Format");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Test", "ODI", "T20" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel31.setText("Matches Played");
 
@@ -488,7 +502,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSpinner26, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(comboBoxTeamBatting1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboBoxTeamFielding, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelFieldingLayout.createSequentialGroup()
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -515,7 +529,7 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addGroup(panelFieldingLayout.createSequentialGroup()
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel28)
-                            .addComponent(comboBoxTeamBatting1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxTeamFielding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
@@ -548,7 +562,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel37.setText("Format");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Test", "ODI", "T20" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel38.setText("Matches Officiated");
 
@@ -609,7 +623,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel42.setText("Format");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Test", "ODI", "T20" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel43.setText("Matches Played");
 
@@ -663,9 +677,8 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addComponent(jLabel48)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSpinner34, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(comboBoxTeamBatting2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxTeamCountry, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelCountryLayout.createSequentialGroup()
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSpinner29, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -699,7 +712,7 @@ public class SearchWindow extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
-                    .addComponent(comboBoxTeamBatting2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxTeamCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
@@ -807,9 +820,9 @@ public class SearchWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane JTabbedPanel;
     private javax.swing.JComboBox comboBoxTeamBatting;
-    private javax.swing.JComboBox comboBoxTeamBatting1;
-    private javax.swing.JComboBox comboBoxTeamBatting2;
     private javax.swing.JComboBox comboBoxTeamBowling;
+    private javax.swing.JComboBox comboBoxTeamCountry;
+    private javax.swing.JComboBox comboBoxTeamFielding;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

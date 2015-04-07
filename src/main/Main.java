@@ -9,6 +9,7 @@ package main;
 
 import database.Database;
 import database.Queries;
+import gui.SearchWindow;
 import gui.StatsWindow;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,6 +30,7 @@ public class Main {
         
         StatsWindow window = new StatsWindow();
         window.main(null);
+        
         
 //        ResultSet rs = Queries.getBowlers(null, null, "Test");
 //        try

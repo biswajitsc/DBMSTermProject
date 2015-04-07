@@ -15,7 +15,8 @@ public class FieldingQueryObj {
     String name;
     String country;
     String type;
-    
+    Integer mplayed_low = null;
+    Integer mplayed_high = null;
     
     String generatequery()
     {

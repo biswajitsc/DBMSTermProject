@@ -11,6 +11,7 @@ import database.Database;
 import database.Queries;
 import gui.StatsWindow;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // TODO code application logic here
         
         Database.init();
@@ -29,15 +30,15 @@ public class Main {
         StatsWindow window = new StatsWindow();
         window.main(null);
         
-        ResultSet rs = Queries.getBowlers(null, null, "Test");
-        try
-        {
-            while(rs.next()) System.out.println(rs.getString("Player.Name")+" "+rs.getString("Country.Name")+" "+rs.getString("Type"));
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
+//        ResultSet rs = Queries.getBowlers(null, null, "Test");
+//        try
+//        {
+//            while(rs.next()) System.out.println(rs.getString("Player.Name")+" "+rs.getString("Country.Name")+" "+rs.getString("Type"));
+//        }
+//        catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        } 
+   }
     
 }

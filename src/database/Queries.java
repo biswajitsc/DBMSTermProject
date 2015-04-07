@@ -82,6 +82,29 @@ public class Queries {
     
     
     
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param country Which country he is from?
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
+    
+    
+    public static ResultSet getBatsmen(BattingQueryObj obj)
+    {
+        String query = "select * from (Player natural join Batting_Stats) inner join Country on Player.CID = Country.CID where true ";
+//        if(country != null) query += "and Country.Name = \""+country+"\" ";
+//        if(name != null) query += "and Player.Name = \""+name+"\" ";
+//        if(type != null) query += "and Type = \""+type+"\" ";
+//        query += "order by Runs desc";
+        return Database.query(query);
+    }
+    
+    
+    
+    
     /**
      * 
      * Set parameters null if not required
@@ -131,6 +154,78 @@ public class Queries {
         String query = "select * from Umpire where true ";
         if(name != null) query += "and Name = \""+name+"\" ";
         query += "order by Num_ODI desc";
+        return Database.query(query);
+    }
+    
+   
+    
+    /**
+     * 
+     * Set parameters null if not required
+     * 
+     * @param name what is his name
+     * @return ResultSet of the query with all the fields.
+     */
+    public static ResultSet getCountries(String name)
+    {
+        String query = "select * from Country where true ";
+        if(name != null) query += "and CID = \""+name+"\" ";
+        query += "order by Name asc";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getYears(String name)
+    {
+        String query = "select distinct StartDate from Matches";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getGrounds(String name)
+    {
+        String query = "select * from Ground";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerbyName(String name)
+    {
+        String query = "select * from Player where Name = \""+name+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerbyPID(String name)
+    {
+        String query = "select * from Player where PID = \""+name+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerBattingInfo(String pid)
+    {
+        String query = "select * from Batting_Stats where PID=\""+pid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerBowlingInfo(String pid)
+    {
+        String query = "select * from Bowling_Stats where PID=\""+pid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerFieldingInfo(String pid)
+    {
+        String query = "select * from Fielding_Stats where PID=\""+pid+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerBattingFieldingInfo(String pid)
+    {
+        String query = "select * from Batting_Stats natural join Fielding_Stats where PID = \"";
+        query += pid + "\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getPlayerImage(String pid)
+    {
+        String query = "select * from ImagesPlayers where PID = \""+pid+"\"";
         return Database.query(query);
     }
 }

@@ -198,4 +198,10 @@ public class Queries {
         query += pid + "\"";
         return Database.query(query);
     }
+    
+    public static ResultSet getPlayerImage(String pid)
+    {
+        String query = "select * from ImagesPlayers where PID = \""+pid+"\"";
+        return Database.query(query);
+    }
 }

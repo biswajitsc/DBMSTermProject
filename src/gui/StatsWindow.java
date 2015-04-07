@@ -9,6 +9,7 @@ package gui;
 import database.Database;
 import javax.swing.DefaultListModel;
 import database.Queries;
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -820,6 +821,8 @@ public class StatsWindow extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
             //JDialog d = new JDialog
+        } catch (IOException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_button3MouseClicked
 

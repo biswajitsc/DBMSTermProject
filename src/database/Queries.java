@@ -145,7 +145,7 @@ public class Queries {
     public static ResultSet getCountries(String name)
     {
         String query = "select * from Country where true ";
-        if(name != null) query += "and Name = \""+name+"\" ";
+        if(name != null) query += "and CID = \""+name+"\" ";
         query += "order by Name asc";
         return Database.query(query);
     }
@@ -192,4 +192,10 @@ public class Queries {
         return Database.query(query);
     }
     
+    public static ResultSet getPlayerBattingFieldingInfo(String pid)
+    {
+        String query = "select * from Batting_Stats natural join Fielding_Stats where PID = \"";
+        query += pid + "\"";
+        return Database.query(query);
+    }
 }

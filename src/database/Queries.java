@@ -60,7 +60,7 @@ public class Queries {
     
     public static ResultSet getMatches_ByUID(String uid)
     {
-        String query = "select StartDate as Date,Type,Team1 as Country1,Team2 as Country2,Result,Winner,Margin,Location from Matches join Match_Umpires using (MID) where UID = " + uid + ";";
+        String query = "select StartDate as Date,Type,C1.Name as Country1,C2.Name as Country2,Result,C3.Name as Winner,Margin,G1.Name as Location from Matches as M,Country as C1,Country as C2,Country as C3,Ground as G1,Match_Umpires as MU where M.Team1 = C1.CID and M.Team2 = C2.CID and M.Winner = C3.CID and M.Location = G1.GID and M.MID = MU.MID and UID = " + uid + ";";
         
         return Database.query(query);
     }

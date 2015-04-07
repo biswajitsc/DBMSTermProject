@@ -67,7 +67,11 @@ public class Umpire extends javax.swing.JFrame {
         } 
         catch (IOException e) {
             image = ImageIO.read(new File("./src/gui/images.jpeg"));
-            e.printStackTrace();
+            //e.printStackTrace();
+        }
+        catch (SQLException se) {
+            image = ImageIO.read(new File("./src/gui/images.jpeg"));
+            //se.printStackTrace();
         }
         
        jLabel8.setIcon(new javax.swing.ImageIcon(image));  

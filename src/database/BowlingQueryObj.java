@@ -21,6 +21,10 @@ public class BowlingQueryObj {
     Integer wickets_high = null;
     Integer econ_low = null;
     Integer econ_high = null;
+    Integer five_low = null;
+    Integer five_high = null;
+    Integer ave_low = null;
+    Integer ave_high = null;
     
     
     
@@ -37,6 +41,10 @@ public class BowlingQueryObj {
         if(wickets_high != null) query += "and Wkts <= "+wickets_high+" ";
         if(econ_low != null) query += "and Econ >= "+econ_low+" ";
         if(econ_high != null) query += "and Econ <= "+econ_high+" ";
+        if(five_low != null) query += "and fivewickets >= "+five_low+" ";
+        if(five_high != null) query += "and fivewickets <= "+five_high+" ";
+        if(ave_low != null) query += "and Ave >= "+ave_low+" ";
+        if(ave_high != null) query += "and Ave <= "+ave_high+" ";
         query += " order by Wkts desc";
         
         return query;

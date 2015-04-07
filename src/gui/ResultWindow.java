@@ -17,6 +17,7 @@ public class ResultWindow extends javax.swing.JFrame {
      * Creates new form ResultWindow
      */
     public String [] columnNames;
+    public String [] queryNames;
     public ResultSet result;
     
     public ResultWindow() {

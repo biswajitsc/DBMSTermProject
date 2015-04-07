@@ -906,13 +906,22 @@ public class StatsWindow extends javax.swing.JFrame {
     private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
         // TODO add your handling code here:
         try {
+            System.out.println(textField3.getText());
             ResultSet rs = Queries.getUmpirebyName(textField3.getText());
             if(rs.next())
             {
                 String uid = rs.getString("UID");
-                
+                Umpire u = new Umpire(uid);  
+                u.main(new String[]{uid});
+            }
+            else
+            {
+                PopUpMenu d = new PopUpMenu(this, true, textField1.getText());
+                d.main(new String[]{"The name + <" + textField1.getText() + "> does not exist in our database.\nPlease try another name"});
             }
         } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
         

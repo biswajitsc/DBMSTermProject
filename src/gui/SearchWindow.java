@@ -197,6 +197,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel12.setText("to");
 
         jButton1.setText("Submit Query");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/sachin.jpeg"))); // NOI18N
         jLabel13.setText("jLabel13");
@@ -915,6 +920,36 @@ public class SearchWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        BattingQueryObj obj = new BattingQueryObj();
+        if(battingMatchesPlayed.isSelected())
+        {
+            obj.mplayed_low = (Integer) battingMatchesMin.getValue();
+            obj.mplayed_high = (Integer) battingMatchesMax.getValue();
+        }
+        if(battingRunsScored.isSelected())
+        {
+            obj.runs_low = (Integer) battingRunsMin.getValue();
+            obj.runs_high = (Integer) battingRunsMax.getValue();
+        }
+        if(battingHundreds.isSelected())
+        {
+            obj.hundreds_low = (Integer) battingHundredsMin.getValue();
+            obj.hundreds_high = (Integer) battingHundredsMax.getValue();
+        }
+        if(battingFifties.isSelected())
+        {
+            obj.fifties_low = (Integer) battingFiftiesMin.getValue();
+            obj.fifties_high = (Integer) battingFiftiesMax.getValue();
+        }
+        if(battingStrikeRates.isSelected())
+        {
+            obj.strike_low = (Integer) battingStrikeRateMin.getValue();
+            obj.mplayed_high = (Integer) battingStrikeRateMax.getValue();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

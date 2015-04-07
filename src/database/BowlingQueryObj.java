@@ -12,21 +12,19 @@ package database;
  */
 public class BowlingQueryObj {
     
-    String country = null;
-    String name = null;
-    String type = null;
-    Integer mplayed_low = null;
-    Integer mplayed_high = null;
-    Integer wickets_low = null;
-    Integer wickets_high = null;
-    Integer econ_low = null;
-    Integer econ_high = null;
-    Integer five_low = null;
-    Integer five_high = null;
-    Integer ave_low = null;
-    Integer ave_high = null;
-    
-    
+    public String country = null;
+    public String name = null;
+    public String type = null;
+    public Integer mplayed_low = null;
+    public Integer mplayed_high = null;
+    public Integer wickets_low = null;
+    public Integer wickets_high = null;
+    public Integer econ_low = null;
+    public Integer econ_high = null;
+    public Integer five_low = null;
+    public Integer five_high = null;
+    public Integer ave_low = null;
+    public Integer ave_high = null;
     
     
     String generatequery()

@@ -11,19 +11,19 @@ package database;
  * @author biswajit
  */
 public class BattingQueryObj {
-    String name = null;
-    String country = null;
-    String type = null;
-    Integer mplayed_low = null;
-    Integer mplayed_high = null;
-    Integer runs_low = null;
-    Integer runs_high = null;
-    Integer hundreds_low = null;
-    Integer hundreds_high = null;
-    Integer fifties_low = null;
-    Integer fifties_high = null;
-    Integer strike_low = null;
-    Integer strike_high = null;
+    public String name = null;
+    public String country = null;
+    public String type = null;
+    public Integer mplayed_low = null;
+    public Integer mplayed_high = null;
+    public Integer runs_low = null;
+    public Integer runs_high = null;
+    public Integer hundreds_low = null;
+    public Integer hundreds_high = null;
+    public Integer fifties_low = null;
+    public Integer fifties_high = null;
+    public Integer strike_low = null;
+    public Integer strike_high = null;
     
     String generatequery()
     {

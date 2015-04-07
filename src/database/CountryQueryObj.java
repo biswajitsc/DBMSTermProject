@@ -11,18 +11,18 @@ package database;
  * @author biswajit
  */
 public class CountryQueryObj {
-    String name = null;
-    String type = null;
-    Integer mplayed_low = null;
-    Integer mplayed_high = null;
-    Integer mwon_low = null;
-    Integer mwon_high = null;
-    Integer mlost_low = null;
-    Integer mlost_high = null;
-    Integer mdrawn_low = null;
-    Integer mdrawn_high = null;
-    Integer mtied_low = null;
-    Integer mtied_high = null;
+    public String name = null;
+    public String type = null;
+    public Integer mplayed_low = null;
+    public Integer mplayed_high = null;
+    public Integer mwon_low = null;
+    public Integer mwon_high = null;
+    public Integer mlost_low = null;
+    public Integer mlost_high = null;
+    public Integer mdrawn_low = null;
+    public Integer mdrawn_high = null;
+    public Integer mtied_low = null;
+    public Integer mtied_high = null;
     
     
     String generatequery()

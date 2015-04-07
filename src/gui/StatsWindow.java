@@ -446,6 +446,11 @@ public class StatsWindow extends javax.swing.JFrame {
         button1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         button1.setForeground(new java.awt.Color(255, 255, 255));
         button1.setLabel("Submit");
+        button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button1MouseClicked(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel10.setText("Records by Ground");
@@ -522,6 +527,11 @@ public class StatsWindow extends javax.swing.JFrame {
         button5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         button5.setForeground(new java.awt.Color(255, 255, 255));
         button5.setLabel("Submit");
+        button5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button5MouseClicked(evt);
+            }
+        });
 
         textField1.setBackground(new java.awt.Color(255, 255, 255));
         textField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -866,6 +876,56 @@ public class StatsWindow extends javax.swing.JFrame {
         }
         c.main(new String[]{cid});
     }//GEN-LAST:event_jList1MouseClicked
+
+    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
+        // TODO add your handling code here:
+        String gname = jComboBox2.getSelectedItem().toString();
+        System.out.println(gname);
+        ResultSet rs = Queries.getGroundbyName(gname);
+        try {
+            rs.next();
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String gid = null;
+        try {
+            gid = rs.getString("GID");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            Grounds g = new Grounds(gid);
+            g.main(new String[]{gid});
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_button1MouseClicked
+
+    private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
+        // TODO add your handling code here:
+        try {
+            System.out.println(textField3.getText());
+            ResultSet rs = Queries.getUmpirebyName(textField3.getText());
+            if(rs.next())
+            {
+                String uid = rs.getString("UID");
+                Umpire u = new Umpire(uid);  
+                u.main(new String[]{uid});
+            }
+            else
+            {
+                PopUpMenu d = new PopUpMenu(this, true, textField1.getText());
+                d.main(new String[]{"The name + <" + textField1.getText() + "> does not exist in our database.\nPlease try another name"});
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_button5MouseClicked
 
     /**
      * @param args the command line arguments

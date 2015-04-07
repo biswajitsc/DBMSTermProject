@@ -12,15 +12,15 @@ package database;
  */
 public class FieldingQueryObj {
     
-    String name;
-    String country;
-    String type;
-    Integer mplayed_low = null;
-    Integer mplayed_high = null;
-    Integer catches_low = null;
-    Integer catches_high = null;
-    Integer stumpings_low = null;
-    Integer stumpings_high = null;
+    public String name;
+    public String country;
+    public String type;
+    public Integer mplayed_low = null;
+    public Integer mplayed_high = null;
+    public Integer catches_low = null;
+    public Integer catches_high = null;
+    public Integer stumpings_low = null;
+    public Integer stumpings_high = null;
     
     String generatequery()
     {

@@ -167,7 +167,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
                       <Component id="jLabel13" min="-2" pref="288" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
@@ -320,6 +320,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Submit Query"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
@@ -352,7 +355,7 @@
                 <Property name="text" type="java.lang.String" value="Matches Played"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingMatchesPlayedMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingMatchesPlayedActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingRunsScored">
@@ -360,7 +363,7 @@
                 <Property name="text" type="java.lang.String" value="Runs Scored"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingRunsScoredMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingRunsScoredActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingHighestScore">
@@ -368,23 +371,32 @@
                 <Property name="text" type="java.lang.String" value="Highest Score"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="battingHighestScoreMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingHighestScoreActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingHundreds">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hundreds"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingHundredsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingFifties">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fifties"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingFiftiesActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="battingStrikeRates">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Strike Rate"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battingStrikeRatesActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -402,78 +414,86 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="comboBoxTeamBowling" min="-2" pref="185" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jSpinner15" min="-2" pref="82" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jSpinner16" min="-2" pref="82" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jComboBox2" min="-2" pref="188" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jSpinner9" min="-2" pref="82" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="bowlingMatchesPlayed" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="bowlingWicketsTaken" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                  <Component id="bowling5Wickets" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="bowlingEconomyRate" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="bowlingAverage" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="comboBoxTeamBowling" min="-2" pref="185" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="bowlingEconomyMin" min="-2" pref="82" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="bowlingEconomyMax" min="-2" pref="82" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jComboBox2" min="-2" pref="188" max="-2" attributes="0"/>
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jSpinner11" min="-2" pref="82" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="bowlingMatchesMin" min="-2" pref="82" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="bowlingWicketsMin" min="-2" pref="82" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="bowlingWicketsMax" min="-2" pref="82" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="bowlingMatchesMax" min="-2" pref="82" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="bowling5WicketMin" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                                      <Component id="bowlingAverageMin" alignment="1" min="-2" pref="82" max="-2" attributes="0"/>
+                                                  </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jSpinner12" min="-2" pref="82" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jSpinner10" min="-2" pref="82" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jSpinner17" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                              <Component id="jSpinner19" alignment="1" min="-2" pref="82" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jSpinner20" min="-2" pref="82" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jSpinner18" min="-2" pref="82" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="bowlingAverageMax" min="-2" pref="82" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="bowling5WicketMax" min="-2" pref="82" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -503,44 +523,44 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jSpinner9" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jSpinner10" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingMatchesMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingMatchesMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bowlingMatchesPlayed" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinner11" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingWicketsMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinner12" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingWicketsMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingWicketsTaken" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jSpinner15" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jSpinner16" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingEconomyMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingEconomyMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bowlingEconomyRate" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinner17" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jSpinner18" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowling5WicketMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowling5WicketMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bowling5Wickets" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jSpinner19" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bowlingAverageMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinner20" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingAverageMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="bowlingAverage" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="70" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -587,75 +607,90 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Matches Played"/>
-              </Properties>
+            <Component class="javax.swing.JSpinner" name="bowlingMatchesMin">
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner9">
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner10">
+            <Component class="javax.swing.JSpinner" name="bowlingMatchesMax">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel18">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Wickets taken"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner11">
+            <Component class="javax.swing.JSpinner" name="bowlingWicketsMin">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner12">
+            <Component class="javax.swing.JSpinner" name="bowlingWicketsMax">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel22">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Economy rate"/>
-              </Properties>
+            <Component class="javax.swing.JSpinner" name="bowlingEconomyMin">
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner15">
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner16">
+            <Component class="javax.swing.JSpinner" name="bowlingEconomyMax">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel24">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="5 Wicket Hauls"/>
-              </Properties>
+            <Component class="javax.swing.JSpinner" name="bowling5WicketMin">
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner17">
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner18">
+            <Component class="javax.swing.JSpinner" name="bowling5WicketMax">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel26">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Average"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner19">
+            <Component class="javax.swing.JSpinner" name="bowlingAverageMin">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel27">
               <Properties>
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner20">
+            <Component class="javax.swing.JSpinner" name="bowlingAverageMax">
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bowlingMatchesPlayed">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Matches Played"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bowlingMatchesPlayedActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bowlingWicketsTaken">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Wickets Taken"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bowlingWicketsTakenActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bowlingEconomyRate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Economy Rate"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bowlingEconomyRateActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bowling5Wickets">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="5 Wicket Hauls"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bowling5WicketsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bowlingAverage">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Average"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bowlingAverageActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -713,7 +748,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="117" max="32767" attributes="0"/>
+                      <EmptySpace pref="127" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -881,7 +916,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1026,7 +1061,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel49" min="-2" pref="340" max="-2" attributes="0"/>
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1256,7 +1291,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Component id="jLabel62" min="-2" pref="340" max="-2" attributes="0"/>
                   </Group>
               </Group>

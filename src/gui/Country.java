@@ -32,6 +32,8 @@ public class Country extends javax.swing.JFrame {
             model.addRow(row);
         }
         
+        //rs = Queries.getMatches(cid, null, null, null, null, cid, cid)
+        
     }
 
     /**

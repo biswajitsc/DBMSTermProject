@@ -206,10 +206,25 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel59.setText("to");
 
         battingMatchesPlayed.setText("Matches Played");
+        battingMatchesPlayed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                battingMatchesPlayedMouseClicked(evt);
+            }
+        });
 
         jRadioButton1.setText("Runs Scored");
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
 
         jRadioButton2.setText("Highest Score");
+        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton2MouseClicked(evt);
+            }
+        });
 
         jRadioButton3.setText("Hundreds");
 
@@ -915,6 +930,32 @@ public class SearchWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void battingMatchesPlayedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_battingMatchesPlayedMouseClicked
+        if(battingMatchesPlayed.isSelected() == true) {
+            battingMatchesMin.setEnabled(true);
+            battingMatchesMax.setEnabled(true);
+        }
+        else {
+            battingMatchesMin.setEnabled(false);
+            battingMatchesMax.setEnabled(false);
+        }
+    }//GEN-LAST:event_battingMatchesPlayedMouseClicked
+
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+        if(jRadioButton1.isSelected() == true) {
+            battingRunsMin.setEnabled(true);
+            battingRunsMax.setEnabled(true);
+        }
+        else {
+            battingRunsMin.setEnabled(false);
+            battingRunsMax.setEnabled(false);
+        }
+    }//GEN-LAST:event_jRadioButton1MouseClicked
+
+    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2MouseClicked
 
     /**
      * @param args the command line arguments

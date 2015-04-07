@@ -158,6 +158,15 @@ public class Queries {
         return Database.query(query);
     }
     
+    
+    
+    public static ResultSet getFielders(FieldingQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
+    
+    
+    
     /**
      * 
      * Set parameters null if not required
@@ -165,13 +174,19 @@ public class Queries {
      * @param name what is his name
      * @return ResultSet of the query with all the fields.
      */
-    public static ResultSet getUmpires(String name)
+    public static ResultSet getUmpires(String name, Integer type, Integer mat_low, Integer mat_high)
     {
         String query = "select * from Umpire where true ";
         if(name != null) query += "and Name = \""+name+"\" ";
+        if(type != null && (mat_low != null || mat_high != null))
+        {
+            if(mat_low != null) query += "Num_"+type+" >= "+mat_low+" ";
+            if(mat_high != null) query += "Num_"+type+" <= "+mat_high+" ";
+        }
         query += "order by Num_ODI desc";
         return Database.query(query);
     }
+    
     
     
     /**

@@ -661,6 +661,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel36.setText("to");
 
         jButton3.setText("Submit Query");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         fieldingMatchesPlayed.setText("Matches Played");
 
@@ -1455,6 +1460,21 @@ public class SearchWindow extends javax.swing.JFrame {
         tourTotalBallsMin.setEnabled(tourTotalBalls.isSelected());
         tourTotalBallsMax.setEnabled(tourTotalBalls.isSelected());
     }//GEN-LAST:event_tourTotalBallsActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FieldingQueryObj obj = new FieldingQueryObj();
+        
+        if(comboBoxTeamFielding.getSelectedIndex() > 0)
+        {
+            obj.country = (String) comboBoxTeamFielding.getSelectedItem();
+        }
+        
+        if(comboBoxTeamFielding.getSelectedIndex() > 0)
+        {
+            obj.country = (String) comboBoxTeamFielding.getSelectedItem();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -925,6 +925,7 @@ public class StatsWindow extends javax.swing.JFrame {
         rw.result = Queries.getPlayerByNameLike(pname);
         rw.columnNames = new String[] {"Player Name", "DOB", "Country"};
         rw.queryNames = new String[] {"Player.Name", "Player.DOB", "Country.Name"};
+        textField1.setText("");
         rw.display();
     }//GEN-LAST:event_button3MouseClicked
 
@@ -991,6 +992,7 @@ public class StatsWindow extends javax.swing.JFrame {
         rw.result = Queries.getUmpireByNameLike(uname);
         rw.columnNames = new String[] {"Umpire Name", "Test","ODI","T20"};
         rw.queryNames = new String[] {"U.Name", "U.Num_Test","U.Num_ODI","U.Num_T20"};
+        textField3.setText("");
         rw.display();
         
     }//GEN-LAST:event_button5MouseClicked
@@ -1014,6 +1016,7 @@ public class StatsWindow extends javax.swing.JFrame {
         rw.result = Queries.getTournamentByNameLike(tname);
         rw.columnNames = new String[] {"Tournament Name", "Winner"};
         rw.queryNames = new String[] {"T.Name", "C.Name"};
+        textField2.setText("");
         rw.display();
     }//GEN-LAST:event_button4MouseClicked
 

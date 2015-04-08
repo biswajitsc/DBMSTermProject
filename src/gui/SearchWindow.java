@@ -34,6 +34,9 @@ public class SearchWindow extends javax.swing.JFrame {
             comboBoxMatchWinner.addItem("All");
             comboBoxTourPlayedBy.addItem("All");
             comboBoxTourWonBy.addItem("All");
+            comboBoxMatchLocation.addItem("All");
+            comboBoxMatchUmpire.addItem("All");
+            
             
             while (res.next()) {
                 comboBoxTeamBatting.addItem(res.getString("Name"));
@@ -45,7 +48,14 @@ public class SearchWindow extends javax.swing.JFrame {
                 comboBoxMatchWinner.addItem(res.getString("Name"));
                 comboBoxTourPlayedBy.addItem(res.getString("Name"));
                 comboBoxTourWonBy.addItem(res.getString("Name"));
-            }} catch (SQLException ex) {
+            }
+            
+            res = Queries.getGrounds(null);
+            
+            while (res.next()) {
+                comboBoxMatchLocation.addItem(res.getString("Name"));
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         

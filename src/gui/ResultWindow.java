@@ -6,6 +6,7 @@
 package gui;
 
 import database.Queries;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;

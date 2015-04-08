@@ -438,6 +438,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/mcgrath.jpg"))); // NOI18N
 
         jButton2.setText("Submit Query");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel15.setText("Format");
 
@@ -1150,7 +1155,7 @@ public class SearchWindow extends javax.swing.JFrame {
         if(battingStrikeRates.isSelected())
         {
             obj.strike_low = (Integer) battingStrikeRateMin.getValue();
-            obj.mplayed_high = (Integer) battingStrikeRateMax.getValue();
+            obj.strike_high = (Integer) battingStrikeRateMax.getValue();
         }
         
         ResultWindow rw = new ResultWindow();
@@ -1221,6 +1226,52 @@ public class SearchWindow extends javax.swing.JFrame {
         tiedUmpiremin.setEnabled(matchesUmpiretied.isSelected());
         tiedUmpiremax.setEnabled(matchesUmpiretied.isSelected());
     }//GEN-LAST:event_matchesUmpiretiedMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        BowlingQueryObj obj = new BowlingQueryObj();
+        
+        if (comboBoxTeamBowling.getSelectedIndex() > 0){
+            obj.country = (String) comboBoxTeamBowling.getSelectedItem();
+        }
+        
+        if (jComboBox2.getSelectedIndex() > 0) {
+            obj.type = (String) jComboBox2.getSelectedItem();
+        }
+        if(bowlingMatchesPlayed.isSelected())
+        {
+            obj.mplayed_low = (Integer) bowlingMatchesMin.getValue();
+            obj.mplayed_high = (Integer) bowlingMatchesMax.getValue();
+        }
+        if(bowlingWicketsTaken.isSelected())
+        {
+            obj.wickets_low = (Integer) bowlingWicketsMin.getValue();
+            obj.wickets_high = (Integer) bowlingWicketsMax.getValue();
+        }
+        if(bowlingEconomyRate.isSelected())
+        {
+            obj.econ_low = (Integer) bowlingEconomyMin.getValue();
+            obj.econ_high = (Integer) bowlingEconomyMax.getValue();
+        }
+        if(bowling5Wickets.isSelected())
+        {
+            obj.five_low = (Integer) bowling5WicketMin.getValue();
+            obj.five_high = (Integer) bowling5WicketMax.getValue();
+        }
+        if(bowlingAverage.isSelected())
+        {
+            obj.ave_low = (Integer) bowlingAverageMin.getValue();
+            obj.ave_high = (Integer) bowlingAverageMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getBowler(obj);
+        
+        rw.columnNames = new String[] {"Name",       "Country",      "Format", "Matches", "Innings", "Balls", "Runs", "Wickets", "BBI", "BBM", "Avg", "Econ", "S.R.","4Wkts","5Wkts","10Wkts"};
+        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Type",   "Mat",     "Inns",    "Balls", "Runs", "Wkts",  "BBI",  "BBM", "Ave", "Econ", "SR", "fourwickets", "fivewickets", "tenwickets"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments

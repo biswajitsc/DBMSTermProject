@@ -117,7 +117,18 @@ public class Queries {
         return Database.query(obj.generatequery());
     }
     
+    /**
+     * 
+     * Set  of BowlingQueryObj null if not required
+     * 
+     * @param obj Query object
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
     
+    public static ResultSet getBowler(BowlingQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
     
     /**
      * 

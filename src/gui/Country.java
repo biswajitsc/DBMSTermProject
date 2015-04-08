@@ -36,6 +36,13 @@ public class Country extends javax.swing.JFrame {
     public Country(String cid) throws SQLException, IOException {
         initComponents();
         
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
+        
+        jTable2.setAutoCreateRowSorter(true);
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        
         DefaultListModel list = new DefaultListModel();
         ResultSet rs = Queries.getPlayerListbyCountry(cid);
         while(rs.next())

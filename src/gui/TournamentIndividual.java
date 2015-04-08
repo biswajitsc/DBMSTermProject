@@ -23,7 +23,10 @@ public class TournamentIndividual extends javax.swing.JFrame {
      */
     public TournamentIndividual(String tid) throws SQLException {
         initComponents();
-        System.out.println(tid);
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
+//        System.out.println(tid);
         ResultSet rs = Queries.getAllTournaments(tid, null);
         rs.next();
         jLabel1.setText(rs.getString("tname"));

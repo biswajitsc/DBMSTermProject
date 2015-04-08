@@ -26,6 +26,9 @@ public class Bowling extends javax.swing.JFrame {
     public Bowling(String type) throws SQLException {
         initComponents();
         
+        jTable2.setAutoCreateRowSorter(true);
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        
         DefaultTableModel model =(DefaultTableModel) jTable2.getModel();
         BowlingQueryObj b = new BowlingQueryObj();
         b.type = type;

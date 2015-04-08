@@ -111,6 +111,7 @@ public class TournamentIndividual extends javax.swing.JFrame {
         jSeparator2.setOpaque(true);
         jSeparator2.setPreferredSize(new java.awt.Dimension(50, 1));
 
+        jTable1.setBackground(new java.awt.Color(246, 244, 242));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

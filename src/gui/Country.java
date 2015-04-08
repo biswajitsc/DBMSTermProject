@@ -85,7 +85,7 @@ public class Country extends javax.swing.JFrame {
             image.getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight() , Image.SCALE_DEFAULT);
         } 
         catch (IOException e) {
-            image = ImageIO.read(new File("./src/gui/images.jpeg"));
+            image = ImageIO.read(new File("./src/gui/no_images_flags.jpeg"));
             e.printStackTrace();
         }
        
@@ -129,6 +129,7 @@ public class Country extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/no_images_flags.jpeg"))); // NOI18N
 
         jLabel3.setBackground(new java.awt.Color(229, 219, 208));
         jLabel3.setText("Players");
@@ -253,8 +254,8 @@ public class Country extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

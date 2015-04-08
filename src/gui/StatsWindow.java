@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -127,10 +128,14 @@ public class StatsWindow extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         button3 = new java.awt.Button();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        button4 = new java.awt.Button();
         jLabel13 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
         button5 = new java.awt.Button();
         textField1 = new java.awt.TextField();
+        textField2 = new java.awt.TextField();
         textField3 = new java.awt.TextField();
         button6 = new java.awt.Button();
 
@@ -509,6 +514,24 @@ public class StatsWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel12.setText("Tournament Records");
+
+        jSeparator11.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jSeparator11.setOpaque(true);
+        jSeparator11.setPreferredSize(new java.awt.Dimension(50, 1));
+
+        button4.setBackground(new java.awt.Color(87, 146, 224));
+        button4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        button4.setForeground(new java.awt.Color(255, 255, 255));
+        button4.setLabel("Submit");
+        button4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button4MouseClicked(evt);
+            }
+        });
+
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel13.setText("Umpire Records");
 
@@ -530,6 +553,10 @@ public class StatsWindow extends javax.swing.JFrame {
         textField1.setBackground(new java.awt.Color(255, 255, 255));
         textField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        textField2.setBackground(new java.awt.Color(255, 255, 255));
+        textField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         textField3.setBackground(new java.awt.Color(255, 255, 255));
         textField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -560,8 +587,13 @@ public class StatsWindow extends javax.swing.JFrame {
                                 .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(74, 74, 74)
                                 .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel12)
                             .addComponent(jLabel13)
                             .addComponent(jLabel9)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(75, 75, 75)
+                                .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(button6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -588,6 +620,7 @@ public class StatsWindow extends javax.swing.JFrame {
                             .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -648,7 +681,15 @@ public class StatsWindow extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(button3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(textField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(14, 14, 14)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -991,6 +1032,17 @@ public class StatsWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button2MouseClicked
 
+    private void button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseClicked
+        // TODO add your handling code here:
+        String tname = textField2.getText();
+        ResultWindow rw = new ResultWindow();
+        //rw.result = Queries.getBatsmen(obj);
+        
+        rw.columnNames = new String[] {"Tournament Name", "Country"};
+        rw.queryNames = new String[] {"T.Name", "Winner"};
+        rw.display();
+    }//GEN-LAST:event_button4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1034,6 +1086,7 @@ public class StatsWindow extends javax.swing.JFrame {
     private java.awt.Button button1;
     private java.awt.Button button2;
     private java.awt.Button button3;
+    private java.awt.Button button4;
     private java.awt.Button button5;
     private java.awt.Button button6;
     private javax.swing.JComboBox jComboBox1;
@@ -1041,6 +1094,7 @@ public class StatsWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
@@ -1071,6 +1125,7 @@ public class StatsWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
@@ -1078,6 +1133,7 @@ public class StatsWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private java.awt.TextField textField1;
+    private java.awt.TextField textField2;
     private java.awt.TextField textField3;
     // End of variables declaration//GEN-END:variables
 }

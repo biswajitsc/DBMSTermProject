@@ -14,15 +14,18 @@ import java.sql.*;
 public class Database {
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://10.5.18.68/12CS10058";
+//    static final String DB_URL = "jdbc:mysql://10.5.18.68/12CS10058";
 //    static final String DB_URL = "jdbc:mysql://localhost/12CS10058";
+    static final String DB_URL = "jdbc:mysql://localhost/12CS10062";
 //    static final String DB_URL = "jdbc:mysql://localhost/DBMSProject";
 //    static final String DB_URL = "jdbc:mysql://localhost/12CS30006";
       
 //    static final String USER = "root";
 //    static final String PASS = "prith";
-    static final String USER = "12CS10058";
-    static final String PASS = "btech12";
+//    static final String USER = "12CS10058";
+//    static final String PASS = "btech12";
+     static final String USER = "root";
+    static final String PASS = "mukherjee.adhuna";
 //    static final String USER = "biswa";
 //    static final String PASS = "biswa";
 //    static final String USER = "root";

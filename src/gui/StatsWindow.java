@@ -9,6 +9,12 @@ package gui;
 import database.Database;
 import javax.swing.DefaultListModel;
 import database.Queries;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -20,21 +26,30 @@ import java.util.Set;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
 /**
  *
  * @author biswajit
- */
+*/
 public class StatsWindow extends javax.swing.JFrame {
+ 
 
+    int shown = 0;
+    Image image;
+    
     /**
      * Creates new form SearchWindow
      */
-    public StatsWindow() throws SQLException {
+    public StatsWindow() throws SQLException, IOException {
+        
         initComponents();
         
         DefaultListModel list = new DefaultListModel();
@@ -74,6 +89,48 @@ public class StatsWindow extends javax.swing.JFrame {
         DefaultComboBoxModel glist = new DefaultComboBoxModel(v2);
         jComboBox2.setModel(glist);
         
+        Timer timer = new Timer(2000, new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                if(shown == 0) {
+                    try {
+                        image = ImageIO.read(new File("./src/gui/back1.jpg"));
+                        
+                    } catch (IOException ex) {
+                        
+                    }
+                } else if(shown == 1) {
+                    try {
+                        image = ImageIO.read(new File("./src/gui/back2.jpg"));
+                        
+                    } catch (IOException ex) {
+                        
+                    }
+                }
+                else if(shown == 2) {
+                    try {
+                       image = ImageIO.read(new File("./src/gui/back3.jpg"));
+                     
+                    } catch (IOException ex) {
+                        
+                    }
+                }
+                 else if(shown == 3) {
+                    try {
+                       image = ImageIO.read(new File("./src/gui/back4.jpg"));
+                     
+                    } catch (IOException ex) {
+                        
+                    }
+                }
+                shown = (shown + 1) % 4;
+                //image.getScaledInstance(jLabel13.getWidth(), jLabel13.getHeight() , Image.SCALE_DEFAULT);
+                jLabel8.setIcon(new javax.swing.ImageIcon(image));
+            }
+        });
+        timer.start();
         
     }
 
@@ -87,6 +144,7 @@ public class StatsWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -151,8 +209,14 @@ public class StatsWindow extends javax.swing.JFrame {
             }
         });
 
+        jPanel3.setOpaque(false);
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/back3.jpg"))); // NOI18N
+
         jPanel1.setBackground(new java.awt.Color(202, 221, 228));
         jPanel1.setForeground(new java.awt.Color(202, 221, 228));
+        jPanel1.setOpaque(false);
 
         jLabel1.setBackground(new java.awt.Color(245, 230, 219));
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
@@ -468,6 +532,7 @@ public class StatsWindow extends javax.swing.JFrame {
         jSeparator8.setPreferredSize(new java.awt.Dimension(50, 1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setOpaque(true);
 
         button2.setBackground(new java.awt.Color(87, 146, 224));
         button2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -580,41 +645,7 @@ public class StatsWindow extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74)
-                                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel9)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75)
-                                .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(button6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel10)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(32, 32, 32)
-                                            .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 15, Short.MAX_VALUE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -622,8 +653,37 @@ public class StatsWindow extends javax.swing.JFrame {
                             .addComponent(jSeparator12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(74, 74, 74)
+                                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel9)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(75, 75, 75)
+                                        .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(button6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(32, 32, 32)
+                                                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jSeparator9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(76, 76, 76)
@@ -632,8 +692,10 @@ public class StatsWindow extends javax.swing.JFrame {
                                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(71, 71, 71)
                                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                .addGap(0, 9, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,7 +703,15 @@ public class StatsWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -649,15 +719,8 @@ public class StatsWindow extends javax.swing.JFrame {
                                 .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21)
-                        .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(19, 19, 19)
-                .addComponent(jLabel9)
+                        .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 37, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -665,10 +728,10 @@ public class StatsWindow extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -708,6 +771,11 @@ public class StatsWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -715,6 +783,11 @@ public class StatsWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(3, 3, 3)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(3, 3, 3)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -745,179 +818,34 @@ public class StatsWindow extends javax.swing.JFrame {
         db.close();
     }//GEN-LAST:event_dinitdb
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-        Match m = null;
-        try {
-            m = new Match("Test");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        m.main(new String[]{"Test"});
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
-        Tournament t = null;
-        try {
-            t = new Tournament("Test");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        t.main(new String[]{"Test"});
-    }//GEN-LAST:event_jLabel4MouseClicked
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        // TODO add your handling code here:
-        Batting b = null;
-        try {
-            b = new Batting("Test");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        b.main(new String[]{"Test"});
-    
-    }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
-        Bowling b = null;
-        try {
-            b = new Bowling("Test");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        b.main(new String[]{"Test"});
-    }//GEN-LAST:event_jLabel6MouseClicked
-
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-        Fielding f = null;
-        try {
-            f = new Fielding("Test");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        f.main(new String[]{"Test"});
-    }//GEN-LAST:event_jLabel7MouseClicked
-
     private void button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button6MouseClicked
         // TODO add your handling code here:
         SearchWindow sw = new SearchWindow();
         sw.main(null);
     }//GEN-LAST:event_button6MouseClicked
 
-    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+    private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
         // TODO add your handling code here:
-        Match m = null;
-        try {
-            m = new Match("ODI");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        m.main(new String[]{"ODI"});
-    }//GEN-LAST:event_jLabel24MouseClicked
+        String uname = textField3.getText();
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getUmpireByNameLike(uname);
+        rw.columnNames = new String[] {"Umpire Name", "Test","ODI","T20"};
+        rw.queryNames = new String[] {"U.Name", "U.Num_Test","U.Num_ODI","U.Num_T20"};
+        textField3.setText("");
+        rw.display();
 
-    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+    }//GEN-LAST:event_button5MouseClicked
+
+    private void button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseClicked
         // TODO add your handling code here:
-        Tournament t = null;
-        try {
-            t = new Tournament("ODI");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        t.main(new String[]{"ODI"});
-    }//GEN-LAST:event_jLabel25MouseClicked
-
-    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
-        // TODO add your handling code here:
-        Batting b = null;
-        try {
-            b = new Batting("ODI");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        b.main(new String[]{"ODI"});
-    
-    }//GEN-LAST:event_jLabel26MouseClicked
-
-    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
-        // TODO add your handling code here:
-        Bowling b = null;
-        try {
-            b = new Bowling("ODI");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        b.main(new String[]{"ODI"});        
-    }//GEN-LAST:event_jLabel27MouseClicked
-
-    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
-        // TODO add your handling code here:
-        Fielding f = null;
-        try {
-            f = new Fielding("ODI");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        f.main(new String[]{"ODI"});
-
-    }//GEN-LAST:event_jLabel28MouseClicked
-
-    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
-        // TODO add your handling code here:
-        Match m = null;
-        try {
-            m = new Match("T20");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        m.main(new String[]{"T20"});
-    }//GEN-LAST:event_jLabel31MouseClicked
-
-    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
-        // TODO add your handling code here:
-        Tournament t = null;
-        try {
-            t = new Tournament("T20");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        t.main(new String[]{"T20"});                
-    }//GEN-LAST:event_jLabel32MouseClicked
-
-    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
-        // TODO add your handling code here:
-        Batting b = null;
-        try {
-            b = new Batting("T20");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        b.main(new String[]{"T20"});
-    }//GEN-LAST:event_jLabel33MouseClicked
-
-    private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
-        // TODO add your handling code here:
-        Bowling b = null;
-        try {
-            b = new Bowling("T20");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        b.main(new String[]{"T20"});
-    }//GEN-LAST:event_jLabel34MouseClicked
-
-    private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
-        // TODO add your handling code here:
-        Fielding f = null;
-        try {
-            f = new Fielding("T20");
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        f.main(new String[]{"T20"});
-    }//GEN-LAST:event_jLabel35MouseClicked
+        String tname = textField2.getText();
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getTournamentByNameLike(tname);
+        rw.columnNames = new String[] {"Tournament Name", "Winner"};
+        rw.queryNames = new String[] {"T.Name", "C.Name"};
+        textField2.setText("");
+        rw.display();
+    }//GEN-LAST:event_button4MouseClicked
 
     private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked
         String pname = textField1.getText();
@@ -958,6 +886,18 @@ public class StatsWindow extends javax.swing.JFrame {
         c.main(new String[]{cid});
     }//GEN-LAST:event_jList1MouseClicked
 
+    private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
+        // TODO add your handling code here:
+        String year = jComboBox1.getSelectedItem().toString();
+        int y = Integer.parseInt(year);
+        try {
+            Year yy = new Year(y);
+            yy.main(new String[]{year});
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_button2MouseClicked
+
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
         // TODO add your handling code here:
         if (jComboBox2.getSelectedIndex() < 0) return;
@@ -985,40 +925,172 @@ public class StatsWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button1MouseClicked
 
-    private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
+    private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
         // TODO add your handling code here:
-        String uname = textField3.getText();
-        ResultWindow rw = new ResultWindow();
-        rw.result = Queries.getUmpireByNameLike(uname);
-        rw.columnNames = new String[] {"Umpire Name", "Test","ODI","T20"};
-        rw.queryNames = new String[] {"U.Name", "U.Num_Test","U.Num_ODI","U.Num_T20"};
-        textField3.setText("");
-        rw.display();
-        
-    }//GEN-LAST:event_button5MouseClicked
-
-    private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
-        // TODO add your handling code here:
-        String year = jComboBox1.getSelectedItem().toString();
-        int y = Integer.parseInt(year);
+        Fielding f = null;
         try {
-            Year yy = new Year(y);
-            yy.main(new String[]{year});
+            f = new Fielding("T20");
         } catch (SQLException ex) {
             Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_button2MouseClicked
+        f.main(new String[]{"T20"});
+    }//GEN-LAST:event_jLabel35MouseClicked
 
-    private void button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseClicked
+    private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
         // TODO add your handling code here:
-        String tname = textField2.getText();
-        ResultWindow rw = new ResultWindow();
-        rw.result = Queries.getTournamentByNameLike(tname);
-        rw.columnNames = new String[] {"Tournament Name", "Winner"};
-        rw.queryNames = new String[] {"T.Name", "C.Name"};
-        textField2.setText("");
-        rw.display();
-    }//GEN-LAST:event_button4MouseClicked
+        Bowling b = null;
+        try {
+            b = new Bowling("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"T20"});
+    }//GEN-LAST:event_jLabel34MouseClicked
+
+    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
+        // TODO add your handling code here:
+        Batting b = null;
+        try {
+            b = new Batting("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"T20"});
+    }//GEN-LAST:event_jLabel33MouseClicked
+
+    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
+        // TODO add your handling code here:
+        Tournament t = null;
+        try {
+            t = new Tournament("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        t.main(new String[]{"T20"});
+    }//GEN-LAST:event_jLabel32MouseClicked
+
+    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
+        // TODO add your handling code here:
+        Match m = null;
+        try {
+            m = new Match("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        m.main(new String[]{"T20"});
+    }//GEN-LAST:event_jLabel31MouseClicked
+
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        // TODO add your handling code here:
+        Fielding f = null;
+        try {
+            f = new Fielding("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.main(new String[]{"ODI"});
+    }//GEN-LAST:event_jLabel28MouseClicked
+
+    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
+        // TODO add your handling code here:
+        Bowling b = null;
+        try {
+            b = new Bowling("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"ODI"});
+    }//GEN-LAST:event_jLabel27MouseClicked
+
+    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
+        // TODO add your handling code here:
+        Batting b = null;
+        try {
+            b = new Batting("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"ODI"});
+
+    }//GEN-LAST:event_jLabel26MouseClicked
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+        // TODO add your handling code here:
+        Tournament t = null;
+        try {
+            t = new Tournament("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        t.main(new String[]{"ODI"});
+    }//GEN-LAST:event_jLabel25MouseClicked
+
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+        // TODO add your handling code here:
+        Match m = null;
+        try {
+            m = new Match("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        m.main(new String[]{"ODI"});
+    }//GEN-LAST:event_jLabel24MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        Fielding f = null;
+        try {
+            f = new Fielding("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.main(new String[]{"Test"});
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        Bowling b = null;
+        try {
+            b = new Bowling("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"Test"});
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        Batting b = null;
+        try {
+            b = new Batting("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"Test"});
+
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        Tournament t = null;
+        try {
+            t = new Tournament("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        t.main(new String[]{"Test"});
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        Match m = null;
+        try {
+            m = new Match("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        m.main(new String[]{"Test"});
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1054,7 +1126,10 @@ public class StatsWindow extends javax.swing.JFrame {
                     new StatsWindow().setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
             }
         });
     }
@@ -1092,6 +1167,7 @@ public class StatsWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;

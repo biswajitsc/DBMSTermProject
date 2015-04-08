@@ -118,7 +118,7 @@ public class SearchWindow extends javax.swing.JFrame {
         tourTotalBallsMin.setEnabled(false);
         tourTotalBallsMax.setEnabled(false);
         
-        Timer timer = new Timer(4000, new ActionListener() {
+        Timer timer = new Timer(2000, new ActionListener() {
             
             @Override
             public void actionPerformed(ActionEvent e) {

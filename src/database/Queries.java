@@ -207,7 +207,7 @@ public class Queries {
             if(mat_low != null) query += "Num_"+type+" >= "+mat_low+" ";
             if(mat_high != null) query += "Num_"+type+" <= "+mat_high+" ";
         }
-        query += "order by Num_OgeDI desc";
+        query += "order by Num_ODI desc";
         return Database.query(query);
     }
     

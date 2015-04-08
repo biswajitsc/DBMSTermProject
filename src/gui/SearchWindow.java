@@ -769,6 +769,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel40.setText("to");
 
         jButton4.setText("Submit Query");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/bowden.jpg"))); // NOI18N
 
@@ -1590,6 +1595,11 @@ public class SearchWindow extends javax.swing.JFrame {
         
         rw.display();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -32,10 +32,10 @@ public class Main {
         window.main(null);
         
         
-//        ResultSet rs = Queries.getBowlers(null, null, "Test");
+//        ResultSet rs = Queries.getTournamentsByYear(2010);
 //        try
 //        {
-//            while(rs.next()) System.out.println(rs.getString("Player.Name")+" "+rs.getString("Country.Name")+" "+rs.getString("Type"));
+//            while(rs.next()) System.out.println(rs.getString("T.Name"));
 //        }
 //        catch(Exception e)
 //        {

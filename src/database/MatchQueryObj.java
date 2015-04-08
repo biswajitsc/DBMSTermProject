@@ -19,8 +19,8 @@ public class MatchQueryObj {
     
     public String generatequery()
     {
-        String query = "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
-                     + "from ((Matches inner join (Country as C1) on Team1 = C1.CID) inner join (Country as C2) on C2.CID = Team2) inner join (Country as C3) on Winner = C3.CID, Ground as G "
+        String query =  "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
+                     + "from ((Matches inner join (Country as C1) on Team1 = C1.CID) inner join (Country as C2) on C2.CID = Team2) left outer join (Country as C3) on Winner = C3.CID, Ground as G "
                      + "where G.GID = Matches.Location ";
         
         if(country1 != null && country2 != null) query += "and ((C1.Name = \""+country1+"\" and C2.Name = \""+country2+"\") or (C1.Name = \""+country2+"\" and C2.Name = \""+country1+"\")) ";

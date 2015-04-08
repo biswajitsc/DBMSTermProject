@@ -769,6 +769,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel40.setText("to");
 
         jButton4.setText("Submit Query");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/bowden.jpg"))); // NOI18N
 
@@ -1135,6 +1140,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel9.setText("to");
 
         jButton7.setText("Submit Query");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/worldcup.jpg"))); // NOI18N
 
@@ -1590,6 +1600,53 @@ public class SearchWindow extends javax.swing.JFrame {
         
         rw.display();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        TournamentObj obj = new TournamentObj();
+        
+        if (comboBoxTourPlayedBy.getSelectedIndex() > 0){
+            obj.country = (String) comboBoxTourPlayedBy.getSelectedItem();
+        }
+        
+        if (tourFormat.getSelectedIndex() > 0) {
+            obj.type = (String) tourFormat.getSelectedItem();
+        }
+        
+        if (comboBoxTourWonBy.getSelectedIndex() > 0){
+            obj.winner = (String) comboBoxTourWonBy.getSelectedItem();
+        }
+        
+        if(tourTotalRuns.isSelected())
+        {
+            obj.runs_low = (Integer) tourTotalRunsMin.getValue();
+            obj.runs_high = (Integer) tourTotalRunsMax.getValue();
+        }
+        
+        if(tourTotalWickets.isSelected())
+        {
+            obj.wickets_low = (Integer) tourTotalWicketsMin.getValue();
+            obj.wickets_high = (Integer) tourTotalWicketsMax.getValue();
+        }
+        
+        if(tourTotalBalls.isSelected())
+        {
+            obj.balls_low = (Integer) tourTotalBallsMin.getValue();
+            obj.balls_high = (Integer) tourTotalBallsMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getTournament(obj);
+        
+        rw.columnNames = new String[] {"Name", "Format", "Winner", "Total Runs Scored", "Total Wickets Taken", "Total Balls Bowled"};
+        rw.queryNames = new String[] {"T.Name", "T.Type", "C3.Name",   "T.Total_Runs",     "T.Total_Wickets",    "T.Total_Balls"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton7ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -139,6 +139,19 @@ public class Queries {
     
     /**
      * 
+     * Set  of TournamentObj null if not required
+     * 
+     * @param obj Query object
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
+    
+    public static ResultSet getTournament(TournamentObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
+    
+    /**
+     * 
      * Set parameters null if not required
      * 
      * @param country Which country he is from?
@@ -207,7 +220,7 @@ public class Queries {
             if(mat_low != null) query += "Num_"+type+" >= "+mat_low+" ";
             if(mat_high != null) query += "Num_"+type+" <= "+mat_high+" ";
         }
-        query += "order by Num_OgeDI desc";
+        query += "order by Num_ODI desc";
         return Database.query(query);
     }
     

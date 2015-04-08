@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -65,7 +66,7 @@ public class Country extends javax.swing.JFrame {
             String temp;
             if(cname.equals(c1)) temp = c2; 
             else temp = c1;
-            Object[] row = {rs.getDate("Date"),rs.getString("Type"),temp,rs.getString("Result"),
+            Object[] row = {rs.getDate("Date"),rs.getString("Type"),temp,
                             rs.getString("Winner"),rs.getString("Margin"),rs.getString("Location")};
             model2.addRow(row);
         }
@@ -187,11 +188,11 @@ public class Country extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Type", "Opponent", "Result", "Winner", "Margin", "Location"
+                "Date", "Type", "Opponent", "Winner", "Margin", "Location"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -291,8 +292,7 @@ public class Country extends javax.swing.JFrame {
             }
             else
             {
-                PopUpMenu d = new PopUpMenu(this, true, pname);
-                d.main(new String[]{"The name + <" + pname + "> does not exist in our database.\nPlease try another name"});
+                    JOptionPane.showMessageDialog(null, "Name " +pname+ " does not exist in our database", "Error", JOptionPane.ERROR_MESSAGE);
             }
                     
         } catch (SQLException ex) {

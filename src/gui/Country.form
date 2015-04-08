@@ -235,13 +235,12 @@
             <Component class="javax.swing.JTable" name="jTable2">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="7" rowCount="0">
+                  <Table columnCount="6" rowCount="0">
                     <Column editable="false" title="Date" type="java.lang.Object"/>
                     <Column editable="false" title="Type" type="java.lang.Object"/>
                     <Column editable="false" title="Opponent" type="java.lang.Object"/>
-                    <Column editable="true" title="Result" type="java.lang.Object"/>
-                    <Column editable="true" title="Winner" type="java.lang.Object"/>
-                    <Column editable="true" title="Margin" type="java.lang.Object"/>
+                    <Column editable="false" title="Winner" type="java.lang.Object"/>
+                    <Column editable="false" title="Margin" type="java.lang.Object"/>
                     <Column editable="false" title="Location" type="java.lang.Object"/>
                   </Table>
                 </Property>

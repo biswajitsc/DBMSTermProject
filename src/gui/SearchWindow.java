@@ -661,6 +661,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel36.setText("to");
 
         jButton3.setText("Submit Query");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         fieldingMatchesPlayed.setText("Matches Played");
 
@@ -1502,6 +1507,47 @@ public class SearchWindow extends javax.swing.JFrame {
         
         rw.display();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FieldingQueryObj obj = new FieldingQueryObj();
+        
+        if(comboBoxTeamFielding.getSelectedIndex() > 0)
+        {
+            obj.country = (String) comboBoxTeamFielding.getSelectedItem();
+        }
+        
+        if(fieldingFormat.getSelectedIndex() > 0)
+        {
+            obj.type = (String) fieldingFormat.getSelectedItem();
+        }
+        
+        if(fieldingMatchesPlayed.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingMatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingMatchesMax.getValue();
+        }
+        
+        if(fieldingCatches.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingCatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingCatchesMax.getValue();
+        }
+        
+        
+        if(fieldingStumpings.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingStumpsMin.getValue();
+            obj.mplayed_high = (Integer) fieldingStumpsMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getFielders(obj);
+        rw.columnNames = new String [] {"Name", "Country", "Type", "Catches Taken", "Stumps Taken"};
+        rw.queryNames = new String [] {"Player.Name", "Country.Name", "Type", "Ct", "St"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

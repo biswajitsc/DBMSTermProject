@@ -73,21 +73,14 @@ public class Queries {
     }
     
     
-    
-    /**
-     * Incomplete function
-     * Set parameters null if not required.
-     * 
-     * @param type Whether ODI, Test or T-20
-     * @return ResultSet of the database query containing all fields
-     */
-    public static ResultSet getTournaments(String type, String year)
+    public static ResultSet getTournamentsByYear(Integer year)
     {
-        String query = "select TID, Name, Type, Winner, Total_Runs, Total_Wickets, Total_Balls, min(StartDate) as Date from Tournament where true ";
-        if(type != null) query += "and Type = \""+type+"\" ";
+        String query = "select * from (Tournament as T natural join Tournament_Matches as TM) inner join Matches as M on TM.MID = M.MID where true ";
+        query += "and M.StartDate < \""+(year+1)+"-01-01\" and M.StartDate >= \""+year+"-01-01\" ";
+        query += "group by T.TID";
+        
         return Database.query(query);
     }
-    
     
     
     /**

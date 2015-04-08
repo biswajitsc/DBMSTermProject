@@ -939,6 +939,7 @@ public class StatsWindow extends javax.swing.JFrame {
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         // TODO add your handling code here:
+        if (jList1.getSelectedIndex() < 0) return;
         Object temp = jList1.getSelectedValue();
         String cname = temp.toString();
         ResultSet rs =  Queries.getCID(cname);
@@ -967,6 +968,7 @@ public class StatsWindow extends javax.swing.JFrame {
 
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
         // TODO add your handling code here:
+        if (jComboBox2.getSelectedIndex() < 0) return;
         String gname = jComboBox2.getSelectedItem().toString();
         System.out.println(gname);
         ResultSet rs = Queries.getGroundbyName(gname);

@@ -145,6 +145,19 @@ public class Queries {
     
     /**
      * 
+     * Set  of TournamentObj null if not required
+     * 
+     * @param obj Query object
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
+    
+    public static ResultSet getUmpire(UmpireQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
+    
+    /**
+     * 
      * Set parameters null if not required
      * 
      * @param country Which country he is from?
@@ -255,6 +268,12 @@ public class Queries {
         String query = "select * from Country where true ";
         if(name != null) query += "and CID = \""+name+"\" ";
         query += "order by Name asc";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getCountryByName(String name) {
+        String query = "select * from Country where true ";
+        if(name != null) query += "and Name = \""+name+"\" ";
         return Database.query(query);
     }
     

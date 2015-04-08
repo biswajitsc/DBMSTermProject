@@ -244,14 +244,24 @@ public class SearchWindow extends javax.swing.JFrame {
         fieldingCatches = new javax.swing.JRadioButton();
         fieldingStumpings = new javax.swing.JRadioButton();
         panelUmpire = new javax.swing.JPanel();
-        jLabel37 = new javax.swing.JLabel();
-        umpireFormat = new javax.swing.JComboBox();
-        jLabel38 = new javax.swing.JLabel();
-        jSpinner27 = new javax.swing.JSpinner();
-        jSpinner28 = new javax.swing.JSpinner();
+        testMatchesMin = new javax.swing.JSpinner();
+        testMatchesMax = new javax.swing.JSpinner();
         jLabel40 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        UmpireSubmitQuery = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
+        odiMatchesMin = new javax.swing.JSpinner();
+        jLabel45 = new javax.swing.JLabel();
+        odiMatchesMax = new javax.swing.JSpinner();
+        t20MatchesMin = new javax.swing.JSpinner();
+        jLabel50 = new javax.swing.JLabel();
+        t20MatchesMax = new javax.swing.JSpinner();
+        totalMatchesMin = new javax.swing.JSpinner();
+        jLabel58 = new javax.swing.JLabel();
+        totalMatchesMax = new javax.swing.JSpinner();
+        testMatchesUmpire = new javax.swing.JRadioButton();
+        odiMatchesUmpire = new javax.swing.JRadioButton();
+        t20MatchesUmpire = new javax.swing.JRadioButton();
+        totalMatchesUmpire = new javax.swing.JRadioButton();
         panelCountry = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
         comboBoxTeamCountry = new javax.swing.JComboBox();
@@ -486,7 +496,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                                     .addComponent(jLabel12)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(battingHundredsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -698,7 +708,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                                     .addComponent(jLabel25)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(bowling5WicketMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
@@ -833,7 +843,7 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(100, 100, 100)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addComponent(jLabel29)
                 .addGap(92, 92, 92))
         );
@@ -879,69 +889,160 @@ public class SearchWindow extends javax.swing.JFrame {
 
         JTabbedPanel.addTab("        Fielding        ", panelFielding);
 
-        jLabel37.setText("Format");
+        testMatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        testMatchesMin.setEnabled(false);
 
-        umpireFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
-
-        jLabel38.setText("Matches Officiated");
-
-        jSpinner27.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        testMatchesMax.setEnabled(false);
 
         jLabel40.setText("to");
 
-        jButton4.setText("Submit Query");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        UmpireSubmitQuery.setText("Submit Query");
+        UmpireSubmitQuery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                UmpireSubmitQueryActionPerformed(evt);
             }
         });
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/bowden.jpg"))); // NOI18N
+
+        odiMatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        odiMatchesMin.setEnabled(false);
+
+        jLabel45.setText("to");
+
+        odiMatchesMax.setEnabled(false);
+
+        t20MatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        t20MatchesMin.setEnabled(false);
+
+        jLabel50.setText("to");
+
+        t20MatchesMax.setEnabled(false);
+
+        totalMatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        totalMatchesMin.setEnabled(false);
+
+        jLabel58.setText("to");
+
+        totalMatchesMax.setEnabled(false);
+
+        testMatchesUmpire.setText("Test Matches Officiated");
+        testMatchesUmpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testMatchesUmpireActionPerformed(evt);
+            }
+        });
+
+        odiMatchesUmpire.setText("ODI Matches Officiated");
+        odiMatchesUmpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                odiMatchesUmpireActionPerformed(evt);
+            }
+        });
+
+        t20MatchesUmpire.setText("T20 Matches Officiated");
+        t20MatchesUmpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t20MatchesUmpireActionPerformed(evt);
+            }
+        });
+
+        totalMatchesUmpire.setText("Total Matches Officiated");
+        totalMatchesUmpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalMatchesUmpireActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelUmpireLayout = new javax.swing.GroupLayout(panelUmpire);
         panelUmpire.setLayout(panelUmpireLayout);
         panelUmpireLayout.setHorizontalGroup(
             panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUmpireLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel37))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
+                .addGap(54, 54, 54)
+                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(testMatchesUmpire)
+                        .addComponent(totalMatchesUmpire)
+                        .addComponent(odiMatchesUmpire, javax.swing.GroupLayout.Alignment.LEADING))
                     .addGroup(panelUmpireLayout.createSequentialGroup()
-                        .addComponent(jSpinner27, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(umpireFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(t20MatchesUmpire)
+                        .addGap(10, 10, 10)))
+                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUmpireLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUmpireLayout.createSequentialGroup()
+                                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel45))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(testMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(odiMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUmpireLayout.createSequentialGroup()
+                                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(totalMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t20MatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(125, 125, 125))))
+                    .addGroup(panelUmpireLayout.createSequentialGroup()
+                        .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelUmpireLayout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(UmpireSubmitQuery))
+                            .addGroup(panelUmpireLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(odiMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(testMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelUmpireLayout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel50)
+                                    .addComponent(jLabel58))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(totalMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t20MatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(19, 19, 19)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jLabel39)
                 .addGap(67, 67, 67))
         );
         panelUmpireLayout.setVerticalGroup(
             panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUmpireLayout.createSequentialGroup()
-                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelUmpireLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel37)
-                            .addComponent(umpireFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel38)
-                            .addComponent(jSpinner27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel40)
-                            .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48)
-                        .addComponent(jButton4))
-                    .addGroup(panelUmpireLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel39)))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel39)
                 .addContainerGap(50, Short.MAX_VALUE))
+            .addGroup(panelUmpireLayout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(testMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel40)
+                    .addComponent(testMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(testMatchesUmpire))
+                .addGap(26, 26, 26)
+                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(odiMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(odiMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45)
+                    .addComponent(odiMatchesUmpire))
+                .addGap(27, 27, 27)
+                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t20MatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(t20MatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel50)
+                    .addComponent(t20MatchesUmpire))
+                .addGap(36, 36, 36)
+                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel58)
+                    .addComponent(totalMatchesUmpire))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(UmpireSubmitQuery)
+                .addGap(96, 96, 96))
         );
 
         JTabbedPanel.addTab("        Umpire      ", panelUmpire);
@@ -1085,7 +1186,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addComponent(jLabel53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(countryTiedMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
@@ -1201,7 +1302,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(137, 137, 137)
                             .addComponent(comboBoxMatchLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1338,7 +1439,7 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(166, 166, 166)
                         .addComponent(jButton7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -1661,7 +1762,7 @@ public class SearchWindow extends javax.swing.JFrame {
         rw.result = Queries.getCountryStats(obj);
         
         rw.columnNames = new String [] {"Country", "Format", "Matches Played", "Matches Won", "Matches Lost", "Matches Drawn", "Matches Tied"};
-        rw.queryNames  = new String [] {"Name",    "Type",   "Matches_Played",  "Matches_Won", "Matches_Lost", "Matches_Drawn", "Matches_Tied"};
+        rw.queryNames  = new String [] {"Country.Name",    "Type",   "Matches_Played",  "Matches_Won", "Matches_Lost", "Matches_Drawn", "Matches_Tied"};
         
         rw.display();
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -1786,10 +1887,66 @@ public class SearchWindow extends javax.swing.JFrame {
         
         rw.display();
     }//GEN-LAST:event_jButton7ActionPerformed
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void UmpireSubmitQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UmpireSubmitQueryActionPerformed
         // TODO add your handling code here:
+        UmpireQueryObj obj = new UmpireQueryObj();
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+        if(testMatchesUmpire.isSelected())
+        {
+            obj.num_test_low = (Integer) testMatchesMin.getValue();
+            obj.num_test_high = (Integer) testMatchesMax.getValue();
+        }
+        
+        if(odiMatchesUmpire.isSelected())
+        {
+            obj.num_odi_low = (Integer) odiMatchesMin.getValue();
+            obj.num_odi_high = (Integer) odiMatchesMax.getValue();
+        }
+        
+        if(t20MatchesUmpire.isSelected())
+        {
+            obj.num_t20_low = (Integer) t20MatchesMin.getValue();
+            obj.num_t20_high = (Integer) t20MatchesMax.getValue();
+        }
+        
+        if(totalMatchesUmpire.isSelected())
+        {
+            obj.num_total_low = (Integer) totalMatchesMin.getValue();
+            obj.num_total_high = (Integer) totalMatchesMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getUmpire(obj);
+        
+        rw.columnNames = new String[] {"Name", "Test Matches Officiated", "ODI Matches Officiated", "T20 Matches Officiated", "Total Matches Officiated"};
+        rw.queryNames = new String[] {"U.Name", "U.Num_Test", "U.Num_ODI",   "U.Num_T20",     "Num_Total"};
+        
+        rw.display();
+    }//GEN-LAST:event_UmpireSubmitQueryActionPerformed
+
+    private void testMatchesUmpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMatchesUmpireActionPerformed
+        // TODO add your handling code here:
+        testMatchesMin.setEnabled(testMatchesUmpire.isSelected());
+        testMatchesMax.setEnabled(testMatchesUmpire.isSelected());
+    }//GEN-LAST:event_testMatchesUmpireActionPerformed
+
+    private void odiMatchesUmpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odiMatchesUmpireActionPerformed
+        // TODO add your handling code here:
+        odiMatchesMin.setEnabled(odiMatchesUmpire.isSelected());
+        odiMatchesMax.setEnabled(odiMatchesUmpire.isSelected());
+    }//GEN-LAST:event_odiMatchesUmpireActionPerformed
+
+    private void t20MatchesUmpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t20MatchesUmpireActionPerformed
+        // TODO add your handling code here:
+        t20MatchesMin.setEnabled(t20MatchesUmpire.isSelected());
+        t20MatchesMax.setEnabled(t20MatchesUmpire.isSelected());
+    }//GEN-LAST:event_t20MatchesUmpireActionPerformed
+
+    private void totalMatchesUmpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalMatchesUmpireActionPerformed
+        // TODO add your handling code here:
+        totalMatchesMin.setEnabled(totalMatchesUmpire.isSelected());
+        totalMatchesMax.setEnabled(totalMatchesUmpire.isSelected());
+    }//GEN-LAST:event_totalMatchesUmpireActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1828,6 +1985,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane JTabbedPanel;
+    private javax.swing.JButton UmpireSubmitQuery;
     private javax.swing.JRadioButton battingFifties;
     private javax.swing.JSpinner battingFiftiesMax;
     private javax.swing.JSpinner battingFiftiesMin;
@@ -1902,7 +2060,6 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1931,24 +2088,25 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
@@ -1959,14 +2117,24 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSpinner jSpinner27;
-    private javax.swing.JSpinner jSpinner28;
     private javax.swing.JComboBox matchFormat;
+    private javax.swing.JSpinner odiMatchesMax;
+    private javax.swing.JSpinner odiMatchesMin;
+    private javax.swing.JRadioButton odiMatchesUmpire;
     private javax.swing.JPanel panelBalling;
     private javax.swing.JPanel panelBatting;
     private javax.swing.JPanel panelCountry;
     private javax.swing.JPanel panelFielding;
     private javax.swing.JPanel panelUmpire;
+    private javax.swing.JSpinner t20MatchesMax;
+    private javax.swing.JSpinner t20MatchesMin;
+    private javax.swing.JRadioButton t20MatchesUmpire;
+    private javax.swing.JSpinner testMatchesMax;
+    private javax.swing.JSpinner testMatchesMin;
+    private javax.swing.JRadioButton testMatchesUmpire;
+    private javax.swing.JSpinner totalMatchesMax;
+    private javax.swing.JSpinner totalMatchesMin;
+    private javax.swing.JRadioButton totalMatchesUmpire;
     private javax.swing.JComboBox tourFormat;
     private javax.swing.JRadioButton tourTotalBalls;
     private javax.swing.JSpinner tourTotalBallsMax;
@@ -1977,6 +2145,5 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton tourTotalWickets;
     private javax.swing.JSpinner tourTotalWicketsMax;
     private javax.swing.JSpinner tourTotalWicketsMin;
-    private javax.swing.JComboBox umpireFormat;
     // End of variables declaration//GEN-END:variables
 }

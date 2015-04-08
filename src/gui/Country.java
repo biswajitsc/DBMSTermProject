@@ -277,6 +277,7 @@ public class Country extends javax.swing.JFrame {
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
         // TODO add your handling code here:
+        if (jList2.getSelectedIndex() < 0) return;
         Object temp = jList2.getSelectedValue();
         String pname = temp.toString();
         try {

@@ -206,7 +206,7 @@ public class Player extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             null,
             new String [] {
-                "Type", "Mat", "Balls", "Runs", "Wckts", "BBI", "BBM", "Ave", "Econ", "SR", "4w", "5w", "10"
+                "Type", "Mat", "Inns", "Balls", "Runs", "Wckts", "BBI", "BBM", "Ave", "Econ", "SR", "4w", "5w", "10"
             }
         ) {
             boolean[] canEdit = new boolean [] {

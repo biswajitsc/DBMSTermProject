@@ -14,6 +14,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
@@ -44,15 +45,18 @@ public class StatsWindow extends javax.swing.JFrame {
         jList1.setModel(list);
         
         ResultSet rs2 = Queries.getYears(null);
-        Set<String> set = new HashSet<String>();
+        Set<Integer> set = new HashSet<Integer>();
         while(rs2.next())
         {
            Date date = rs2.getDate("StartDate"); 
            String year = (date.toString()).split("-")[0];
-           set.add(year);
+           int y = Integer.parseInt(year);
+           set.add(y);
         }
         
         Vector v1 = new Vector(set);
+        Collections.sort(v1); 
+        Collections.reverse(v1);
         DefaultComboBoxModel yearlist = new DefaultComboBoxModel(v1);
         jComboBox1.setModel(yearlist);
         
@@ -467,6 +471,11 @@ public class StatsWindow extends javax.swing.JFrame {
         button2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         button2.setForeground(new java.awt.Color(255, 255, 255));
         button2.setLabel("Submit");
+        button2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button2MouseClicked(evt);
+            }
+        });
 
         jLabel37.setBackground(new java.awt.Color(234, 234, 234));
         jLabel37.setFont(new java.awt.Font("Ubuntu Condensed", 1, 15)); // NOI18N
@@ -661,7 +670,7 @@ public class StatsWindow extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(button3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(textField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1005,6 +1014,12 @@ public class StatsWindow extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_button5MouseClicked
+
+    private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
+        // TODO add your handling code here:
+        String year = jComboBox1.getSelectedItem().toString();
+        System.out.println(year);
+    }//GEN-LAST:event_button2MouseClicked
 
     /**
      * @param args the command line arguments

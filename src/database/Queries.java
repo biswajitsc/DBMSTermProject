@@ -415,17 +415,17 @@ public class Queries {
     
     
     public static ResultSet getPlayerByNameLike(String name) {
-        String query = "select * from Player where Name like " + "\"%" + name + "%\"";
+        String query = "select * from Player,Country where Player.CID=Country.CID and Player.Name like " + "\"%" + name + "%\"";
         return Database.query(query);
     }
     
     public static ResultSet getUmpireByNameLike(String name) {
-        String query = "select * from Umpire where Name like " + "\"%" + name + "%\"";
+        String query = "select * from Umpire as U where Name like " + "\"%" + name + "%\"";
         return Database.query(query);
     }
     
     public static ResultSet getTournamentByNameLike(String name) {
-        String query = "select * from Tournament where Name like " + "\"%" + name + "%\"";
+        String query = "select * from Tournament as T, Country as C where T.Winner = C.CID and T.Name like " + "\"%" + name + "%\"";
         return Database.query(query);
     }
 }

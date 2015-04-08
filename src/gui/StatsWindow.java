@@ -22,6 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -141,11 +143,11 @@ public class StatsWindow extends javax.swing.JFrame {
         setTitle("Cricinfo");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                dinitdb(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 initdb(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                dinitdb(evt);
             }
         });
 
@@ -524,6 +526,11 @@ public class StatsWindow extends javax.swing.JFrame {
         button4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         button4.setForeground(new java.awt.Color(255, 255, 255));
         button4.setLabel("Submit");
+        button4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button4MouseClicked(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel13.setText("Umpire Records");
@@ -674,7 +681,7 @@ public class StatsWindow extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(button3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(textField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -913,28 +920,12 @@ public class StatsWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel35MouseClicked
 
     private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked
-        try {
-            // TODO add your handling code here:
-            ResultSet rs = Queries.getPlayerbyName(textField1.getText());
-            if(rs.next())
-            {
-                String pid = rs.getString("PID");
-                Player p = new Player(pid);
-                String s[] = {pid};
-                p.main(s);
-            }
-            else
-            {
-                PopUpMenu d = new PopUpMenu(this, true, textField1.getText());
-                d.main(new String[]{"The name + <" + textField1.getText() + "> does not exist in our database.\nPlease try another name"});
-            }
-                    
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-            //JDialog d = new JDialog
-        } catch (IOException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String pname = textField1.getText();
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getPlayerByNameLike(pname);
+        rw.columnNames = new String[] {"Player Name", "DOB", "Country"};
+        rw.queryNames = new String[] {"Player.Name", "Player.DOB", "Country.Name"};
+        rw.display();
     }//GEN-LAST:event_button3MouseClicked
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
@@ -995,25 +986,12 @@ public class StatsWindow extends javax.swing.JFrame {
 
     private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
         // TODO add your handling code here:
-        try {
-            System.out.println(textField3.getText());
-            ResultSet rs = Queries.getUmpirebyName(textField3.getText());
-            if(rs.next())
-            {
-                String uid = rs.getString("UID");
-                Umpire u = new Umpire(uid);  
-                u.main(new String[]{uid});
-            }
-            else
-            {
-                PopUpMenu d = new PopUpMenu(this, true, textField1.getText());
-                d.main(new String[]{"The name + <" + textField1.getText() + "> does not exist in our database.\nPlease try another name"});
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String uname = textField3.getText();
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getUmpireByNameLike(uname);
+        rw.columnNames = new String[] {"Umpire Name", "Test","ODI","T20"};
+        rw.queryNames = new String[] {"U.Name", "U.Num_Test","U.Num_ODI","U.Num_T20"};
+        rw.display();
         
     }//GEN-LAST:event_button5MouseClicked
 
@@ -1028,6 +1006,16 @@ public class StatsWindow extends javax.swing.JFrame {
             Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_button2MouseClicked
+
+    private void button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseClicked
+        // TODO add your handling code here:
+        String tname = textField2.getText();
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getTournamentByNameLike(tname);
+        rw.columnNames = new String[] {"Tournament Name", "Winner"};
+        rw.queryNames = new String[] {"T.Name", "C.Name"};
+        rw.display();
+    }//GEN-LAST:event_button4MouseClicked
 
     /**
      * @param args the command line arguments

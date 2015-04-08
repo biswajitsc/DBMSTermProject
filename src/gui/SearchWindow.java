@@ -226,9 +226,9 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         matchFormat = new javax.swing.JComboBox();
         jLabel60 = new javax.swing.JLabel();
-        comboBoxTeamCountry4 = new javax.swing.JComboBox();
+        comboBoxMatchLocation = new javax.swing.JComboBox();
         jLabel61 = new javax.swing.JLabel();
-        comboBoxTeamCountry5 = new javax.swing.JComboBox();
+        comboBoxMatchUmpire = new javax.swing.JComboBox();
         jButton6 = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -1023,6 +1023,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel61.setText("Umpired by");
 
         jButton6.setText("Submit Query");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/match.jpg"))); // NOI18N
 
@@ -1056,10 +1061,10 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addComponent(jLabel60)
                         .addComponent(jLabel61))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(comboBoxTeamCountry5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxMatchUmpire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(137, 137, 137)
-                            .addComponent(comboBoxTeamCountry4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(comboBoxMatchLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1087,12 +1092,12 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel60)
-                            .addComponent(comboBoxTeamCountry4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comboBoxMatchLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel62))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel61)
-                    .addComponent(comboBoxTeamCountry5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxMatchUmpire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jButton6)
                 .addContainerGap(143, Short.MAX_VALUE))
@@ -1130,6 +1135,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel9.setText("to");
 
         jButton7.setText("Submit Query");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/worldcup.jpg"))); // NOI18N
 
@@ -1549,6 +1559,86 @@ public class SearchWindow extends javax.swing.JFrame {
         rw.display();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        MatchQueryObj obj = new MatchQueryObj();
+        
+        if(comboBoxMatchTeam1.getSelectedIndex() > 0)
+        {
+            obj.country1 = (String) comboBoxMatchTeam1.getSelectedItem();
+        }
+        
+        if(comboBoxMatchTeam2.getSelectedIndex() > 0)
+        {
+            obj.country2 = (String) comboBoxMatchTeam2.getSelectedItem();
+        }
+        
+        if(matchFormat.getSelectedIndex() > 0)
+        {
+            obj.type = (String) matchFormat.getSelectedItem();
+        }
+        
+        if(comboBoxMatchWinner.getSelectedIndex() > 0)
+        {
+            obj.winner = (String) comboBoxMatchWinner.getSelectedItem();
+        }
+        
+        if(comboBoxMatchLocation.getSelectedIndex() > 0)
+        {
+            obj.location = (String) comboBoxMatchLocation.getSelectedItem();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Database.query(obj.generatequery());
+        rw.columnNames = new String [] {"Team1", "Team2", "Type", "Result", "Winner", "Margin", "Location"};
+        rw.queryNames = new String [] {"Country1", "Country2", "Type", "Result", "Winner", "Margin", "Location"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        TournamentObj obj = new TournamentObj();
+        
+        if (comboBoxTourPlayedBy.getSelectedIndex() > 0){
+            obj.country = (String) comboBoxTourPlayedBy.getSelectedItem();
+        }
+        
+        if (tourFormat.getSelectedIndex() > 0) {
+            obj.type = (String) tourFormat.getSelectedItem();
+        }
+        
+        if (comboBoxTourWonBy.getSelectedIndex() > 0){
+            obj.winner = (String) comboBoxTourWonBy.getSelectedItem();
+        }
+        
+        if(tourTotalRuns.isSelected())
+        {
+            obj.runs_low = (Integer) tourTotalRunsMin.getValue();
+            obj.runs_high = (Integer) tourTotalRunsMax.getValue();
+        }
+        
+        if(tourTotalWickets.isSelected())
+        {
+            obj.wickets_low = (Integer) tourTotalWicketsMin.getValue();
+            obj.wickets_high = (Integer) tourTotalWicketsMax.getValue();
+        }
+        
+        if(tourTotalBalls.isSelected())
+        {
+            obj.balls_low = (Integer) tourTotalBallsMin.getValue();
+            obj.balls_high = (Integer) tourTotalBallsMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getTournament(obj);
+        
+        rw.columnNames = new String[] {"Name", "Format", "Winner", "Total Runs Scored", "Total Wickets Taken", "Total Balls Bowled"};
+        rw.queryNames = new String[] {"T.Name", "T.Type", "C3.Name",   "T.Total_Runs",     "T.Total_Wickets",    "T.Total_Balls"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1620,14 +1710,14 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner bowlingWicketsMax;
     private javax.swing.JSpinner bowlingWicketsMin;
     private javax.swing.JRadioButton bowlingWicketsTaken;
+    private javax.swing.JComboBox comboBoxMatchLocation;
     private javax.swing.JComboBox comboBoxMatchTeam1;
     private javax.swing.JComboBox comboBoxMatchTeam2;
+    private javax.swing.JComboBox comboBoxMatchUmpire;
     private javax.swing.JComboBox comboBoxMatchWinner;
     private javax.swing.JComboBox comboBoxTeamBatting;
     private javax.swing.JComboBox comboBoxTeamBowling;
     private javax.swing.JComboBox comboBoxTeamCountry;
-    private javax.swing.JComboBox comboBoxTeamCountry4;
-    private javax.swing.JComboBox comboBoxTeamCountry5;
     private javax.swing.JComboBox comboBoxTeamFielding;
     private javax.swing.JComboBox comboBoxTourPlayedBy;
     private javax.swing.JComboBox comboBoxTourWonBy;

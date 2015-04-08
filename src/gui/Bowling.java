@@ -5,6 +5,13 @@
  */
 package gui;
 
+import database.BowlingQueryObj;
+import database.Queries;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,19 +23,23 @@ public class Bowling extends javax.swing.JFrame {
     /**
      * Creates new form Bowling
      */
-    public Bowling() {
+    public Bowling(String type) throws SQLException {
         initComponents();
         
         DefaultTableModel model =(DefaultTableModel) jTable2.getModel();
-
-        for(int i=0;i<10;i++)
+        BowlingQueryObj b = new BowlingQueryObj();
+        b.type = type;
+        
+        ResultSet rs = Queries.getBowlers(b);
+        
+        while(rs.next())
         {
-            String data1 = Integer.toString(i); 
-            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1  };
+            Object[] row = {rs.getString("Player.Name"),rs.getInt("Mat"),rs.getInt("Inns"),rs.getInt("Balls"),rs.getInt("Runs"),rs.getInt("Wkts"),rs.getString("BBI"),rs.getString("BBM"),rs.getFloat("Ave"),rs.getFloat("Econ"),rs.getFloat("SR"),rs.getInt("fourwickets"),rs.getInt("fivewickets"),rs.getInt("tenwickets")};
             model.addRow(row);
-            
         }
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +65,7 @@ public class Bowling extends javax.swing.JFrame {
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             null,
             new String [] {
-                "Type", "Mat", "Balls", "Runs", "Wckts", "BBI", "BBM", "Ave", "Econ", "SR", "4w", "5w", "10"
+                "Name", "Mat", "Inns","Balls", "Runs", "Wckts", "BBI", "BBM", "Ave", "Econ", "SR", "4w", "5w", "10"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -65,6 +76,11 @@ public class Bowling extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -72,29 +88,50 @@ public class Bowling extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        int i = jTable2.getSelectedRow();
+        if(i<0)return;
+        Object obj = jTable2.getModel().getValueAt(i, 0);
+        String pname = obj.toString();
+        System.out.println(pname);
+        ResultSet rs = Queries.getPlayerbyName(pname);
+        try {
+            rs.next();
+            String pid = rs.getString("PID");
+            Player p = new Player(pid);
+            p.main(new String[]{pid});
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Batting.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -121,7 +158,11 @@ public class Bowling extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Bowling().setVisible(true);
+                try {
+                    new Bowling(args[0]).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Bowling.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

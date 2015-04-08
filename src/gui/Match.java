@@ -5,6 +5,11 @@
  */
 package gui;
 
+import database.Queries;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -17,14 +22,16 @@ public class Match extends javax.swing.JFrame {
     /**
      * Creates new form Match
      */
-    public Match() {
+    public Match(String type) throws SQLException {
         initComponents();
         
         DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
-        for(int i=0;i<10;i++)
+        ResultSet rs = Queries.getMatches(null, null, null, null, null, type);
+        while(rs.next())
         {
-            String data1 = Integer.toString(i); 
-            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1  };
+            Object [] row = {rs.getDate("Date"),rs.getString("Type"),rs.getString("Country1"),
+                            rs.getString("Country2"),rs.getString("Result"),
+                            rs.getString("Winner"),rs.getString("Margin")};
             model.addRow(row);
         }
     }
@@ -51,13 +58,15 @@ public class Match extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            null,
+            new Object [][] {
+
+            },
             new String [] {
-                "Date", "Type", "Team1", "Team2", "Result", "Winner", "Margin", "Location"
+                "Date", "Type", "Team1", "Team2", "Result", "Winner", "Margin"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -71,20 +80,20 @@ public class Match extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -94,7 +103,7 @@ public class Match extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -121,7 +130,11 @@ public class Match extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Match().setVisible(true);
+                try {
+                    new Match(args[0]).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Match.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

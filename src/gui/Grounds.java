@@ -72,8 +72,8 @@ public class Grounds extends javax.swing.JFrame {
             image = ImageIO.read(is);
             image.getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight() , Image.SCALE_DEFAULT);
         } 
-        catch (IOException e) {
-            image = ImageIO.read(new File("./src/gui/No_image_available.jpeg"));
+        catch (Exception e) {
+            image = ImageIO.read(new File("./src/gui/No_image_available.jpg"));
             e.printStackTrace();
         }
         
@@ -106,7 +106,7 @@ public class Grounds extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(229, 219, 208));
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N

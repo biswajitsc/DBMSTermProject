@@ -5,6 +5,13 @@
  */
 package gui;
 
+import database.FieldingQueryObj;
+import database.Queries;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,20 +23,25 @@ public class Fielding extends javax.swing.JFrame {
     /**
      * Creates new form Fielding
      */
-    public Fielding() {
+    public Fielding(String type) throws SQLException {
         initComponents();
         
         
         DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
-
-        for(int i=0;i<10;i++)
+        FieldingQueryObj f = new FieldingQueryObj();
+        f.type = type;
+        
+        ResultSet rs = Queries.getFielders(f);
+        
+        while(rs.next())
         {
-            String data1 = Integer.toString(i); 
-            Object[] row = { data1,data1};
+            Object[] row = {rs.getString("Player.Name"),rs.getString("Ct"),rs.getString("St")};
             model.addRow(row);
             
         }
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +67,7 @@ public class Fielding extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             null,
             new String [] {
-                "Catches", "Stump-outs"
+                "Name","Catches", "Stump-outs"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -64,6 +76,11 @@ public class Fielding extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -75,7 +92,7 @@ public class Fielding extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -92,10 +109,31 @@ public class Fielding extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int i = jTable1.getSelectedRow();
+        if(i<0)return;
+        Object obj = jTable1.getModel().getValueAt(i, 0);
+        String pname = obj.toString();
+        System.out.println(pname);
+        ResultSet rs = Queries.getPlayerbyName(pname);
+        try {
+            rs.next();
+            String pid = rs.getString("PID");
+            Player p = new Player(pid);
+            p.main(new String[]{pid});
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Batting.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -122,7 +160,11 @@ public class Fielding extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fielding().setVisible(true);
+                try {
+                    new Fielding(args[0]).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Fielding.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

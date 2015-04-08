@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
@@ -730,32 +731,58 @@ public class StatsWindow extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        Match m = new Match();
-        m.main(null);
+        Match m = null;
+        try {
+            m = new Match("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        m.main(new String[]{"Test"});
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        Tournament t = new Tournament();
-        t.main(null);
+        Tournament t = null;
+        try {
+            t = new Tournament("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        t.main(new String[]{"Test"});
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        Batting b = new Batting();
-        b.main(null);
+        Batting b = null;
+        try {
+            b = new Batting("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"Test"});
+    
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        Bowling b = new Bowling();
-        b.main(null);
+        Bowling b = null;
+        try {
+            b = new Bowling("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"Test"});
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        Fielding f = new Fielding();
-        f.main(null);
+        Fielding f = null;
+        try {
+            f = new Fielding("Test");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.main(new String[]{"Test"});
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void button6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button6MouseClicked
@@ -766,62 +793,114 @@ public class StatsWindow extends javax.swing.JFrame {
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
         // TODO add your handling code here:
-        Match m = new Match();
-        m.main(null);
+        Match m = null;
+        try {
+            m = new Match("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        m.main(new String[]{"ODI"});
     }//GEN-LAST:event_jLabel24MouseClicked
 
     private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
         // TODO add your handling code here:
-        Tournament t = new Tournament();
-        t.main(null);
+        Tournament t = null;
+        try {
+            t = new Tournament("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        t.main(new String[]{"ODI"});
     }//GEN-LAST:event_jLabel25MouseClicked
 
     private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
         // TODO add your handling code here:
-        Batting b = new Batting();
-        b.main(null);
+        Batting b = null;
+        try {
+            b = new Batting("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"ODI"});
+    
     }//GEN-LAST:event_jLabel26MouseClicked
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
         // TODO add your handling code here:
-        Bowling b = new Bowling();
-        b.main(null);        
+        Bowling b = null;
+        try {
+            b = new Bowling("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"ODI"});        
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
         // TODO add your handling code here:
-        Fielding f = new Fielding();
-        f.main(null);
+        Fielding f = null;
+        try {
+            f = new Fielding("ODI");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.main(new String[]{"ODI"});
+
     }//GEN-LAST:event_jLabel28MouseClicked
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
         // TODO add your handling code here:
-        Match m = new Match();
-        m.main(null);
+        Match m = null;
+        try {
+            m = new Match("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        m.main(new String[]{"T20"});
     }//GEN-LAST:event_jLabel31MouseClicked
 
     private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
         // TODO add your handling code here:
-        Tournament t = new Tournament();
-        t.main(null);                
+        Tournament t = null;
+        try {
+            t = new Tournament("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        t.main(new String[]{"T20"});                
     }//GEN-LAST:event_jLabel32MouseClicked
 
     private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
         // TODO add your handling code here:
-        Batting b = new Batting();
-        b.main(null);
+        Batting b = null;
+        try {
+            b = new Batting("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"T20"});
     }//GEN-LAST:event_jLabel33MouseClicked
 
     private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
         // TODO add your handling code here:
-        Bowling b = new Bowling();
-        b.main(null);
+        Bowling b = null;
+        try {
+            b = new Bowling("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        b.main(new String[]{"T20"});
     }//GEN-LAST:event_jLabel34MouseClicked
 
     private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
         // TODO add your handling code here:
-        Fielding f = new Fielding();
-        f.main(null);
+        Fielding f = null;
+        try {
+            f = new Fielding("T20");
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.main(new String[]{"T20"});
     }//GEN-LAST:event_jLabel35MouseClicked
 
     private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked

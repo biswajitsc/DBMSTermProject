@@ -342,4 +342,35 @@ public class Queries {
         return Database.query(query);
     }
     
+    public static ResultSet getAllTournaments(String tid,String type)
+    {
+        String query = "select TID, Tournament.Name as tname, Type, Country.Name as cname, Total_Runs, Total_Wickets, Total_Balls";
+        query += " from Tournament join Country where Tournament.Winner=Country.CID ";
+        if(type!=null) query += "and Tournament.Type=\"" + type + "\"";
+        if(tid!=null) query += "and Tournament.TID = \""+tid+"\"";
+        System.out.println(query);
+        return Database.query(query);
+    }
+    
+    public static ResultSet getTournamentbyName(String tname)
+    {
+        String query = "select TID from Tournament where Name = \""+tname+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getMatchesbyTournament(String tid)
+    {
+        String query = "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
+                     + "from Matches, Country as C1, Country as C2, Country as C3, Ground as G "
+                     + "where Matches.Team1 = C1.CID and Matches.Team2 = C2.CID and Matches.Winner = C3.CID and G.GID = Matches.Location "
+                     + "and Matches.MID in (select Tournament_Matches.MID from Tournament_Matches "  
+                     + "where Tournament_Matches.TID = \""+tid+"\")";
+        
+        
+        return Database.query(query);
+    }
+    
+    
+    
+    
 }

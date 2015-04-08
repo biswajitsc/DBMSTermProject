@@ -920,27 +920,12 @@ public class StatsWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel35MouseClicked
 
     private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked
-        try {
-            // TODO add your handling code here:
-            ResultSet rs = Queries.getPlayerbyName(textField1.getText());
-            if(rs.next())
-            {
-                String pid = rs.getString("PID");
-                Player p = new Player(pid);
-                String s[] = {pid};
-                p.main(s);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Name " +textField1.getText()+ " does not exist in our database", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-                    
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-            //JDialog d = new JDialog
-        } catch (IOException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String pname = textField1.getText();
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getPlayerByNameLike(pname);
+        rw.columnNames = new String[] {"Player Name", "DOB", "Country"};
+        rw.queryNames = new String[] {"Player.Name", "Player.DOB", "Country.Name"};
+        rw.display();
     }//GEN-LAST:event_button3MouseClicked
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
@@ -999,24 +984,12 @@ public class StatsWindow extends javax.swing.JFrame {
 
     private void button5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseClicked
         // TODO add your handling code here:
-        try {
-            System.out.println(textField3.getText());
-            ResultSet rs = Queries.getUmpirebyName(textField3.getText());
-            if(rs.next())
-            {
-                String uid = rs.getString("UID");
-                Umpire u = new Umpire(uid);  
-                u.main(new String[]{uid});
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Name " +textField3.getText()+ " does not exist in our database", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String uname = textField3.getText();
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getUmpireByNameLike(uname);
+        rw.columnNames = new String[] {"Umpire Name", "Test","ODI","T20"};
+        rw.queryNames = new String[] {"U.Name", "U.Num_Test","U.Num_ODI","U.Num_T20"};
+        rw.display();
         
     }//GEN-LAST:event_button5MouseClicked
 
@@ -1036,10 +1009,9 @@ public class StatsWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         String tname = textField2.getText();
         ResultWindow rw = new ResultWindow();
-        //rw.result = Queries.getBatsmen(obj);
-        
-        rw.columnNames = new String[] {"Tournament Name", "Country"};
-        rw.queryNames = new String[] {"T.Name", "Winner"};
+        rw.result = Queries.getTournamentByNameLike(tname);
+        rw.columnNames = new String[] {"Tournament Name", "Winner"};
+        rw.queryNames = new String[] {"T.Name", "C.Name"};
         rw.display();
     }//GEN-LAST:event_button4MouseClicked
 

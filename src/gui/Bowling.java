@@ -114,7 +114,7 @@ public class Bowling extends javax.swing.JFrame {
         // TODO add your handling code here:
         int i = jTable2.getSelectedRow();
         if(i<0)return;
-        Object obj = jTable2.getModel().getValueAt(i, 0);
+        Object obj = jTable2.getValueAt(i, 0);
         String pname = obj.toString();
         System.out.println(pname);
         ResultSet rs = Queries.getPlayerbyName(pname);

@@ -109,7 +109,7 @@ public class Batting extends javax.swing.JFrame {
         // TODO add your handling code here:
         int i = jTable1.getSelectedRow();
         if(i<0)return;
-        Object obj = jTable1.getModel().getValueAt(i, 0);
+        Object obj = jTable1.getValueAt(i, 0);
         String pname = obj.toString();
         System.out.println(pname);
         ResultSet rs = Queries.getPlayerbyName(pname);

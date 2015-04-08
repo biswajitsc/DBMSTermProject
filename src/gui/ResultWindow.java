@@ -134,6 +134,9 @@ public class ResultWindow extends javax.swing.JFrame {
 
     private void resultTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultTableMouseClicked
         // TODO add your handling code here:
+        if (resultTable.getSelectedRow() < 0) {
+            return;
+        }
         try {
             if (queryNames[0].equals("Player.Name")) {
                 // Display details of this player in new window

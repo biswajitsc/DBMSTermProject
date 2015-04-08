@@ -6,10 +6,18 @@
 
 package gui;
 import database.*;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 /**
  *
@@ -20,6 +28,9 @@ public class SearchWindow extends javax.swing.JFrame {
     /**
      * Creates new form StatsWindow
      */
+    int shown = 0;
+    Image image = null;
+    
     public SearchWindow() {
         initComponents();
         // TODO add the list of county names to the comboBoxCountry using
@@ -106,6 +117,42 @@ public class SearchWindow extends javax.swing.JFrame {
         tourTotalWicketsMax.setEnabled(false);
         tourTotalBallsMin.setEnabled(false);
         tourTotalBallsMax.setEnabled(false);
+        
+        Timer timer = new Timer(4000, new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                if(shown == 0) {
+                    try {
+                        image = ImageIO.read(new File("./src/gui/sachin.jpeg"));
+                        
+                    } catch (IOException ex) {
+                        
+                    }
+                } else if(shown == 1) {
+                    try {
+                        image = ImageIO.read(new File("./src/gui/sourav.jpg"));
+                        
+                    } catch (IOException ex) {
+                        
+                    }
+                }
+                else if(shown == 2) {
+                    try {
+                        image = ImageIO.read(new File("./src/gui/ricky.jpg"));
+                        
+                    } catch (IOException ex) {
+                        
+                    }
+                }
+                jLabel13.setText("");
+                shown = (shown + 1) % 3;
+                //image.getScaledInstance(jLabel13.getWidth(), jLabel13.getHeight() , Image.SCALE_DEFAULT);
+                jLabel13.setIcon(new javax.swing.ImageIcon(image));
+            }
+        });
+        timer.start();
     }
 
     /**

@@ -26,6 +26,7 @@ public class Year extends javax.swing.JFrame {
     public Year(int year) throws SQLException {
         initComponents();
         
+        jLabel1.setText(Integer.toString(year));
         jTable1.setAutoCreateRowSorter(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
         

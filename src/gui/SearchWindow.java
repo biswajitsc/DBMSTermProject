@@ -1479,10 +1479,36 @@ public class SearchWindow extends javax.swing.JFrame {
             obj.country = (String) comboBoxTeamFielding.getSelectedItem();
         }
         
-        if(comboBoxTeamFielding.getSelectedIndex() > 0)
+        if(fieldingFormat.getSelectedIndex() > 0)
         {
-            obj.country = (String) comboBoxTeamFielding.getSelectedItem();
+            obj.type = (String) fieldingFormat.getSelectedItem();
         }
+        
+        if(fieldingMatchesPlayed.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingMatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingMatchesMax.getValue();
+        }
+        
+        if(fieldingCatches.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingCatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingCatchesMax.getValue();
+        }
+        
+        
+        if(fieldingStumpings.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingStumpsMin.getValue();
+            obj.mplayed_high = (Integer) fieldingStumpsMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getFielders(obj);
+        rw.columnNames = new String [] {"Name", "Country", "Type", "Catches Taken", "Stumps Taken"};
+        rw.queryNames = new String [] {"Player.Name", "Country.Name", "Type", "Ct", "St"};
+        
+        rw.display();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

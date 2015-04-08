@@ -25,6 +25,9 @@ public class Match extends javax.swing.JFrame {
     public Match(String type) throws SQLException {
         initComponents();
         
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
         DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
         ResultSet rs = Queries.getMatches(null, null, null, null, null, type);
         while(rs.next())

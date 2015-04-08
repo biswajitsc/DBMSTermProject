@@ -24,6 +24,9 @@ public class Tournament extends javax.swing.JFrame {
     public Tournament(String type) throws SQLException {
         initComponents();
         
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
         ResultSet rs  = Queries.getAllTournaments(null,type);
         
         DefaultTableModel model =(DefaultTableModel) jTable1.getModel();

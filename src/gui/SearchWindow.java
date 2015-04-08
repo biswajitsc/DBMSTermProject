@@ -1475,28 +1475,28 @@ public class SearchWindow extends javax.swing.JFrame {
         }
         
         if (countryMatchesPlayed.isSelected()) {
-            obj.mplayed_low  = Integer.parseInt((String) countryMatchesMin.getValue());
-            obj.mplayed_high = Integer.parseInt((String) countryMatchesMax.getValue());
+            obj.mplayed_low  = (Integer) countryMatchesMin.getValue();
+            obj.mplayed_high = (Integer) countryMatchesMax.getValue();
         }
         
         if (countryMatchesWon.isSelected()) {
-            obj.mwon_low  = Integer.parseInt((String) countryWonMin.getValue());
-            obj.mwon_high  = Integer.parseInt((String) countryWonMax.getValue());
+            obj.mwon_low  = (Integer) countryWonMin.getValue();
+            obj.mwon_high = (Integer) countryWonMax.getValue();
         }
         
         if (countryMatchesLost.isSelected()) {
-            obj.mlost_low = Integer.parseInt((String) countryLostMin.getValue());
-            obj.mlost_high = Integer.parseInt((String) countryLostMax.getValue());
+            obj.mlost_low  = (Integer) countryLostMin.getValue();
+            obj.mlost_high = (Integer) countryLostMax.getValue();
         }
         
         if (countryMatchesDrawn.isSelected()) {
-            obj.mdrawn_low  = Integer.parseInt((String) countryDrawnMin.getValue());
-            obj.mdrawn_high = Integer.parseInt((String) countryDrawnMax.getValue());
+            obj.mdrawn_low  = (Integer) countryDrawnMin.getValue();
+            obj.mdrawn_high = (Integer) countryDrawnMax.getValue();
         }
         
         if (countryMatchesTied.isSelected()) {
-            obj.mtied_low  = Integer.parseInt((String) countryTiedMin.getValue());
-            obj.mtied_high = Integer.parseInt((String) countryTiedMin.getValue());
+            obj.mtied_low  = (Integer) countryTiedMin.getValue();
+            obj.mtied_high = (Integer) countryTiedMax.getValue();
         }
         
         ResultWindow rw = new ResultWindow();

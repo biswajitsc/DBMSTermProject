@@ -96,14 +96,14 @@ public class StatsWindow extends javax.swing.JFrame {
                 
                 if(shown == 0) {
                     try {
-                        image = ImageIO.read(new File("./src/gui/back1.jpg"));
+                        image = ImageIO.read(new File("./src/gui/back4.jpg"));
                         
                     } catch (IOException ex) {
                         
                     }
                 } else if(shown == 1) {
                     try {
-                        image = ImageIO.read(new File("./src/gui/back2.jpg"));
+                        image = ImageIO.read(new File("./src/gui/back1.jpg"));
                         
                     } catch (IOException ex) {
                         
@@ -111,7 +111,7 @@ public class StatsWindow extends javax.swing.JFrame {
                 }
                 else if(shown == 2) {
                     try {
-                       image = ImageIO.read(new File("./src/gui/back3.jpg"));
+                       image = ImageIO.read(new File("./src/gui/back2.jpg"));
                      
                     } catch (IOException ex) {
                         
@@ -119,7 +119,7 @@ public class StatsWindow extends javax.swing.JFrame {
                 }
                  else if(shown == 3) {
                     try {
-                       image = ImageIO.read(new File("./src/gui/back4.jpg"));
+                       image = ImageIO.read(new File("./src/gui/back3.jpg"));
                      
                     } catch (IOException ex) {
                         

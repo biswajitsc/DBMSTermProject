@@ -132,6 +132,16 @@ public class ResultWindow extends javax.swing.JFrame {
                     playerWindow.main(arg);
                 }
             }
+            else if (queryNames[0].equals("T.Name")) {
+                String tournamentName = (String) resultTable.getValueAt(resultTable.getSelectedRow(),0);
+                ResultSet res = Queries.getTournamentbyName(tournamentName);
+                if (res.next()) {
+                    String tid = res.getString("TID");
+                    TournamentIndividual tournamentWindow = new TournamentIndividual(tid);
+                    String [] arg = {tid};
+                    tournamentWindow.main(arg);
+                }
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }

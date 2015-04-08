@@ -64,6 +64,7 @@ public class Fielding extends javax.swing.JFrame {
         jLabel1.setText("Fielding Records");
         jLabel1.setOpaque(true);
 
+        jTable1.setBackground(new java.awt.Color(246, 244, 242));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             null,
             new String [] {

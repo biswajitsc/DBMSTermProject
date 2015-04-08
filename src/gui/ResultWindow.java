@@ -59,13 +59,17 @@ public class ResultWindow extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         
+        resultTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        resultTable.getTableHeader().setReorderingAllowed(false);
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 setVisible(true);
             }
         });
         
-        resultTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.

@@ -6,11 +6,13 @@
 package gui;
 
 import database.Queries;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -30,9 +32,15 @@ public class ResultWindow extends javax.swing.JFrame {
     public ResultWindow() {
         initComponents();
     }
-    
+   
     public void display() {
-        DefaultTableModel model = new DefaultTableModel();
+        
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         resultTable.setModel(model);
         resultTable.setAutoCreateRowSorter(true);
         jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -52,11 +60,17 @@ public class ResultWindow extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         
+        resultTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        resultTable.getTableHeader().setReorderingAllowed(false);
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 setVisible(true);
             }
         });
+        
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,6 +144,16 @@ public class ResultWindow extends javax.swing.JFrame {
                     Player playerWindow = new Player(pid);
                     String [] arg = {pid};
                     playerWindow.main(arg);
+                }
+            }
+            else if (queryNames[0].equals("T.Name")) {
+                String tournamentName = (String) resultTable.getValueAt(resultTable.getSelectedRow(),0);
+                ResultSet res = Queries.getTournamentbyName(tournamentName);
+                if (res.next()) {
+                    String tid = res.getString("TID");
+                    TournamentIndividual tournamentWindow = new TournamentIndividual(tid);
+                    String [] arg = {tid};
+                    tournamentWindow.main(arg);
                 }
             }
         } catch (Exception ex) {

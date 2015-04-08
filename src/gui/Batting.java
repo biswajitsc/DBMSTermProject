@@ -25,7 +25,8 @@ public class Batting extends javax.swing.JFrame {
     public Batting(String type) throws SQLException {
         initComponents();
          
-        
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
         BattingQueryObj a = new BattingQueryObj();
         a.type = type;
         ResultSet rs = Queries.getBatsmen(a);

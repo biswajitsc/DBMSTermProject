@@ -34,6 +34,9 @@ public class Umpire extends javax.swing.JFrame {
     public Umpire(String uid) throws IOException, SQLException {
         initComponents();
         
+        jTable2.setAutoCreateRowSorter(true);
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        
         ResultSet rs = Queries.getUmpires_ByUID(uid);
         while(rs.next())
         {

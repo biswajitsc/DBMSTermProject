@@ -41,6 +41,12 @@ public class Player extends javax.swing.JFrame {
     public Player(String pid) throws SQLException, MalformedURLException, IOException {
         initComponents();
         
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
+        jTable2.setAutoCreateRowSorter(true);
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        
         ResultSet rs = Queries.getPlayerbyPID(pid);
         rs.next();
         String pname = rs.getString("Name");

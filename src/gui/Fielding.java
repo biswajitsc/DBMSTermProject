@@ -26,6 +26,8 @@ public class Fielding extends javax.swing.JFrame {
     public Fielding(String type) throws SQLException {
         initComponents();
         
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
         
         DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
         FieldingQueryObj f = new FieldingQueryObj();

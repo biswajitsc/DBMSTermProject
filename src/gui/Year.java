@@ -8,8 +8,11 @@ package gui;
 import database.Queries;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,11 +26,35 @@ public class Year extends javax.swing.JFrame {
     public Year(int year) throws SQLException {
         initComponents();
         
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
         ResultSet rs = Queries.getTournamentsByYear(year);
+        Vector v = new Vector();
         while(rs.next())
         {
-            //String tname = 
+            String tname = rs.getString("T.Name");
+            v.add(tname);
         }
+        DefaultComboBoxModel m = new DefaultComboBoxModel(v);
+        jComboBox1.setModel(m);
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        String df = jComboBox1.getSelectedItem().toString();
+        rs = Queries.getTournamentbyName(df);
+        rs.next();
+        
+        String  tid = rs.getString("TID");
+        
+        rs = Queries.getMatchesbyTournament(tid);
+        while(rs.next())
+        {
+            Object [] row = {rs.getDate("Date"),rs.getString("Type"),rs.getString("Country1"),
+                            rs.getString("Country2"),rs.getString("Result"),
+                            rs.getString("Winner"),rs.getString("Margin")};
+            model.addRow(row);
+        }
+        
     }
 
     /**
@@ -46,7 +73,7 @@ public class Year extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(229, 219, 208));
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
@@ -125,6 +152,36 @@ public class Year extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
+        String tname = jComboBox1.getSelectedItem().toString();
+        ResultSet rs = Queries.getTournamentbyName(tname);
+        try {
+            rs.next();
+        } catch (SQLException ex) {
+            Logger.getLogger(Year.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String  tid;
+        try {
+            tid = rs.getString("TID");
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            int rowCount = model.getRowCount();
+            //Remove rows one by one from the end of the table
+            for (int i = rowCount - 1; i >= 0; i--) {
+                model.removeRow(i);
+            }
+            rs = Queries.getMatchesbyTournament(tid);
+            while(rs.next())
+            {
+                Object [] row = {rs.getDate("Date"),rs.getString("Type"),rs.getString("Country1"),
+                                rs.getString("Country2"),rs.getString("Result"),
+                                rs.getString("Winner"),rs.getString("Margin")};
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Year.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**

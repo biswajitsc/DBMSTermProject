@@ -1020,7 +1020,13 @@ public class StatsWindow extends javax.swing.JFrame {
     private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
         // TODO add your handling code here:
         String year = jComboBox1.getSelectedItem().toString();
-        System.out.println(year);
+        int y = Integer.parseInt(year);
+        try {
+            Year yy = new Year(y);
+            yy.main(new String[]{year});
+        } catch (SQLException ex) {
+            Logger.getLogger(StatsWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_button2MouseClicked
 
     /**

@@ -32,6 +32,9 @@ public class Grounds extends javax.swing.JFrame {
     public Grounds(String gid) throws SQLException, IOException {
         initComponents();
         
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
         ResultSet rs = Queries.getGroundbyGID(gid);
         rs.next();
         String gname = rs.getString("Name");

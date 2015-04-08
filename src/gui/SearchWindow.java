@@ -25,11 +25,26 @@ public class SearchWindow extends javax.swing.JFrame {
         // TODO add the list of county names to the comboBoxCountry using
        ResultSet res = Queries.getCountries(null);
         try {
+            comboBoxTeamBatting.addItem("All");
+            comboBoxTeamBowling.addItem("All");
+            comboBoxTeamFielding.addItem("All");
+            comboBoxTeamCountry.addItem("All");
+            comboBoxMatchTeam1.addItem("All");
+            comboBoxMatchTeam2.addItem("All");
+            comboBoxMatchWinner.addItem("All");
+            comboBoxTourPlayedBy.addItem("All");
+            comboBoxTourWonBy.addItem("All");
+            
             while (res.next()) {
                 comboBoxTeamBatting.addItem(res.getString("Name"));
                 comboBoxTeamBowling.addItem(res.getString("Name"));
                 comboBoxTeamFielding.addItem(res.getString("Name"));
                 comboBoxTeamCountry.addItem(res.getString("Name"));
+                comboBoxMatchTeam1.addItem(res.getString("Name"));
+                comboBoxMatchTeam2.addItem(res.getString("Name"));
+                comboBoxMatchWinner.addItem(res.getString("Name"));
+                comboBoxTourPlayedBy.addItem(res.getString("Name"));
+                comboBoxTourWonBy.addItem(res.getString("Name"));
             }} catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -67,6 +82,14 @@ public class SearchWindow extends javax.swing.JFrame {
         fieldingCatchesMax.setEnabled(false);
         fieldingStumpsMin.setEnabled(false);
         fieldingStumpsMax.setEnabled(false);
+        
+        // tournaments combo box disable
+        tourTotalRunsMin.setEnabled(false);
+        tourTotalRunsMax.setEnabled(false);
+        tourTotalWicketsMin.setEnabled(false);
+        tourTotalWicketsMax.setEnabled(false);
+        tourTotalBallsMin.setEnabled(false);
+        tourTotalBallsMax.setEnabled(false);
     }
 
     /**
@@ -117,7 +140,7 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        bowlingFormat = new javax.swing.JComboBox();
         bowlingMatchesMin = new javax.swing.JSpinner();
         bowlingMatchesMax = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
@@ -143,7 +166,7 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         comboBoxTeamFielding = new javax.swing.JComboBox();
         jLabel30 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        fieldingFormat = new javax.swing.JComboBox();
         fieldingMatchesMin = new javax.swing.JSpinner();
         jLabel32 = new javax.swing.JLabel();
         fieldingMatchesMax = new javax.swing.JSpinner();
@@ -159,7 +182,7 @@ public class SearchWindow extends javax.swing.JFrame {
         fieldingStumpings = new javax.swing.JRadioButton();
         panelUmpire = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        umpireFormat = new javax.swing.JComboBox();
         jLabel38 = new javax.swing.JLabel();
         jSpinner27 = new javax.swing.JSpinner();
         jSpinner28 = new javax.swing.JSpinner();
@@ -170,44 +193,65 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         comboBoxTeamCountry = new javax.swing.JComboBox();
         jLabel42 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jLabel43 = new javax.swing.JLabel();
-        jSpinner29 = new javax.swing.JSpinner();
+        countryFormat = new javax.swing.JComboBox();
+        countryMatchesMin = new javax.swing.JSpinner();
         jLabel44 = new javax.swing.JLabel();
-        jSpinner30 = new javax.swing.JSpinner();
-        jLabel45 = new javax.swing.JLabel();
-        jSpinner31 = new javax.swing.JSpinner();
+        countryMatchesMax = new javax.swing.JSpinner();
+        countryWonMin = new javax.swing.JSpinner();
         jLabel46 = new javax.swing.JLabel();
-        jSpinner32 = new javax.swing.JSpinner();
-        jLabel47 = new javax.swing.JLabel();
-        jSpinner33 = new javax.swing.JSpinner();
+        countryWonMax = new javax.swing.JSpinner();
+        countryLostMin = new javax.swing.JSpinner();
         jLabel48 = new javax.swing.JLabel();
-        jSpinner34 = new javax.swing.JSpinner();
+        countryLostMax = new javax.swing.JSpinner();
         jButton5 = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jSpinner35 = new javax.swing.JSpinner();
+        countryDrawnMin = new javax.swing.JSpinner();
         jLabel51 = new javax.swing.JLabel();
-        jSpinner36 = new javax.swing.JSpinner();
-        jLabel52 = new javax.swing.JLabel();
-        jSpinner37 = new javax.swing.JSpinner();
+        countryDrawnMax = new javax.swing.JSpinner();
+        countryTiedMin = new javax.swing.JSpinner();
         jLabel53 = new javax.swing.JLabel();
-        jSpinner38 = new javax.swing.JSpinner();
+        countryTiedMax = new javax.swing.JSpinner();
+        countryMatchesPlayed = new javax.swing.JRadioButton();
+        countryMatchesWon = new javax.swing.JRadioButton();
+        countryMatchesLost = new javax.swing.JRadioButton();
+        countryMatchesDrawn = new javax.swing.JRadioButton();
+        countryMatchesTied = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
-        comboBoxTeamCountry1 = new javax.swing.JComboBox();
+        comboBoxMatchTeam1 = new javax.swing.JComboBox();
         jLabel55 = new javax.swing.JLabel();
-        comboBoxTeamCountry2 = new javax.swing.JComboBox();
+        comboBoxMatchTeam2 = new javax.swing.JComboBox();
         jLabel56 = new javax.swing.JLabel();
-        comboBoxTeamCountry3 = new javax.swing.JComboBox();
+        comboBoxMatchWinner = new javax.swing.JComboBox();
         jLabel57 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox();
+        matchFormat = new javax.swing.JComboBox();
         jLabel60 = new javax.swing.JLabel();
-        comboBoxTeamCountry4 = new javax.swing.JComboBox();
+        comboBoxMatchLocation = new javax.swing.JComboBox();
         jLabel61 = new javax.swing.JLabel();
-        comboBoxTeamCountry5 = new javax.swing.JComboBox();
+        comboBoxMatchUmpire = new javax.swing.JComboBox();
         jButton6 = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        tourFormat = new javax.swing.JComboBox();
+        comboBoxTourPlayedBy = new javax.swing.JComboBox();
+        comboBoxTourWonBy = new javax.swing.JComboBox();
+        tourTotalRuns = new javax.swing.JRadioButton();
+        tourTotalWickets = new javax.swing.JRadioButton();
+        tourTotalBalls = new javax.swing.JRadioButton();
+        tourTotalRunsMin = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        tourTotalRunsMax = new javax.swing.JSpinner();
+        tourTotalWicketsMin = new javax.swing.JSpinner();
+        tourTotalBallsMin = new javax.swing.JSpinner();
+        tourTotalBallsMax = new javax.swing.JSpinner();
+        tourTotalWicketsMax = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Find Stats");
@@ -355,7 +399,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                                     .addComponent(jLabel12)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(battingHundredsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -427,10 +471,15 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/mcgrath.jpg"))); // NOI18N
 
         jButton2.setText("Submit Query");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel15.setText("Format");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        bowlingFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel17.setText("to");
 
@@ -510,7 +559,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                             .addComponent(jLabel23)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(bowlingEconomyMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bowlingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(panelBallingLayout.createSequentialGroup()
                                             .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(panelBallingLayout.createSequentialGroup()
@@ -542,26 +591,24 @@ public class SearchWindow extends javax.swing.JFrame {
                                                     .addComponent(jLabel25)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(bowling5WicketMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
         panelBallingLayout.setVerticalGroup(
             panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBallingLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelBallingLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBallingLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(comboBoxTeamBowling, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bowlingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bowlingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -594,7 +641,7 @@ public class SearchWindow extends javax.swing.JFrame {
                             .addComponent(bowlingAverage))
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         JTabbedPanel.addTab("      Bowling       ", panelBalling);
@@ -605,7 +652,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel30.setText("Format");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        fieldingFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel32.setText("to");
 
@@ -614,6 +661,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel36.setText("to");
 
         jButton3.setText("Submit Query");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         fieldingMatchesPlayed.setText("Matches Played");
 
@@ -652,7 +704,7 @@ public class SearchWindow extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(comboBoxTeamFielding, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fieldingFormat, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createSequentialGroup()
                                         .addComponent(fieldingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -662,23 +714,23 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(100, 100, 100)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                 .addComponent(jLabel29)
-                .addGap(67, 67, 67))
+                .addGap(92, 92, 92))
         );
         panelFieldingLayout.setVerticalGroup(
             panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFieldingLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFieldingLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel28)
                             .addComponent(comboBoxTeamFielding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -696,18 +748,21 @@ public class SearchWindow extends javax.swing.JFrame {
                             .addComponent(jLabel36)
                             .addComponent(fieldingStumpsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldingStumpsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldingStumpings)))
-                    .addComponent(jLabel29))
-                .addGap(9, 9, 9)
+                            .addComponent(fieldingStumpings))
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jButton3)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         JTabbedPanel.addTab("        Fielding        ", panelFielding);
 
         jLabel37.setText("Format");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        umpireFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel38.setText("Matches Officiated");
 
@@ -735,64 +790,115 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addComponent(jLabel40)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(umpireFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jLabel39)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(67, 67, 67))
         );
         panelUmpireLayout.setVerticalGroup(
             panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUmpireLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel38)
-                    .addComponent(jSpinner27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel40)
-                    .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUmpireLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jLabel39)
-                .addContainerGap())
+                .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUmpireLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(umpireFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(jSpinner27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel40)
+                            .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton4))
+                    .addGroup(panelUmpireLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel39)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
-        JTabbedPanel.addTab("         Umpire       ", panelUmpire);
+        JTabbedPanel.addTab("        Umpire      ", panelUmpire);
 
         jLabel41.setText("Team");
 
         jLabel42.setText("Format");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        countryFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
-        jLabel43.setText("Matches Played");
+        countryMatchesMin.setEnabled(false);
 
         jLabel44.setText("to");
 
-        jLabel45.setText("Matches Won");
+        countryMatchesMax.setEnabled(false);
+
+        countryWonMin.setEnabled(false);
 
         jLabel46.setText("to");
 
-        jLabel47.setText("Matches Lost");
+        countryWonMax.setEnabled(false);
+
+        countryLostMin.setEnabled(false);
 
         jLabel48.setText("to");
 
+        countryLostMax.setEnabled(false);
+
         jButton5.setText("Submit Query");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/india.jpg"))); // NOI18N
 
-        jLabel50.setText("Matches Drawn");
+        countryDrawnMin.setEnabled(false);
 
         jLabel51.setText("to");
 
-        jLabel52.setText("Matches Tied");
+        countryDrawnMax.setEnabled(false);
+
+        countryTiedMin.setEnabled(false);
 
         jLabel53.setText("to");
+
+        countryTiedMax.setEnabled(false);
+
+        countryMatchesPlayed.setText("Matches Played");
+        countryMatchesPlayed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                countryMatchesPlayedMouseClicked(evt);
+            }
+        });
+
+        countryMatchesWon.setText("Matches Won");
+        countryMatchesWon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                countryMatchesWonMouseClicked(evt);
+            }
+        });
+
+        countryMatchesLost.setText("Matches Lost");
+        countryMatchesLost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                countryMatchesLostMouseClicked(evt);
+            }
+        });
+
+        countryMatchesDrawn.setText("Matches Drawn");
+        countryMatchesDrawn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                countryMatchesDrawnMouseClicked(evt);
+            }
+        });
+
+        countryMatchesTied.setText("Matches Tied");
+        countryMatchesTied.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                countryMatchesTiedMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCountryLayout = new javax.swing.GroupLayout(panelCountry);
         panelCountry.setLayout(panelCountryLayout);
@@ -803,101 +909,104 @@ public class SearchWindow extends javax.swing.JFrame {
                 .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel41)
                     .addComponent(jLabel42)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel50)
-                    .addComponent(jLabel52))
-                .addGap(20, 20, 20)
+                    .addComponent(countryMatchesPlayed)
+                    .addComponent(countryMatchesWon)
+                    .addComponent(countryMatchesLost)
+                    .addComponent(countryMatchesDrawn)
+                    .addComponent(countryMatchesTied))
+                .addGap(50, 50, 50)
                 .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelCountryLayout.createSequentialGroup()
-                        .addComponent(jSpinner35, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countryDrawnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel51)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner36, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(countryDrawnMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCountryLayout.createSequentialGroup()
-                        .addComponent(jSpinner33, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countryLostMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel48)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner34, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(countryLostMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(comboBoxTeamCountry, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(countryFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelCountryLayout.createSequentialGroup()
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner29, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner31, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(countryMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryWonMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel46)
                             .addComponent(jLabel44))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner30, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner32, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(countryMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryWonMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton5)
                     .addGroup(panelCountryLayout.createSequentialGroup()
-                        .addComponent(jSpinner37, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countryTiedMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSpinner38, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(countryTiedMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
         panelCountryLayout.setVerticalGroup(
             panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCountryLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelCountryLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41)
-                    .addComponent(comboBoxTeamCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel42)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel43)
-                    .addComponent(jSpinner29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel44)
-                    .addComponent(jSpinner30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel46)
-                    .addComponent(jSpinner31, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner32, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel48)
-                    .addComponent(jSpinner33, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner34, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner35, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel51)
-                    .addComponent(jSpinner36, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel50))
-                .addGap(18, 18, 18)
-                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner37, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner38, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel53)
-                    .addComponent(jLabel52))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton5)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCountryLayout.createSequentialGroup()
+                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelCountryLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCountryLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel41)
+                            .addComponent(comboBoxTeamCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel42)
+                            .addComponent(countryFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(countryMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel44)
+                            .addComponent(countryMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesPlayed))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel46)
+                            .addComponent(countryWonMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryWonMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesWon))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel48)
+                            .addComponent(countryLostMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryLostMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesLost))
+                        .addGap(20, 20, 20)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(countryDrawnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel51)
+                            .addComponent(countryDrawnMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesDrawn))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(countryTiedMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryTiedMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel53)
+                            .addComponent(countryMatchesTied))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(jButton5)))
                 .addGap(63, 63, 63))
         );
 
         JTabbedPanel.addTab("      Country       ", panelCountry);
+
+        jPanel1.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
 
         jLabel54.setText("Team 1");
 
@@ -907,13 +1016,18 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel57.setText("Format");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        matchFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel60.setText("Location");
 
         jLabel61.setText("Umpired by");
 
         jButton6.setText("Submit Query");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/match.jpg"))); // NOI18N
 
@@ -932,7 +1046,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel54)
                             .addGap(84, 84, 84)
-                            .addComponent(comboBoxTeamCountry1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel55)
@@ -940,18 +1054,18 @@ public class SearchWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel56))
                             .addGap(84, 84, 84)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(comboBoxTeamCountry3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboBoxMatchWinner, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboBoxTeamCountry2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox6, 0, 200, Short.MAX_VALUE))))
+                                    .addComponent(comboBoxMatchTeam2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(matchFormat, 0, 200, Short.MAX_VALUE))))
                         .addComponent(jLabel60)
                         .addComponent(jLabel61))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(comboBoxTeamCountry5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxMatchUmpire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(137, 137, 137)
-                            .addComponent(comboBoxTeamCountry4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                            .addComponent(comboBoxMatchLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -962,34 +1076,163 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel54)
-                            .addComponent(comboBoxTeamCountry1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel55)
-                            .addComponent(comboBoxTeamCountry2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchTeam2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel57)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(matchFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel56)
-                            .addComponent(comboBoxTeamCountry3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboBoxMatchWinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel60)
-                            .addComponent(comboBoxTeamCountry4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comboBoxMatchLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel62))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel61)
-                    .addComponent(comboBoxTeamCountry5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxMatchUmpire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jButton6)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
-        JTabbedPanel.addTab("Match", jPanel1);
+        JTabbedPanel.addTab("       Match       ", jPanel1);
+
+        tourFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+
+        tourTotalRuns.setText("Total Runs");
+        tourTotalRuns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tourTotalRunsActionPerformed(evt);
+            }
+        });
+
+        tourTotalWickets.setText("Total Wickets");
+        tourTotalWickets.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tourTotalWicketsActionPerformed(evt);
+            }
+        });
+
+        tourTotalBalls.setText("Total Balls");
+        tourTotalBalls.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tourTotalBallsActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("to");
+
+        jLabel7.setText("to");
+
+        jLabel9.setText("to");
+
+        jButton7.setText("Submit Query");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/worldcup.jpg"))); // NOI18N
+
+        jLabel16.setText("Format");
+
+        jLabel18.setText("Played By");
+
+        jLabel20.setText("Won By");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tourTotalRuns)
+                            .addComponent(tourTotalWickets)
+                            .addComponent(tourTotalBalls)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel20))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(tourTotalWicketsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tourTotalWicketsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(tourTotalBallsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tourTotalBallsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tourFormat, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboBoxTourPlayedBy, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboBoxTourWonBy, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(tourTotalRunsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tourTotalRunsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jButton7)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tourFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBoxTourPlayedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBoxTourWonBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tourTotalRuns)
+                            .addComponent(tourTotalRunsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(tourTotalRunsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tourTotalWickets)
+                            .addComponent(tourTotalWicketsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tourTotalWicketsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tourTotalBalls)
+                            .addComponent(tourTotalBallsMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tourTotalBallsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(49, 49, 49)
+                        .addComponent(jButton7))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        JTabbedPanel.addTab(" Tournament ", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1057,6 +1300,14 @@ public class SearchWindow extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         BattingQueryObj obj = new BattingQueryObj();
+        
+        if (comboBoxTeamBatting.getSelectedIndex() > 0){
+            obj.country = (String) comboBoxTeamBatting.getSelectedItem();
+        }
+        
+        if (jComboBox1.getSelectedIndex() > 0) {
+            obj.type = (String) jComboBox1.getSelectedItem();
+        }
         if(battingMatchesPlayed.isSelected())
         {
             obj.mplayed_low = (Integer) battingMatchesMin.getValue();
@@ -1080,16 +1331,16 @@ public class SearchWindow extends javax.swing.JFrame {
         if(battingStrikeRates.isSelected())
         {
             obj.strike_low = (Integer) battingStrikeRateMin.getValue();
-            obj.mplayed_high = (Integer) battingStrikeRateMax.getValue();
+            obj.strike_high = (Integer) battingStrikeRateMax.getValue();
         }
         
         ResultWindow rw = new ResultWindow();
         rw.result = Queries.getBatsmen(obj);
         
-        rw.columnNames = new String[] {"Name",       "Country",      "Runs", "Matches", "Innings", "Not Outs", "Highest", "Average", "Strike Rate", "Hundreds", "Fifties", "Fours", "Sixes"};
-        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Runs", "Mat",     "Inns",    "NO",       "HS",      "Ave",     "SR",          "hundreds", "fifties", "fours", "sixs"};
+        rw.columnNames = new String[] {"Name",       "Country",      "Format", "Runs", "Matches", "Innings", "Not Outs", "Highest", "Average", "Strike Rate", "Hundreds", "Fifties", "Fours", "Sixes"};
+        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Type",   "Runs", "Mat",     "Inns",    "NO",       "HS",      "Ave",     "SR",          "hundreds", "fifties", "fours", "sixs"};
         
-        // rw.main(null);
+        rw.display();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bowlingMatchesPlayedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bowlingMatchesPlayedActionPerformed
@@ -1121,6 +1372,224 @@ public class SearchWindow extends javax.swing.JFrame {
         bowlingAverageMin.setEnabled(bowlingAverage.isSelected());
         bowlingAverageMax.setEnabled(bowlingAverage.isSelected());
     }//GEN-LAST:event_bowlingAverageActionPerformed
+
+    private void countryMatchesPlayedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesPlayedMouseClicked
+        // TODO add your handling code here:
+        countryMatchesMin.setEnabled(countryMatchesPlayed.isSelected());
+        countryMatchesMax.setEnabled(countryMatchesPlayed.isSelected());
+    }//GEN-LAST:event_countryMatchesPlayedMouseClicked
+
+    private void countryMatchesWonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesWonMouseClicked
+        // TODO add your handling code here:
+        countryWonMin.setEnabled(countryMatchesWon.isSelected());
+        countryWonMax.setEnabled(countryMatchesWon.isSelected());
+    }//GEN-LAST:event_countryMatchesWonMouseClicked
+
+    private void countryMatchesLostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesLostMouseClicked
+        // TODO add your handling code here:
+        countryLostMin.setEnabled(countryMatchesLost.isSelected());
+        countryLostMax.setEnabled(countryMatchesLost.isSelected());
+    }//GEN-LAST:event_countryMatchesLostMouseClicked
+
+    private void countryMatchesDrawnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesDrawnMouseClicked
+        // TODO add your handling code here:
+        countryDrawnMin.setEnabled(countryMatchesDrawn.isSelected());
+        countryDrawnMax.setEnabled(countryMatchesDrawn.isSelected());
+    }//GEN-LAST:event_countryMatchesDrawnMouseClicked
+
+    private void countryMatchesTiedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesTiedMouseClicked
+        // TODO add your handling code here:
+        countryTiedMin.setEnabled(countryMatchesTied.isSelected());
+        countryTiedMax.setEnabled(countryMatchesTied.isSelected());
+    }//GEN-LAST:event_countryMatchesTiedMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        BowlingQueryObj obj = new BowlingQueryObj();
+        
+        if (comboBoxTeamBowling.getSelectedIndex() > 0){
+            obj.country = (String) comboBoxTeamBowling.getSelectedItem();
+        }
+        
+        if (bowlingFormat.getSelectedIndex() > 0) {
+            obj.type = (String) bowlingFormat.getSelectedItem();
+        }
+        if(bowlingMatchesPlayed.isSelected())
+        {
+            obj.mplayed_low = (Integer) bowlingMatchesMin.getValue();
+            obj.mplayed_high = (Integer) bowlingMatchesMax.getValue();
+        }
+        if(bowlingWicketsTaken.isSelected())
+        {
+            obj.wickets_low = (Integer) bowlingWicketsMin.getValue();
+            obj.wickets_high = (Integer) bowlingWicketsMax.getValue();
+        }
+        if(bowlingEconomyRate.isSelected())
+        {
+            obj.econ_low = (Integer) bowlingEconomyMin.getValue();
+            obj.econ_high = (Integer) bowlingEconomyMax.getValue();
+        }
+        if(bowling5Wickets.isSelected())
+        {
+            obj.five_low = (Integer) bowling5WicketMin.getValue();
+            obj.five_high = (Integer) bowling5WicketMax.getValue();
+        }
+        if(bowlingAverage.isSelected())
+        {
+            obj.ave_low = (Integer) bowlingAverageMin.getValue();
+            obj.ave_high = (Integer) bowlingAverageMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getBowler(obj);
+        
+        rw.columnNames = new String[] {"Name",       "Country",      "Format", "Matches", "Innings", "Balls", "Runs", "Wickets", "BBI", "BBM", "Avg", "Econ", "S.R.","4Wkts","5Wkts","10Wkts"};
+        rw.queryNames = new String[] {"Player.Name", "Country.Name", "Type",   "Mat",     "Inns",    "Balls", "Runs", "Wkts",  "BBI",  "BBM", "Ave", "Econ", "SR", "fourwickets", "fivewickets", "tenwickets"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void tourTotalRunsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tourTotalRunsActionPerformed
+        // TODO add your handling code here:
+        tourTotalRunsMin.setEnabled(tourTotalRuns.isSelected());
+        tourTotalRunsMax.setEnabled(tourTotalRuns.isSelected());
+    }//GEN-LAST:event_tourTotalRunsActionPerformed
+
+    private void tourTotalWicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tourTotalWicketsActionPerformed
+        // TODO add your handling code here:
+        tourTotalWicketsMin.setEnabled(tourTotalWickets.isSelected());
+        tourTotalWicketsMax.setEnabled(tourTotalWickets.isSelected());
+    }//GEN-LAST:event_tourTotalWicketsActionPerformed
+
+    private void tourTotalBallsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tourTotalBallsActionPerformed
+        // TODO add your handling code here:
+        tourTotalBallsMin.setEnabled(tourTotalBalls.isSelected());
+        tourTotalBallsMax.setEnabled(tourTotalBalls.isSelected());
+    }//GEN-LAST:event_tourTotalBallsActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        CountryQueryObj obj = new CountryQueryObj();
+        
+        if (comboBoxTeamCountry.getSelectedIndex() > 0) {
+            obj.name = (String) comboBoxTeamCountry.getSelectedItem();
+        }
+        
+        if (countryFormat.getSelectedIndex() > 0) {
+            obj.type = (String) countryFormat.getSelectedItem();
+        }
+        
+        if (countryMatchesPlayed.isSelected()) {
+            obj.mplayed_low  = Integer.parseInt((String) countryMatchesMin.getValue());
+            obj.mplayed_high = Integer.parseInt((String) countryMatchesMax.getValue());
+        }
+        
+        if (countryMatchesWon.isSelected()) {
+            obj.mwon_low  = Integer.parseInt((String) countryWonMin.getValue());
+            obj.mwon_high  = Integer.parseInt((String) countryWonMax.getValue());
+        }
+        
+        if (countryMatchesLost.isSelected()) {
+            obj.mlost_low = Integer.parseInt((String) countryLostMin.getValue());
+            obj.mlost_high = Integer.parseInt((String) countryLostMax.getValue());
+        }
+        
+        if (countryMatchesDrawn.isSelected()) {
+            obj.mdrawn_low  = Integer.parseInt((String) countryDrawnMin.getValue());
+            obj.mdrawn_high = Integer.parseInt((String) countryDrawnMax.getValue());
+        }
+        
+        if (countryMatchesTied.isSelected()) {
+            obj.mtied_low  = Integer.parseInt((String) countryTiedMin.getValue());
+            obj.mtied_high = Integer.parseInt((String) countryTiedMin.getValue());
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getCountryStats(obj);
+        
+        rw.columnNames = new String [] {"Country", "Format", "Matches Played", "Matches Won", "Matches Lost", "Matches Drawn", "Matches Tied"};
+        rw.queryNames  = new String [] {"Name",    "Type",   "Matches_Played",  "Matches_Won", "Matches_Lost", "Matches_Drawn", "Matches_Tied"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FieldingQueryObj obj = new FieldingQueryObj();
+        
+        if(comboBoxTeamFielding.getSelectedIndex() > 0)
+        {
+            obj.country = (String) comboBoxTeamFielding.getSelectedItem();
+        }
+        
+        if(fieldingFormat.getSelectedIndex() > 0)
+        {
+            obj.type = (String) fieldingFormat.getSelectedItem();
+        }
+        
+        if(fieldingMatchesPlayed.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingMatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingMatchesMax.getValue();
+        }
+        
+        if(fieldingCatches.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingCatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingCatchesMax.getValue();
+        }
+        
+        
+        if(fieldingStumpings.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingStumpsMin.getValue();
+            obj.mplayed_high = (Integer) fieldingStumpsMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getFielders(obj);
+        rw.columnNames = new String [] {"Name", "Country", "Type", "Catches Taken", "Stumps Taken"};
+        rw.queryNames = new String [] {"Player.Name", "Country.Name", "Type", "Ct", "St"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        MatchQueryObj obj = new MatchQueryObj();
+        
+        if(comboBoxMatchTeam1.getSelectedIndex() > 0)
+        {
+            obj.country1 = (String) comboBoxMatchTeam1.getSelectedItem();
+        }
+        
+        if(comboBoxMatchTeam2.getSelectedIndex() > 0)
+        {
+            obj.country2 = (String) comboBoxMatchTeam2.getSelectedItem();
+        }
+        
+        if(matchFormat.getSelectedIndex() > 0)
+        {
+            obj.type = (String) matchFormat.getSelectedItem();
+        }
+        
+        if(comboBoxMatchWinner.getSelectedIndex() > 0)
+        {
+            obj.winner = (String) comboBoxMatchWinner.getSelectedItem();
+        }
+        
+        if(comboBoxMatchLocation.getSelectedIndex() > 0)
+        {
+            obj.location = (String) comboBoxMatchLocation.getSelectedItem();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Database.query(obj.generatequery());
+        rw.columnNames = new String [] {"Team1", "Team2", "Type", "Result", "Winner", "Margin", "Location"};
+        rw.queryNames = new String [] {"Country1", "Country2", "Type", "Result", "Winner", "Margin", "Location"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1186,24 +1655,44 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner bowlingEconomyMax;
     private javax.swing.JSpinner bowlingEconomyMin;
     private javax.swing.JRadioButton bowlingEconomyRate;
+    private javax.swing.JComboBox bowlingFormat;
     private javax.swing.JSpinner bowlingMatchesMax;
     private javax.swing.JSpinner bowlingMatchesMin;
     private javax.swing.JRadioButton bowlingMatchesPlayed;
     private javax.swing.JSpinner bowlingWicketsMax;
     private javax.swing.JSpinner bowlingWicketsMin;
     private javax.swing.JRadioButton bowlingWicketsTaken;
+    private javax.swing.JComboBox comboBoxMatchLocation;
+    private javax.swing.JComboBox comboBoxMatchTeam1;
+    private javax.swing.JComboBox comboBoxMatchTeam2;
+    private javax.swing.JComboBox comboBoxMatchUmpire;
+    private javax.swing.JComboBox comboBoxMatchWinner;
     private javax.swing.JComboBox comboBoxTeamBatting;
     private javax.swing.JComboBox comboBoxTeamBowling;
     private javax.swing.JComboBox comboBoxTeamCountry;
-    private javax.swing.JComboBox comboBoxTeamCountry1;
-    private javax.swing.JComboBox comboBoxTeamCountry2;
-    private javax.swing.JComboBox comboBoxTeamCountry3;
-    private javax.swing.JComboBox comboBoxTeamCountry4;
-    private javax.swing.JComboBox comboBoxTeamCountry5;
     private javax.swing.JComboBox comboBoxTeamFielding;
+    private javax.swing.JComboBox comboBoxTourPlayedBy;
+    private javax.swing.JComboBox comboBoxTourWonBy;
+    private javax.swing.JSpinner countryDrawnMax;
+    private javax.swing.JSpinner countryDrawnMin;
+    private javax.swing.JComboBox countryFormat;
+    private javax.swing.JSpinner countryLostMax;
+    private javax.swing.JSpinner countryLostMin;
+    private javax.swing.JRadioButton countryMatchesDrawn;
+    private javax.swing.JRadioButton countryMatchesLost;
+    private javax.swing.JSpinner countryMatchesMax;
+    private javax.swing.JSpinner countryMatchesMin;
+    private javax.swing.JRadioButton countryMatchesPlayed;
+    private javax.swing.JRadioButton countryMatchesTied;
+    private javax.swing.JRadioButton countryMatchesWon;
+    private javax.swing.JSpinner countryTiedMax;
+    private javax.swing.JSpinner countryTiedMin;
+    private javax.swing.JSpinner countryWonMax;
+    private javax.swing.JSpinner countryWonMin;
     private javax.swing.JRadioButton fieldingCatches;
     private javax.swing.JSpinner fieldingCatchesMax;
     private javax.swing.JSpinner fieldingCatchesMin;
+    private javax.swing.JComboBox fieldingFormat;
     private javax.swing.JSpinner fieldingMatchesMax;
     private javax.swing.JSpinner fieldingMatchesMin;
     private javax.swing.JRadioButton fieldingMatchesPlayed;
@@ -1216,21 +1705,21 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
@@ -1249,16 +1738,12 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -1269,24 +1754,29 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinner27;
     private javax.swing.JSpinner jSpinner28;
-    private javax.swing.JSpinner jSpinner29;
-    private javax.swing.JSpinner jSpinner30;
-    private javax.swing.JSpinner jSpinner31;
-    private javax.swing.JSpinner jSpinner32;
-    private javax.swing.JSpinner jSpinner33;
-    private javax.swing.JSpinner jSpinner34;
-    private javax.swing.JSpinner jSpinner35;
-    private javax.swing.JSpinner jSpinner36;
-    private javax.swing.JSpinner jSpinner37;
-    private javax.swing.JSpinner jSpinner38;
+    private javax.swing.JComboBox matchFormat;
     private javax.swing.JPanel panelBalling;
     private javax.swing.JPanel panelBatting;
     private javax.swing.JPanel panelCountry;
     private javax.swing.JPanel panelFielding;
     private javax.swing.JPanel panelUmpire;
+    private javax.swing.JComboBox tourFormat;
+    private javax.swing.JRadioButton tourTotalBalls;
+    private javax.swing.JSpinner tourTotalBallsMax;
+    private javax.swing.JSpinner tourTotalBallsMin;
+    private javax.swing.JRadioButton tourTotalRuns;
+    private javax.swing.JSpinner tourTotalRunsMax;
+    private javax.swing.JSpinner tourTotalRunsMin;
+    private javax.swing.JRadioButton tourTotalWickets;
+    private javax.swing.JSpinner tourTotalWicketsMax;
+    private javax.swing.JSpinner tourTotalWicketsMin;
+    private javax.swing.JComboBox umpireFormat;
     // End of variables declaration//GEN-END:variables
 }

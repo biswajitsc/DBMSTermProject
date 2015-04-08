@@ -30,11 +30,13 @@ public class Queries {
             Integer year, String location, String type)
     {
         String query = "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
-                     + "from Matches, Country as C1, Country as C2, Country as C3, Ground as G "
-                     + "where Matches.Team1 = C1.CID and Matches.Team2 = C2.CID and Matches.Winner = C3.CID and G.GID = Matches.Location ";
+                     + "from ((Matches inner join (Country as C1) on Team1 = C1.CID) inner join (Country as C2) on C2.CID = Team2) inner join (Country as C3) on Winner = C3.CID, Ground as G "
+                     + "where G.GID = Matches.Location ";
         
-        if(country1 != null) query += "and C1.Name = \""+country1+"\" ";
-        if(country2 != null) query += "and C2.Name = \""+country2+"\" ";
+        if(country1 != null && country2 != null) query += "and ((C1.Name = \""+country1+"\" and C2.Name = \""+country2+"\") or (C1.Name = \""+country2+"\" and C2.Name = \""+country1+"\")) ";
+        else if(country1 != null) query += "and C1.Name = \""+country1+"\" or C2.Name = \""+country1+"\" ";
+        else if(country2 != null) query += "and C2.Name = \""+country2+"\" or C1.Name = \""+country2+"\" ";
+        
         if(location != null) query += "and G.Name = \""+location+"\" ";
         if(winner != null) query += "and C3.Name = \""+winner+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
@@ -45,6 +47,11 @@ public class Queries {
         return Database.query(query);
     }
     
+    
+    public static ResultSet getMatches(MatchQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
     
     
     public static ResultSet getMatches(String cid1)
@@ -60,7 +67,7 @@ public class Queries {
     
     public static ResultSet getMatches_ByUID(String uid)
     {
-        String query = "select StartDate as Date,Type,Team1 as Country1,Team2 as Country2,Result,Winner,Margin,Location from Matches join Match_Umpires using (MID) where UID = " + uid + ";";
+        String query = "select StartDate as Date,Type,C1.Name as Country1,C2.Name as Country2,Result,C3.Name as Winner,Margin,G1.Name as Location from Matches as M,Country as C1,Country as C2,Country as C3,Ground as G1,Match_Umpires as MU where M.Team1 = C1.CID and M.Team2 = C2.CID and M.Winner = C3.CID and M.Location = G1.GID and M.MID = MU.MID and UID = " + uid + ";";
         
         return Database.query(query);
     }
@@ -117,7 +124,18 @@ public class Queries {
         return Database.query(obj.generatequery());
     }
     
+    /**
+     * 
+     * Set  of BowlingQueryObj null if not required
+     * 
+     * @param obj Query object
+     * @return ResultSet of the query with all the fields. The fields have the same name as in the database. Only that, to access Country Name and Player Name use Country.Name and Player.Name resp.
+     */
     
+    public static ResultSet getBowler(BowlingQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
     
     /**
      * 

@@ -5,10 +5,12 @@
  */
 package gui;
 
+import database.Queries;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -21,15 +23,19 @@ public class ResultWindow extends javax.swing.JFrame {
     /**
      * Creates new form ResultWindow
      */
-    public String [] columnNames;
-    public String [] queryNames;
-    public ResultSet result;
+    String [] columnNames;
+    String [] queryNames;
+    ResultSet result;
     
     public ResultWindow() {
         initComponents();
+    }
+    
+    public void display() {
         DefaultTableModel model = new DefaultTableModel();
-        columnNames = new String[]{"Name", "DOB", "Matches", "Highest Score"};
         resultTable.setModel(model);
+        resultTable.setAutoCreateRowSorter(true);
+        jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
         for (String column : columnNames) {
             model.addColumn(column);
         }
@@ -45,8 +51,13 @@ public class ResultWindow extends javax.swing.JFrame {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(true);
+            }
+        });
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,7 +74,7 @@ public class ResultWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel1.setText("Search Result");
+        jLabel1.setText("<html><h1>Search Result</h1></html>");
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,33 +87,55 @@ public class ResultWindow extends javax.swing.JFrame {
 
             }
         ));
+        resultTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resultTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(resultTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void resultTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultTableMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (queryNames[0].equals("Player.Name")) {
+                // Display details of this player in new window
+                String playerName = (String) resultTable.getValueAt(resultTable.getSelectedRow(),0);
+                ResultSet res = Queries.getPlayerbyName(playerName);
+                if (res.next()) {
+                    String pid = res.getString("PID");
+                    Player playerWindow = new Player(pid);
+                    String [] arg = {pid};
+                    playerWindow.main(arg);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_resultTableMouseClicked
 
     /**
      * @param args the command line arguments

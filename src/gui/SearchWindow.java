@@ -55,6 +55,12 @@ public class SearchWindow extends javax.swing.JFrame {
             while (res.next()) {
                 comboBoxMatchLocation.addItem(res.getString("Name"));
             }
+            
+            res = Queries.getUmpires(null, null, null, null);
+            
+            while(res.next()) {
+                comboBoxMatchUmpire.addItem(res.getString("Name"));
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -276,11 +282,27 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
+        battingMatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel6.setText("to");
+
+        battingMatchesMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel8.setText("to");
 
+        battingRunsMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        battingRunsMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        battingHighestMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        battingHighestMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel10.setText("to");
+
+        battingHundredsMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        battingHundredsMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel12.setText("to");
 
@@ -294,9 +316,17 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/sachin.jpeg"))); // NOI18N
         jLabel13.setText("jLabel13");
 
+        battingFiftiesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        battingFiftiesMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel21.setText("to");
 
+        battingStrikeRateMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel59.setText("to");
+
+        battingStrikeRateMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         battingMatchesPlayed.setText("Matches Played");
         battingMatchesPlayed.addActionListener(new java.awt.event.ActionListener() {
@@ -491,15 +521,35 @@ public class SearchWindow extends javax.swing.JFrame {
 
         bowlingFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
+        bowlingMatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        bowlingMatchesMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel17.setText("to");
+
+        bowlingWicketsMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel19.setText("to");
 
+        bowlingWicketsMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        bowlingEconomyMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        bowlingEconomyMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel23.setText("to");
+
+        bowling5WicketMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        bowling5WicketMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel25.setText("to");
 
+        bowlingAverageMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel27.setText("to");
+
+        bowlingAverageMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         bowlingMatchesPlayed.setText("Matches Played");
         bowlingMatchesPlayed.addActionListener(new java.awt.event.ActionListener() {
@@ -664,11 +714,23 @@ public class SearchWindow extends javax.swing.JFrame {
 
         fieldingFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
+        fieldingMatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel32.setText("to");
+
+        fieldingMatchesMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        fieldingCatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel34.setText("to");
 
+        fieldingCatchesMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        fieldingStumpsMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel36.setText("to");
+
+        fieldingStumpsMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jButton3.setText("Submit Query");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -776,6 +838,8 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel38.setText("Matches Officiated");
 
+        jSpinner27.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel40.setText("to");
 
         jButton4.setText("Submit Query");
@@ -841,22 +905,28 @@ public class SearchWindow extends javax.swing.JFrame {
 
         countryFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
+        countryMatchesMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryMatchesMin.setEnabled(false);
 
         jLabel44.setText("to");
 
+        countryMatchesMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryMatchesMax.setEnabled(false);
 
+        countryWonMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryWonMin.setEnabled(false);
 
         jLabel46.setText("to");
 
+        countryWonMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryWonMax.setEnabled(false);
 
+        countryLostMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryLostMin.setEnabled(false);
 
         jLabel48.setText("to");
 
+        countryLostMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryLostMax.setEnabled(false);
 
         jButton5.setText("Submit Query");
@@ -868,16 +938,20 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/india.jpg"))); // NOI18N
 
+        countryDrawnMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryDrawnMin.setEnabled(false);
 
         jLabel51.setText("to");
 
+        countryDrawnMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryDrawnMax.setEnabled(false);
 
+        countryTiedMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryTiedMin.setEnabled(false);
 
         jLabel53.setText("to");
 
+        countryTiedMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         countryTiedMax.setEnabled(false);
 
         countryMatchesPlayed.setText("Matches Played");
@@ -1143,7 +1217,19 @@ public class SearchWindow extends javax.swing.JFrame {
             }
         });
 
+        tourTotalRunsMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
         jLabel5.setText("to");
+
+        tourTotalRunsMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        tourTotalWicketsMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        tourTotalBallsMin.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        tourTotalBallsMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+
+        tourTotalWicketsMax.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel7.setText("to");
 

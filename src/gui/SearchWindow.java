@@ -140,7 +140,7 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        bowlingFormat = new javax.swing.JComboBox();
         bowlingMatchesMin = new javax.swing.JSpinner();
         bowlingMatchesMax = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
@@ -166,7 +166,7 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         comboBoxTeamFielding = new javax.swing.JComboBox();
         jLabel30 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        fieldingFormat = new javax.swing.JComboBox();
         fieldingMatchesMin = new javax.swing.JSpinner();
         jLabel32 = new javax.swing.JLabel();
         fieldingMatchesMax = new javax.swing.JSpinner();
@@ -182,7 +182,7 @@ public class SearchWindow extends javax.swing.JFrame {
         fieldingStumpings = new javax.swing.JRadioButton();
         panelUmpire = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        umpireFormat = new javax.swing.JComboBox();
         jLabel38 = new javax.swing.JLabel();
         jSpinner27 = new javax.swing.JSpinner();
         jSpinner28 = new javax.swing.JSpinner();
@@ -193,29 +193,29 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         comboBoxTeamCountry = new javax.swing.JComboBox();
         jLabel42 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        playedUmpiremin = new javax.swing.JSpinner();
+        countryFormat = new javax.swing.JComboBox();
+        countryMatchesMin = new javax.swing.JSpinner();
         jLabel44 = new javax.swing.JLabel();
-        playedUmpiremax = new javax.swing.JSpinner();
-        wonUmpiremin = new javax.swing.JSpinner();
+        countryMatchesMax = new javax.swing.JSpinner();
+        countryWonMin = new javax.swing.JSpinner();
         jLabel46 = new javax.swing.JLabel();
-        wonUmpiremax = new javax.swing.JSpinner();
-        lostUmpiremin = new javax.swing.JSpinner();
+        countryWonMax = new javax.swing.JSpinner();
+        countryLostMin = new javax.swing.JSpinner();
         jLabel48 = new javax.swing.JLabel();
-        lostUmpiremax = new javax.swing.JSpinner();
+        countryLostMax = new javax.swing.JSpinner();
         jButton5 = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
-        drawnUmpiremin = new javax.swing.JSpinner();
+        countryDrawnMin = new javax.swing.JSpinner();
         jLabel51 = new javax.swing.JLabel();
-        drawnUmpiremax = new javax.swing.JSpinner();
-        tiedUmpiremin = new javax.swing.JSpinner();
+        countryDrawnMax = new javax.swing.JSpinner();
+        countryTiedMin = new javax.swing.JSpinner();
         jLabel53 = new javax.swing.JLabel();
-        tiedUmpiremax = new javax.swing.JSpinner();
-        matchesUmpireplayed = new javax.swing.JRadioButton();
-        matchesUmpirewon = new javax.swing.JRadioButton();
-        matchesUmpirelost = new javax.swing.JRadioButton();
-        matchesUmpiredrawn = new javax.swing.JRadioButton();
-        matchesUmpiretied = new javax.swing.JRadioButton();
+        countryTiedMax = new javax.swing.JSpinner();
+        countryMatchesPlayed = new javax.swing.JRadioButton();
+        countryMatchesWon = new javax.swing.JRadioButton();
+        countryMatchesLost = new javax.swing.JRadioButton();
+        countryMatchesDrawn = new javax.swing.JRadioButton();
+        countryMatchesTied = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         comboBoxMatchTeam1 = new javax.swing.JComboBox();
@@ -224,15 +224,15 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel56 = new javax.swing.JLabel();
         comboBoxMatchWinner = new javax.swing.JComboBox();
         jLabel57 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox();
+        matchFormat = new javax.swing.JComboBox();
         jLabel60 = new javax.swing.JLabel();
-        comboBoxTeamCountry4 = new javax.swing.JComboBox();
+        comboBoxMatchLocation = new javax.swing.JComboBox();
         jLabel61 = new javax.swing.JLabel();
-        comboBoxTeamCountry5 = new javax.swing.JComboBox();
+        comboBoxMatchUmpire = new javax.swing.JComboBox();
         jButton6 = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox7 = new javax.swing.JComboBox();
+        tourFormat = new javax.swing.JComboBox();
         comboBoxTourPlayedBy = new javax.swing.JComboBox();
         comboBoxTourWonBy = new javax.swing.JComboBox();
         tourTotalRuns = new javax.swing.JRadioButton();
@@ -479,7 +479,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel15.setText("Format");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        bowlingFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel17.setText("to");
 
@@ -559,7 +559,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                             .addComponent(jLabel23)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(bowlingEconomyMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bowlingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(panelBallingLayout.createSequentialGroup()
                                             .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(panelBallingLayout.createSequentialGroup()
@@ -608,7 +608,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bowlingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelBallingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bowlingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -652,7 +652,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel30.setText("Format");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        fieldingFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel32.setText("to");
 
@@ -661,6 +661,11 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel36.setText("to");
 
         jButton3.setText("Submit Query");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         fieldingMatchesPlayed.setText("Matches Played");
 
@@ -699,7 +704,7 @@ public class SearchWindow extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(comboBoxTeamFielding, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fieldingFormat, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFieldingLayout.createSequentialGroup()
                                         .addComponent(fieldingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -725,7 +730,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldingFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelFieldingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldingMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -757,7 +762,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel37.setText("Format");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        umpireFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel38.setText("Matches Officiated");
 
@@ -785,7 +790,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addComponent(jLabel40)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(umpireFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jLabel39)
                 .addGap(67, 67, 67))
@@ -798,7 +803,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(71, 71, 71)
                         .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel37)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(umpireFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(panelUmpireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel38)
@@ -819,74 +824,79 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel42.setText("Format");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        countryFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
-        playedUmpiremin.setEnabled(false);
+        countryMatchesMin.setEnabled(false);
 
         jLabel44.setText("to");
 
-        playedUmpiremax.setEnabled(false);
+        countryMatchesMax.setEnabled(false);
 
-        wonUmpiremin.setEnabled(false);
+        countryWonMin.setEnabled(false);
 
         jLabel46.setText("to");
 
-        wonUmpiremax.setEnabled(false);
+        countryWonMax.setEnabled(false);
 
-        lostUmpiremin.setEnabled(false);
+        countryLostMin.setEnabled(false);
 
         jLabel48.setText("to");
 
-        lostUmpiremax.setEnabled(false);
+        countryLostMax.setEnabled(false);
 
         jButton5.setText("Submit Query");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/india.jpg"))); // NOI18N
 
-        drawnUmpiremin.setEnabled(false);
+        countryDrawnMin.setEnabled(false);
 
         jLabel51.setText("to");
 
-        drawnUmpiremax.setEnabled(false);
+        countryDrawnMax.setEnabled(false);
 
-        tiedUmpiremin.setEnabled(false);
+        countryTiedMin.setEnabled(false);
 
         jLabel53.setText("to");
 
-        tiedUmpiremax.setEnabled(false);
+        countryTiedMax.setEnabled(false);
 
-        matchesUmpireplayed.setText("Matches Played");
-        matchesUmpireplayed.addMouseListener(new java.awt.event.MouseAdapter() {
+        countryMatchesPlayed.setText("Matches Played");
+        countryMatchesPlayed.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                matchesUmpireplayedMouseClicked(evt);
+                countryMatchesPlayedMouseClicked(evt);
             }
         });
 
-        matchesUmpirewon.setText("Matches Won");
-        matchesUmpirewon.addMouseListener(new java.awt.event.MouseAdapter() {
+        countryMatchesWon.setText("Matches Won");
+        countryMatchesWon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                matchesUmpirewonMouseClicked(evt);
+                countryMatchesWonMouseClicked(evt);
             }
         });
 
-        matchesUmpirelost.setText("Matches Lost");
-        matchesUmpirelost.addMouseListener(new java.awt.event.MouseAdapter() {
+        countryMatchesLost.setText("Matches Lost");
+        countryMatchesLost.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                matchesUmpirelostMouseClicked(evt);
+                countryMatchesLostMouseClicked(evt);
             }
         });
 
-        matchesUmpiredrawn.setText("Matches Drawn");
-        matchesUmpiredrawn.addMouseListener(new java.awt.event.MouseAdapter() {
+        countryMatchesDrawn.setText("Matches Drawn");
+        countryMatchesDrawn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                matchesUmpiredrawnMouseClicked(evt);
+                countryMatchesDrawnMouseClicked(evt);
             }
         });
 
-        matchesUmpiretied.setText("Matches Tied");
-        matchesUmpiretied.addMouseListener(new java.awt.event.MouseAdapter() {
+        countryMatchesTied.setText("Matches Tied");
+        countryMatchesTied.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                matchesUmpiretiedMouseClicked(evt);
+                countryMatchesTiedMouseClicked(evt);
             }
         });
 
@@ -899,46 +909,46 @@ public class SearchWindow extends javax.swing.JFrame {
                 .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel41)
                     .addComponent(jLabel42)
-                    .addComponent(matchesUmpireplayed)
-                    .addComponent(matchesUmpirewon)
-                    .addComponent(matchesUmpirelost)
-                    .addComponent(matchesUmpiredrawn)
-                    .addComponent(matchesUmpiretied))
+                    .addComponent(countryMatchesPlayed)
+                    .addComponent(countryMatchesWon)
+                    .addComponent(countryMatchesLost)
+                    .addComponent(countryMatchesDrawn)
+                    .addComponent(countryMatchesTied))
                 .addGap(50, 50, 50)
                 .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelCountryLayout.createSequentialGroup()
-                        .addComponent(drawnUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countryDrawnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel51)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(drawnUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(countryDrawnMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCountryLayout.createSequentialGroup()
-                        .addComponent(lostUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countryLostMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel48)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lostUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(countryLostMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(comboBoxTeamCountry, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(countryFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelCountryLayout.createSequentialGroup()
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(playedUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(wonUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(countryMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryWonMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel46)
                             .addComponent(jLabel44))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(playedUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(wonUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(countryMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryWonMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton5)
                     .addGroup(panelCountryLayout.createSequentialGroup()
-                        .addComponent(tiedUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countryTiedMin, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tiedUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(countryTiedMax, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
@@ -958,41 +968,37 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel42)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(countryFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(playedUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel44)
-                            .addComponent(playedUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(matchesUmpireplayed))
+                            .addComponent(countryMatchesMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesPlayed))
                         .addGap(22, 22, 22)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel46)
-                            .addComponent(wonUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(wonUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(matchesUmpirewon))
+                            .addComponent(countryWonMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryWonMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesWon))
                         .addGap(18, 18, 18)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel48)
-                            .addComponent(lostUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lostUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(matchesUmpirelost))
-                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCountryLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(drawnUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel51)
-                                    .addComponent(drawnUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCountryLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(matchesUmpiredrawn)))
+                            .addComponent(countryLostMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryLostMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesLost))
+                        .addGap(20, 20, 20)
+                        .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(countryDrawnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel51)
+                            .addComponent(countryDrawnMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryMatchesDrawn))
                         .addGap(18, 18, 18)
                         .addGroup(panelCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tiedUmpiremin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tiedUmpiremax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryTiedMin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryTiedMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel53)
-                            .addComponent(matchesUmpiretied))
+                            .addComponent(countryMatchesTied))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addComponent(jButton5)))
                 .addGap(63, 63, 63))
@@ -1010,13 +1016,18 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jLabel57.setText("Format");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        matchFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         jLabel60.setText("Location");
 
         jLabel61.setText("Umpired by");
 
         jButton6.setText("Submit Query");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/match.jpg"))); // NOI18N
 
@@ -1046,14 +1057,14 @@ public class SearchWindow extends javax.swing.JFrame {
                                 .addComponent(comboBoxMatchWinner, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(comboBoxMatchTeam2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox6, 0, 200, Short.MAX_VALUE))))
+                                    .addComponent(matchFormat, 0, 200, Short.MAX_VALUE))))
                         .addComponent(jLabel60)
                         .addComponent(jLabel61))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(comboBoxTeamCountry5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxMatchUmpire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(137, 137, 137)
-                            .addComponent(comboBoxTeamCountry4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(comboBoxMatchLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1073,7 +1084,7 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel57)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(matchFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel56)
@@ -1081,12 +1092,12 @@ public class SearchWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel60)
-                            .addComponent(comboBoxTeamCountry4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comboBoxMatchLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel62))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel61)
-                    .addComponent(comboBoxTeamCountry5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxMatchUmpire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jButton6)
                 .addContainerGap(143, Short.MAX_VALUE))
@@ -1094,7 +1105,7 @@ public class SearchWindow extends javax.swing.JFrame {
 
         JTabbedPanel.addTab("       Match       ", jPanel1);
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
+        tourFormat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Test", "ODI", "T20" }));
 
         tourTotalRuns.setText("Total Runs");
         tourTotalRuns.addActionListener(new java.awt.event.ActionListener() {
@@ -1167,7 +1178,7 @@ public class SearchWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(tourTotalBallsMax, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tourFormat, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(comboBoxTourPlayedBy, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(comboBoxTourWonBy, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -1190,7 +1201,7 @@ public class SearchWindow extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tourFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1367,35 +1378,35 @@ public class SearchWindow extends javax.swing.JFrame {
         bowlingAverageMax.setEnabled(bowlingAverage.isSelected());
     }//GEN-LAST:event_bowlingAverageActionPerformed
 
-    private void matchesUmpireplayedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matchesUmpireplayedMouseClicked
+    private void countryMatchesPlayedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesPlayedMouseClicked
         // TODO add your handling code here:
-        playedUmpiremin.setEnabled(matchesUmpireplayed.isSelected());
-        playedUmpiremax.setEnabled(matchesUmpireplayed.isSelected());
-    }//GEN-LAST:event_matchesUmpireplayedMouseClicked
+        countryMatchesMin.setEnabled(countryMatchesPlayed.isSelected());
+        countryMatchesMax.setEnabled(countryMatchesPlayed.isSelected());
+    }//GEN-LAST:event_countryMatchesPlayedMouseClicked
 
-    private void matchesUmpirewonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matchesUmpirewonMouseClicked
+    private void countryMatchesWonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesWonMouseClicked
         // TODO add your handling code here:
-        wonUmpiremin.setEnabled(matchesUmpirewon.isSelected());
-        wonUmpiremax.setEnabled(matchesUmpirewon.isSelected());
-    }//GEN-LAST:event_matchesUmpirewonMouseClicked
+        countryWonMin.setEnabled(countryMatchesWon.isSelected());
+        countryWonMax.setEnabled(countryMatchesWon.isSelected());
+    }//GEN-LAST:event_countryMatchesWonMouseClicked
 
-    private void matchesUmpirelostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matchesUmpirelostMouseClicked
+    private void countryMatchesLostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesLostMouseClicked
         // TODO add your handling code here:
-        lostUmpiremin.setEnabled(matchesUmpirelost.isSelected());
-        lostUmpiremax.setEnabled(matchesUmpirelost.isSelected());
-    }//GEN-LAST:event_matchesUmpirelostMouseClicked
+        countryLostMin.setEnabled(countryMatchesLost.isSelected());
+        countryLostMax.setEnabled(countryMatchesLost.isSelected());
+    }//GEN-LAST:event_countryMatchesLostMouseClicked
 
-    private void matchesUmpiredrawnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matchesUmpiredrawnMouseClicked
+    private void countryMatchesDrawnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesDrawnMouseClicked
         // TODO add your handling code here:
-        drawnUmpiremin.setEnabled(matchesUmpiredrawn.isSelected());
-        drawnUmpiremax.setEnabled(matchesUmpiredrawn.isSelected());
-    }//GEN-LAST:event_matchesUmpiredrawnMouseClicked
+        countryDrawnMin.setEnabled(countryMatchesDrawn.isSelected());
+        countryDrawnMax.setEnabled(countryMatchesDrawn.isSelected());
+    }//GEN-LAST:event_countryMatchesDrawnMouseClicked
 
-    private void matchesUmpiretiedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matchesUmpiretiedMouseClicked
+    private void countryMatchesTiedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMatchesTiedMouseClicked
         // TODO add your handling code here:
-        tiedUmpiremin.setEnabled(matchesUmpiretied.isSelected());
-        tiedUmpiremax.setEnabled(matchesUmpiretied.isSelected());
-    }//GEN-LAST:event_matchesUmpiretiedMouseClicked
+        countryTiedMin.setEnabled(countryMatchesTied.isSelected());
+        countryTiedMax.setEnabled(countryMatchesTied.isSelected());
+    }//GEN-LAST:event_countryMatchesTiedMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
@@ -1405,8 +1416,8 @@ public class SearchWindow extends javax.swing.JFrame {
             obj.country = (String) comboBoxTeamBowling.getSelectedItem();
         }
         
-        if (jComboBox2.getSelectedIndex() > 0) {
-            obj.type = (String) jComboBox2.getSelectedItem();
+        if (bowlingFormat.getSelectedIndex() > 0) {
+            obj.type = (String) bowlingFormat.getSelectedItem();
         }
         if(bowlingMatchesPlayed.isSelected())
         {
@@ -1461,6 +1472,130 @@ public class SearchWindow extends javax.swing.JFrame {
         tourTotalBallsMax.setEnabled(tourTotalBalls.isSelected());
     }//GEN-LAST:event_tourTotalBallsActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        CountryQueryObj obj = new CountryQueryObj();
+        
+        if (comboBoxTeamCountry.getSelectedIndex() > 0) {
+            obj.name = (String) comboBoxTeamCountry.getSelectedItem();
+        }
+        
+        if (countryFormat.getSelectedIndex() > 0) {
+            obj.type = (String) countryFormat.getSelectedItem();
+        }
+        
+        if (countryMatchesPlayed.isSelected()) {
+            obj.mplayed_low  = Integer.parseInt((String) countryMatchesMin.getValue());
+            obj.mplayed_high = Integer.parseInt((String) countryMatchesMax.getValue());
+        }
+        
+        if (countryMatchesWon.isSelected()) {
+            obj.mwon_low  = Integer.parseInt((String) countryWonMin.getValue());
+            obj.mwon_high  = Integer.parseInt((String) countryWonMax.getValue());
+        }
+        
+        if (countryMatchesLost.isSelected()) {
+            obj.mlost_low = Integer.parseInt((String) countryLostMin.getValue());
+            obj.mlost_high = Integer.parseInt((String) countryLostMax.getValue());
+        }
+        
+        if (countryMatchesDrawn.isSelected()) {
+            obj.mdrawn_low  = Integer.parseInt((String) countryDrawnMin.getValue());
+            obj.mdrawn_high = Integer.parseInt((String) countryDrawnMax.getValue());
+        }
+        
+        if (countryMatchesTied.isSelected()) {
+            obj.mtied_low  = Integer.parseInt((String) countryTiedMin.getValue());
+            obj.mtied_high = Integer.parseInt((String) countryTiedMin.getValue());
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getCountryStats(obj);
+        
+        rw.columnNames = new String [] {"Country", "Format", "Matches Played", "Matches Won", "Matches Lost", "Matches Drawn", "Matches Tied"};
+        rw.queryNames  = new String [] {"Name",    "Type",   "Matches_Played",  "Matches_Won", "Matches_Lost", "Matches_Drawn", "Matches_Tied"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FieldingQueryObj obj = new FieldingQueryObj();
+        
+        if(comboBoxTeamFielding.getSelectedIndex() > 0)
+        {
+            obj.country = (String) comboBoxTeamFielding.getSelectedItem();
+        }
+        
+        if(fieldingFormat.getSelectedIndex() > 0)
+        {
+            obj.type = (String) fieldingFormat.getSelectedItem();
+        }
+        
+        if(fieldingMatchesPlayed.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingMatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingMatchesMax.getValue();
+        }
+        
+        if(fieldingCatches.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingCatchesMin.getValue();
+            obj.mplayed_high = (Integer) fieldingCatchesMax.getValue();
+        }
+        
+        
+        if(fieldingStumpings.isSelected())
+        {
+            obj.mplayed_low = (Integer) fieldingStumpsMin.getValue();
+            obj.mplayed_high = (Integer) fieldingStumpsMax.getValue();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Queries.getFielders(obj);
+        rw.columnNames = new String [] {"Name", "Country", "Type", "Catches Taken", "Stumps Taken"};
+        rw.queryNames = new String [] {"Player.Name", "Country.Name", "Type", "Ct", "St"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        MatchQueryObj obj = new MatchQueryObj();
+        
+        if(comboBoxMatchTeam1.getSelectedIndex() > 0)
+        {
+            obj.country1 = (String) comboBoxMatchTeam1.getSelectedItem();
+        }
+        
+        if(comboBoxMatchTeam2.getSelectedIndex() > 0)
+        {
+            obj.country2 = (String) comboBoxMatchTeam2.getSelectedItem();
+        }
+        
+        if(matchFormat.getSelectedIndex() > 0)
+        {
+            obj.type = (String) matchFormat.getSelectedItem();
+        }
+        
+        if(comboBoxMatchWinner.getSelectedIndex() > 0)
+        {
+            obj.winner = (String) comboBoxMatchWinner.getSelectedItem();
+        }
+        
+        if(comboBoxMatchLocation.getSelectedIndex() > 0)
+        {
+            obj.location = (String) comboBoxMatchLocation.getSelectedItem();
+        }
+        
+        ResultWindow rw = new ResultWindow();
+        rw.result = Database.query(obj.generatequery());
+        rw.columnNames = new String [] {"Team1", "Team2", "Type", "Result", "Winner", "Margin", "Location"};
+        rw.queryNames = new String [] {"Country1", "Country2", "Type", "Result", "Winner", "Margin", "Location"};
+        
+        rw.display();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         TournamentObj obj = new TournamentObj();
@@ -1469,8 +1604,8 @@ public class SearchWindow extends javax.swing.JFrame {
             obj.country = (String) comboBoxTourPlayedBy.getSelectedItem();
         }
         
-        if (jComboBox7.getSelectedIndex() > 0) {
-            obj.type = (String) jComboBox7.getSelectedItem();
+        if (tourFormat.getSelectedIndex() > 0) {
+            obj.type = (String) tourFormat.getSelectedItem();
         }
         
         if (comboBoxTourWonBy.getSelectedIndex() > 0){
@@ -1568,28 +1703,44 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner bowlingEconomyMax;
     private javax.swing.JSpinner bowlingEconomyMin;
     private javax.swing.JRadioButton bowlingEconomyRate;
+    private javax.swing.JComboBox bowlingFormat;
     private javax.swing.JSpinner bowlingMatchesMax;
     private javax.swing.JSpinner bowlingMatchesMin;
     private javax.swing.JRadioButton bowlingMatchesPlayed;
     private javax.swing.JSpinner bowlingWicketsMax;
     private javax.swing.JSpinner bowlingWicketsMin;
     private javax.swing.JRadioButton bowlingWicketsTaken;
+    private javax.swing.JComboBox comboBoxMatchLocation;
     private javax.swing.JComboBox comboBoxMatchTeam1;
     private javax.swing.JComboBox comboBoxMatchTeam2;
+    private javax.swing.JComboBox comboBoxMatchUmpire;
     private javax.swing.JComboBox comboBoxMatchWinner;
     private javax.swing.JComboBox comboBoxTeamBatting;
     private javax.swing.JComboBox comboBoxTeamBowling;
     private javax.swing.JComboBox comboBoxTeamCountry;
-    private javax.swing.JComboBox comboBoxTeamCountry4;
-    private javax.swing.JComboBox comboBoxTeamCountry5;
     private javax.swing.JComboBox comboBoxTeamFielding;
     private javax.swing.JComboBox comboBoxTourPlayedBy;
     private javax.swing.JComboBox comboBoxTourWonBy;
-    private javax.swing.JSpinner drawnUmpiremax;
-    private javax.swing.JSpinner drawnUmpiremin;
+    private javax.swing.JSpinner countryDrawnMax;
+    private javax.swing.JSpinner countryDrawnMin;
+    private javax.swing.JComboBox countryFormat;
+    private javax.swing.JSpinner countryLostMax;
+    private javax.swing.JSpinner countryLostMin;
+    private javax.swing.JRadioButton countryMatchesDrawn;
+    private javax.swing.JRadioButton countryMatchesLost;
+    private javax.swing.JSpinner countryMatchesMax;
+    private javax.swing.JSpinner countryMatchesMin;
+    private javax.swing.JRadioButton countryMatchesPlayed;
+    private javax.swing.JRadioButton countryMatchesTied;
+    private javax.swing.JRadioButton countryMatchesWon;
+    private javax.swing.JSpinner countryTiedMax;
+    private javax.swing.JSpinner countryTiedMin;
+    private javax.swing.JSpinner countryWonMax;
+    private javax.swing.JSpinner countryWonMin;
     private javax.swing.JRadioButton fieldingCatches;
     private javax.swing.JSpinner fieldingCatchesMax;
     private javax.swing.JSpinner fieldingCatchesMin;
+    private javax.swing.JComboBox fieldingFormat;
     private javax.swing.JSpinner fieldingMatchesMax;
     private javax.swing.JSpinner fieldingMatchesMin;
     private javax.swing.JRadioButton fieldingMatchesPlayed;
@@ -1604,12 +1755,6 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1664,22 +1809,13 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinner27;
     private javax.swing.JSpinner jSpinner28;
-    private javax.swing.JSpinner lostUmpiremax;
-    private javax.swing.JSpinner lostUmpiremin;
-    private javax.swing.JRadioButton matchesUmpiredrawn;
-    private javax.swing.JRadioButton matchesUmpirelost;
-    private javax.swing.JRadioButton matchesUmpireplayed;
-    private javax.swing.JRadioButton matchesUmpiretied;
-    private javax.swing.JRadioButton matchesUmpirewon;
+    private javax.swing.JComboBox matchFormat;
     private javax.swing.JPanel panelBalling;
     private javax.swing.JPanel panelBatting;
     private javax.swing.JPanel panelCountry;
     private javax.swing.JPanel panelFielding;
     private javax.swing.JPanel panelUmpire;
-    private javax.swing.JSpinner playedUmpiremax;
-    private javax.swing.JSpinner playedUmpiremin;
-    private javax.swing.JSpinner tiedUmpiremax;
-    private javax.swing.JSpinner tiedUmpiremin;
+    private javax.swing.JComboBox tourFormat;
     private javax.swing.JRadioButton tourTotalBalls;
     private javax.swing.JSpinner tourTotalBallsMax;
     private javax.swing.JSpinner tourTotalBallsMin;
@@ -1689,7 +1825,6 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton tourTotalWickets;
     private javax.swing.JSpinner tourTotalWicketsMax;
     private javax.swing.JSpinner tourTotalWicketsMin;
-    private javax.swing.JSpinner wonUmpiremax;
-    private javax.swing.JSpinner wonUmpiremin;
+    private javax.swing.JComboBox umpireFormat;
     // End of variables declaration//GEN-END:variables
 }

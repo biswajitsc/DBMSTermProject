@@ -6,6 +6,12 @@
 package gui;
 
 import javax.swing.table.DefaultTableModel;
+import database.*;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,15 +22,18 @@ public class Batting extends javax.swing.JFrame {
     /**
      * Creates new form Batting
      */
-    public Batting() {
+    public Batting(String type) throws SQLException {
         initComponents();
+         
+        
+        BattingQueryObj a = new BattingQueryObj();
+        a.type = type;
+        ResultSet rs = Queries.getBatsmen(a);
         
         DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
-
-        for(int i=0;i<10;i++)
+        while(rs.next())
         {
-            String data1 = Integer.toString(i); 
-            Object[] row = { data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1,data1  };
+            Object[] row = {rs.getString("Player.Name"),rs.getInt("Mat"),rs.getInt("Inns"),rs.getInt("NO"),rs.getInt("Runs"),rs.getInt("HS"),rs.getFloat("Ave"),rs.getInt("BF"),rs.getFloat("SR"),rs.getInt("hundreds"),rs.getInt("fifties"),rs.getInt("fours"),rs.getInt("sixs")};
             model.addRow(row);
         }
     }
@@ -53,7 +62,7 @@ public class Batting extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             null,
             new String [] {
-                "Type", "Mat", "Inns", "NO", "Runs", "HS", "Ave", "BF", "SR", "100", "50", "4s", "6s"
+                "Name", "Mat", "Inns", "NO", "Runs", "HS", "Ave", "BF", "SR", "100", "50", "4s", "6s"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -64,6 +73,11 @@ public class Batting extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -71,11 +85,11 @@ public class Batting extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1398, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1398, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,17 +97,38 @@ public class Batting extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1)
+                .addGap(36, 36, 36))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int i = jTable1.getSelectedRow();
+        if(i<0)return;
+        Object obj = jTable1.getModel().getValueAt(i, 0);
+        String pname = obj.toString();
+        System.out.println(pname);
+        ResultSet rs = Queries.getPlayerbyName(pname);
+        try {
+            rs.next();
+            String pid = rs.getString("PID");
+            Player p = new Player(pid);
+            p.main(new String[]{pid});
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Batting.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -120,7 +155,11 @@ public class Batting extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Batting().setVisible(true);
+                try {
+                    new Batting(args[0]).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Batting.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

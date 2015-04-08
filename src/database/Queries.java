@@ -30,11 +30,13 @@ public class Queries {
             Integer year, String location, String type)
     {
         String query = "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
-                     + "from Matches, Country as C1, Country as C2, Country as C3, Ground as G "
-                     + "where Matches.Team1 = C1.CID and Matches.Team2 = C2.CID and Matches.Winner = C3.CID and G.GID = Matches.Location ";
+                     + "from ((Matches inner join (Country as C1) on Team1 = C1.CID) inner join (Country as C2) on C2.CID = Team2) inner join (Country as C3) on Winner = C3.CID, Ground as G "
+                     + "where G.GID = Matches.Location ";
         
-        if(country1 != null) query += "and C1.Name = \""+country1+"\" ";
-        if(country2 != null) query += "and C2.Name = \""+country2+"\" ";
+        if(country1 != null && country2 != null) query += "and ((C1.Name = \""+country1+"\" and C2.Name = \""+country2+"\") or (C1.Name = \""+country2+"\" and C2.Name = \""+country1+"\")) ";
+        else if(country1 != null) query += "and C1.Name = \""+country1+"\" or C2.Name = \""+country1+"\" ";
+        else if(country2 != null) query += "and C2.Name = \""+country2+"\" or C1.Name = \""+country2+"\" ";
+        
         if(location != null) query += "and G.Name = \""+location+"\" ";
         if(winner != null) query += "and C3.Name = \""+winner+"\" ";
         if(type != null) query += "and Type = \""+type+"\" ";
@@ -45,6 +47,11 @@ public class Queries {
         return Database.query(query);
     }
     
+    
+    public static ResultSet getMatches(MatchQueryObj obj)
+    {
+        return Database.query(obj.generatequery());
+    }
     
     
     public static ResultSet getMatches(String cid1)
@@ -365,5 +372,36 @@ public class Queries {
         String query = "select * from Umpire where Name=\""+uname+"\"";
         return Database.query(query);
     }
+    
+    public static ResultSet getAllTournaments(String tid,String type)
+    {
+        String query = "select TID, Tournament.Name as tname, Type, Country.Name as cname, Total_Runs, Total_Wickets, Total_Balls";
+        query += " from Tournament join Country where Tournament.Winner=Country.CID ";
+        if(type!=null) query += "and Tournament.Type=\"" + type + "\"";
+        if(tid!=null) query += "and Tournament.TID = \""+tid+"\"";
+        System.out.println(query);
+        return Database.query(query);
+    }
+    
+    public static ResultSet getTournamentbyName(String tname)
+    {
+        String query = "select TID from Tournament where Name = \""+tname+"\"";
+        return Database.query(query);
+    }
+    
+    public static ResultSet getMatchesbyTournament(String tid)
+    {
+        String query = "select StartDate as Date, Type, C1.Name as Country1, C2.Name as Country2, Result, C3.Name as Winner, Margin, G.Name as Location "
+                     + "from Matches, Country as C1, Country as C2, Country as C3, Ground as G "
+                     + "where Matches.Team1 = C1.CID and Matches.Team2 = C2.CID and Matches.Winner = C3.CID and G.GID = Matches.Location "
+                     + "and Matches.MID in (select Tournament_Matches.MID from Tournament_Matches "  
+                     + "where Tournament_Matches.TID = \""+tid+"\")";
+        
+        
+        return Database.query(query);
+    }
+    
+    
+    
     
 }

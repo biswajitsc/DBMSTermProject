@@ -446,7 +446,7 @@
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="bowlingEconomyMax" min="-2" pref="82" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jComboBox2" min="-2" pref="188" max="-2" attributes="0"/>
+                                              <Component id="bowlingFormat" min="-2" pref="188" max="-2" attributes="0"/>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
@@ -516,7 +516,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bowlingFormat" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -595,7 +595,7 @@
                 <Property name="text" type="java.lang.String" value="Format"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="bowlingFormat">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -736,7 +736,7 @@
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Component id="comboBoxTeamFielding" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jComboBox3" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldingFormat" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="fieldingMatchesMin" min="-2" pref="82" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -772,7 +772,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldingFormat" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -834,7 +834,7 @@
                 <Property name="text" type="java.lang.String" value="Format"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox3">
+            <Component class="javax.swing.JComboBox" name="fieldingFormat">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -877,6 +877,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Submit Query"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="fieldingMatchesPlayed">
               <Properties>
@@ -923,7 +926,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jSpinner28" min="-2" pref="82" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jComboBox4" min="-2" pref="188" max="-2" attributes="0"/>
+                          <Component id="umpireFormat" min="-2" pref="188" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="63" max="32767" attributes="0"/>
                       <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
@@ -939,7 +942,7 @@
                               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="umpireFormat" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -967,7 +970,7 @@
                 <Property name="text" type="java.lang.String" value="Format"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox4">
+            <Component class="javax.swing.JComboBox" name="umpireFormat">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1024,34 +1027,34 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="matchesUmpireplayed" min="-2" max="-2" attributes="0"/>
-                          <Component id="matchesUmpirewon" min="-2" max="-2" attributes="0"/>
-                          <Component id="matchesUmpirelost" min="-2" max="-2" attributes="0"/>
-                          <Component id="matchesUmpiredrawn" min="-2" max="-2" attributes="0"/>
-                          <Component id="matchesUmpiretied" min="-2" max="-2" attributes="0"/>
+                          <Component id="countryMatchesPlayed" min="-2" max="-2" attributes="0"/>
+                          <Component id="countryMatchesWon" min="-2" max="-2" attributes="0"/>
+                          <Component id="countryMatchesLost" min="-2" max="-2" attributes="0"/>
+                          <Component id="countryMatchesDrawn" min="-2" max="-2" attributes="0"/>
+                          <Component id="countryMatchesTied" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="drawnUmpiremin" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="countryDrawnMin" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="drawnUmpiremax" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="countryDrawnMax" min="-2" pref="82" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lostUmpiremin" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="countryLostMin" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lostUmpiremax" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="countryLostMax" min="-2" pref="82" max="-2" attributes="0"/>
                           </Group>
                           <Component id="comboBoxTeamCountry" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBox5" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                          <Component id="countryFormat" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="playedUmpiremin" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="wonUmpiremin" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesMin" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="countryWonMin" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1060,17 +1063,17 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="playedUmpiremax" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="wonUmpiremax" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesMax" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="countryWonMax" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="tiedUmpiremin" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="countryTiedMin" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="tiedUmpiremax" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="countryTiedMax" min="-2" pref="82" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
@@ -1096,49 +1099,42 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countryFormat" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="playedUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="playedUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="matchesUmpireplayed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesPlayed" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="wonUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="wonUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="matchesUmpirewon" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countryWonMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryWonMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesWon" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lostUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="lostUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="matchesUmpirelost" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countryLostMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryLostMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesLost" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="drawnUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="drawnUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="matchesUmpiredrawn" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="countryDrawnMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countryDrawnMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesDrawn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="tiedUmpiremin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="tiedUmpiremax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryTiedMin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="countryTiedMax" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="matchesUmpiretied" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countryMatchesTied" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="63" max="32767" attributes="0"/>
                               <Component id="jButton5" min="-2" max="-2" attributes="0"/>
@@ -1167,7 +1163,7 @@
                 <Property name="text" type="java.lang.String" value="Format"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox5">
+            <Component class="javax.swing.JComboBox" name="countryFormat">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1179,7 +1175,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="playedUmpiremin">
+            <Component class="javax.swing.JSpinner" name="countryMatchesMin">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1189,12 +1185,12 @@
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="playedUmpiremax">
+            <Component class="javax.swing.JSpinner" name="countryMatchesMax">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="wonUmpiremin">
+            <Component class="javax.swing.JSpinner" name="countryWonMin">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1204,12 +1200,12 @@
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="wonUmpiremax">
+            <Component class="javax.swing.JSpinner" name="countryWonMax">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="lostUmpiremin">
+            <Component class="javax.swing.JSpinner" name="countryLostMin">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1219,7 +1215,7 @@
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="lostUmpiremax">
+            <Component class="javax.swing.JSpinner" name="countryLostMax">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1228,6 +1224,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Submit Query"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel49">
               <Properties>
@@ -1236,7 +1235,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="drawnUmpiremin">
+            <Component class="javax.swing.JSpinner" name="countryDrawnMin">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1246,12 +1245,12 @@
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="drawnUmpiremax">
+            <Component class="javax.swing.JSpinner" name="countryDrawnMax">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="tiedUmpiremin">
+            <Component class="javax.swing.JSpinner" name="countryTiedMin">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1261,49 +1260,49 @@
                 <Property name="text" type="java.lang.String" value="to"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="tiedUmpiremax">
+            <Component class="javax.swing.JSpinner" name="countryTiedMax">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="matchesUmpireplayed">
+            <Component class="javax.swing.JRadioButton" name="countryMatchesPlayed">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Played"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpireplayedMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="countryMatchesPlayedMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="matchesUmpirewon">
+            <Component class="javax.swing.JRadioButton" name="countryMatchesWon">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Won"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpirewonMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="countryMatchesWonMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="matchesUmpirelost">
+            <Component class="javax.swing.JRadioButton" name="countryMatchesLost">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Lost"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpirelostMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="countryMatchesLostMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="matchesUmpiredrawn">
+            <Component class="javax.swing.JRadioButton" name="countryMatchesDrawn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Drawn"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpiredrawnMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="countryMatchesDrawnMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="matchesUmpiretied">
+            <Component class="javax.swing.JRadioButton" name="countryMatchesTied">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Tied"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="matchesUmpiretiedMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="countryMatchesTiedMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
@@ -1350,7 +1349,7 @@
                                       <Component id="comboBoxMatchWinner" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="comboBoxMatchTeam2" max="32767" attributes="0"/>
-                                          <Component id="jComboBox6" pref="200" max="32767" attributes="0"/>
+                                          <Component id="matchFormat" pref="200" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1358,10 +1357,10 @@
                               <Component id="jLabel61" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="comboBoxTeamCountry5" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="comboBoxMatchUmpire" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Component id="comboBoxTeamCountry4" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMatchLocation" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1388,7 +1387,7 @@
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="matchFormat" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1398,7 +1397,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxTeamCountry4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMatchLocation" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
@@ -1406,7 +1405,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboBoxTeamCountry5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboBoxMatchUmpire" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jButton6" min="-2" max="-2" attributes="0"/>
@@ -1457,7 +1456,7 @@
                 <Property name="text" type="java.lang.String" value="Format"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox6">
+            <Component class="javax.swing.JComboBox" name="matchFormat">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1474,7 +1473,7 @@
                 <Property name="text" type="java.lang.String" value="Location"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxTeamCountry4">
+            <Component class="javax.swing.JComboBox" name="comboBoxMatchLocation">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -1486,7 +1485,7 @@
                 <Property name="text" type="java.lang.String" value="Umpired by"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxTeamCountry5">
+            <Component class="javax.swing.JComboBox" name="comboBoxMatchUmpire">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -1497,6 +1496,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Submit Query"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel62">
               <Properties>
@@ -1547,7 +1549,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="tourTotalBallsMax" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jComboBox7" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="tourFormat" alignment="1" max="32767" attributes="0"/>
                                   <Component id="comboBoxTourPlayedBy" alignment="1" max="32767" attributes="0"/>
                                   <Component id="comboBoxTourWonBy" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1577,7 +1579,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jComboBox7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tourFormat" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1625,7 +1627,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JComboBox" name="jComboBox7">
+            <Component class="javax.swing.JComboBox" name="tourFormat">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">

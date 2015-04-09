@@ -1804,15 +1804,15 @@ public class SearchWindow extends javax.swing.JFrame {
         
         if(fieldingCatches.isSelected())
         {
-            obj.mplayed_low = (Integer) fieldingCatchesMin.getValue();
-            obj.mplayed_high = (Integer) fieldingCatchesMax.getValue();
+            obj.catches_low = (Integer) fieldingCatchesMin.getValue();
+            obj.catches_high = (Integer) fieldingCatchesMax.getValue();
         }
         
         
         if(fieldingStumpings.isSelected())
         {
-            obj.mplayed_low = (Integer) fieldingStumpsMin.getValue();
-            obj.mplayed_high = (Integer) fieldingStumpsMax.getValue();
+            obj.stumpings_low = (Integer) fieldingStumpsMin.getValue();
+            obj.stumpings_high = (Integer) fieldingStumpsMax.getValue();
         }
         
         ResultWindow rw = new ResultWindow();

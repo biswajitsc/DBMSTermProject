@@ -1817,8 +1817,8 @@ public class SearchWindow extends javax.swing.JFrame {
         
         ResultWindow rw = new ResultWindow();
         rw.result = Queries.getFielders(obj);
-        rw.columnNames = new String [] {"Name", "Country", "Type", "Catches Taken", "Stumps Taken"};
-        rw.queryNames = new String [] {"Player.Name", "Country.Name", "Type", "Ct", "St"};
+        rw.columnNames = new String [] {"Name", "Country", "Type", "Matches Played", "Catches Taken", "Stumps Taken"};
+        rw.queryNames = new String [] {"Player.Name", "Country.Name", "Type", "Mat", "Ct", "St"};
         
         rw.display();
     }//GEN-LAST:event_jButton3ActionPerformed

@@ -34,7 +34,7 @@ public class MatchQueryObj {
         if(type != null) query += "and Type = \""+type+"\" ";
         if(umpire != null) query += "and U.Name = \""+umpire+"\" ";
         
-        query += " limit 1000";
+//        query += " limit 1000";
         System.out.println(query);
         
         return query;

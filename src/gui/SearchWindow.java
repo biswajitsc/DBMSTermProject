@@ -797,10 +797,25 @@ public class SearchWindow extends javax.swing.JFrame {
         });
 
         fieldingMatchesPlayed.setText("Matches Played");
+        fieldingMatchesPlayed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldingMatchesPlayedActionPerformed(evt);
+            }
+        });
 
         fieldingCatches.setText("Catches");
+        fieldingCatches.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldingCatchesActionPerformed(evt);
+            }
+        });
 
         fieldingStumpings.setText("Stumpings");
+        fieldingStumpings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldingStumpingsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFieldingLayout = new javax.swing.GroupLayout(panelFielding);
         panelFielding.setLayout(panelFieldingLayout);
@@ -1947,6 +1962,24 @@ public class SearchWindow extends javax.swing.JFrame {
         totalMatchesMin.setEnabled(totalMatchesUmpire.isSelected());
         totalMatchesMax.setEnabled(totalMatchesUmpire.isSelected());
     }//GEN-LAST:event_totalMatchesUmpireActionPerformed
+
+    private void fieldingMatchesPlayedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldingMatchesPlayedActionPerformed
+        // TODO add your handling code here:
+        fieldingMatchesMin.setEnabled(fieldingMatchesPlayed.isSelected());
+        fieldingMatchesMax.setEnabled(fieldingMatchesPlayed.isSelected());
+    }//GEN-LAST:event_fieldingMatchesPlayedActionPerformed
+
+    private void fieldingCatchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldingCatchesActionPerformed
+        // TODO add your handling code here:
+        fieldingCatchesMin.setEnabled(fieldingCatches.isSelected());
+        fieldingCatchesMax.setEnabled(fieldingCatches.isSelected());
+    }//GEN-LAST:event_fieldingCatchesActionPerformed
+
+    private void fieldingStumpingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldingStumpingsActionPerformed
+        // TODO add your handling code here:
+        fieldingStumpsMin.setEnabled(fieldingStumpings.isSelected());
+        fieldingStumpsMax.setEnabled(fieldingStumpings.isSelected());
+    }//GEN-LAST:event_fieldingStumpingsActionPerformed
 
     /**
      * @param args the command line arguments

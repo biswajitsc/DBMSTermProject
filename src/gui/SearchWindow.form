@@ -1025,16 +1025,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Matches Played"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldingMatchesPlayedActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="fieldingCatches">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Catches"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldingCatchesActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="fieldingStumpings">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Stumpings"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldingStumpingsActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -1837,10 +1837,15 @@ public class SearchWindow extends javax.swing.JFrame {
             obj.location = (String) comboBoxMatchLocation.getSelectedItem();
         }
         
+        if(comboBoxMatchUmpire.getSelectedIndex() > 0)
+        {
+            obj.umpire = (String) comboBoxMatchUmpire.getSelectedItem();
+        }
+        
         ResultWindow rw = new ResultWindow();
         rw.result = Database.query(obj.generatequery());
-        rw.columnNames = new String [] {"Team1", "Team2", "Type", "Result", "Winner", "Margin", "Location"};
-        rw.queryNames = new String [] {"Country1", "Country2", "Type", "Result", "Winner", "Margin", "Location"};
+        rw.columnNames = new String [] {"Team1", "Team2", "Type", "Date", "Result", "Winner", "Margin", "Location", "Umpired By"};
+        rw.queryNames = new String [] {"Country1", "Country2", "Type", "Date", "Result", "Winner", "Margin", "Location", "U.Name"};
         
         rw.display();
     }//GEN-LAST:event_jButton6ActionPerformed
